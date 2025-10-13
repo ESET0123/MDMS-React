@@ -1,2 +1,1 @@
-# MDMS-React
-React Advanced Training Project
+```React Advanced Training Project```
