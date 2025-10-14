@@ -1,19 +1,20 @@
 import React from 'react'
 import Linechart from '../../Components/chart/LineChart/Linechart'
+import Graphheader from '../../Components/GraphHeader/Graphheader'
 
 export default function Meterdata() {
   return (
-    <div className=''>
+    <div className='w-5/6'>
         <div>
             <div>
-                <p className='font-bold'>Select Date Range</p>
+              <Graphheader title="Select Date Range"/>  
             </div>
-            <div>
+            <div >
+              <Linechart/>
 
             </div>
         </div>
         <div>
-            <Linechart/>
         </div>
     </div>
   )

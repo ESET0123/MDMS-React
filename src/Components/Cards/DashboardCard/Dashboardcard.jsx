@@ -3,7 +3,7 @@ import { FaRegClock } from "react-icons/fa6";
 
 export default function Dashboardcard(props) {
   return (
-    <div className='w-fit item-center justify-center border border-gray-300 p-8 px-14 m-4 rounded-xl'>
+    <div className='w-80 h-500 item-center justify-center border border-gray-300 py-8 px-14 m-4 rounded-xl'>
         <div className='justify-self-center py-4'>
             <FaRegClock size="2rem"/>
         </div>

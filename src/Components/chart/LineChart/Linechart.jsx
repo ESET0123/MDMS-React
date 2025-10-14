@@ -9,7 +9,7 @@ export default function Linechart() {
         {month: "May", sales: 3000, expenses: 2900}
     ];
   return (
-    <div className='bg-gray-100 flex  p-2 '>
+    <div className='bg-gray-50 flex w-full justify-center m-2 p-10 '>
       <LineChart width={500} height={300} data = {data}>
             <CartesianGrid strokeDasharrays = "3 3"/>
             <XAxis dataKey="month"/>

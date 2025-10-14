@@ -4,6 +4,7 @@ import Quickbutton from '../../Components/ui/Button/QuickButton/Quickbutton'
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosSettings } from "react-icons/io";
+import Graphheader from '../../Components/GraphHeader/Graphheader';
 
 export default function Dashboard() {
   return (
@@ -21,18 +22,30 @@ export default function Dashboard() {
                 <p className='justify-self-center'>Data Source: Smart Meter #1023</p>
             </div>
         </div>
-        <div className='flex justify-self-center'>
-            <div className=' pt-4 flex flex-wrap'>
+        <div className=' flex justify-self-center'>
+            <div className='flex flex-wrap gap-4 justify-start'>
             <Dashboardcard heading="256kWh" description="Current Consumption"/>
-            <Dashboardcard heading="256kWh" description="Current Consumption"/>
-            <Dashboardcard heading="256kWh" description="Current Consumption"/>
-            <Dashboardcard heading="256kWh" description="Current Consumption"/>
+            <Dashboardcard heading="Rs. 1230 Due on 12 Oct" description="This Month's Bill"/>
+            <Dashboardcard heading="Rs. 120 Pending" description="Outstanding Balance"/>
+            <Dashboardcard heading="Paid Rs. 1200 on 10 Sep" description="Last Payment"/>
             </div>
         </div>
+        <div>
+            <div>
+                <Graphheader title="Electricity Consumption Overview"/>
+            </div>
+            <div>
 
-        <div className='flex'>
-            <Quickbutton iconname={<IoIosAddCircleOutline />} tag="Add meter"/>
-            <Quickbutton iconname={<IoIosSettings />} tag="Generate Report"/>
+            </div>
+        </div>
+        <div>
+            <div>
+                <p className='font-bold text-xl'>Quick Actions</p>
+            </div>
+            <div className='flex'>
+                <Quickbutton iconname={<IoIosAddCircleOutline />} tag="Add meter"/>
+                <Quickbutton iconname={<IoIosSettings />} tag="Generate Report"/>
+            </div>
         </div>
     </div>
   )
