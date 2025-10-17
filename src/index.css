@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Define color variables for light mode */
+:root {
+  --color-text-primary: 17, 24, 39; /* text-gray-900 */
+  --color-text-secondary: 75, 85, 99; /* text-gray-600 */
+  --color-bg-primary: 255, 255, 255; /* bg-white */
+  --color-bg-secondary: 243, 244, 246; /* bg-gray-100 */
+  --color-border: 209, 213, 219; /* border-gray-300 */
+}
+
+/* Define color variables for dark mode */
+.dark {
+  --color-text-primary: 255, 255, 255; /* text-white */
+  --color-text-secondary: 156, 163, 175; /* text-gray-400 */
+  --color-bg-primary: 17, 24, 39; /* bg-gray-900 */
+  --color-bg-secondary: 31, 41, 55; /* bg-gray-800 */
+  --color-border: 75, 85, 99; /* border-gray-600 */
+}
+
+/* Apply default styles using @layer base and the CSS variables */
+@layer base {
+  body {
+    background-color: rgb(var(--color-bg-primary));
+    color: rgb(var(--color-text-primary));
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .app-container {
+    background-color: rgb(var(--color-bg-primary));
+    color: rgb(var(--color-text-primary));
+    transition: background-color 0.3s, color 0.3s;
+  }
+}

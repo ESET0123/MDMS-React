@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Notificationdetailedcard() {
   return (
-    <div className='bg-gray-100 h-screen ml-4 rounded-xl p-7 overflow-y-auto'>
+    <div className='bg-gray-100  ml-4 rounded-xl p-7 overflow-y-auto'>
         <div className='flex justify-between'>
             <div>
             <p className='font-bold'>Title of the Notification</p>

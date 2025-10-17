@@ -1,5 +1,6 @@
 import React from 'react'
 import ToggleButton from '../../ui/Button/ToggleButton/Togglebutton'
+import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton'
 
 export default function Notificationtab() {
   return (
@@ -20,6 +21,9 @@ export default function Notificationtab() {
           <p>Push</p>
           <ToggleButton/>
         </div>
+      </div>
+      <div>
+        <Submitbutton title="save & continue"/>
       </div>
     </div>
   )
