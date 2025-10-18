@@ -10,7 +10,7 @@ const clickHandler = (tag, msg) => {
 }
 export default function Quickbutton(props) {
   return (
-    <button onClick={()=>clickHandler(props.tag, props.msg)} className='px-4 py-2 flex items-center border border-gray-300 rounded-full w-fit mr-4 my-4 hover:bg-gray-100 transition-colors'>
+    <button onClick={()=>clickHandler(props.tag, props.msg)} className='px-4 py-2 flex items-center border border-zinc-300 rounded-full w-fit mr-4 my-4 hover:bg-zinc-100 transition-colors'>
         <div className='items-center justify-center mr-2'> 
             {props.iconname}
         </div>

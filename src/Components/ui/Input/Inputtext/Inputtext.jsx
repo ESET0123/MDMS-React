@@ -4,10 +4,16 @@ export default function Inputtext(props) {
   return (
     <div className='flex-column place-items-center justify-center w-full'>
       <input
-        className="flex my-4 w-full px-4 py-2 rounded-2xl bg-gray-200 text-gray-900 placeholder-gray-500 border border-gray-300
-          dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:border-gray-600
-          focus:outline-none focus:ring-2 focus:ring-gray-600 dark:focus:ring-gray-400 transition-colors duration-300"
+        // Pass the name, value, and onChange handler to make it a controlled component
+        name={props.name}
+        value={props.value}
+        onChange={props.onChange}
+        
+        className="flex my-4 w-full p-6 py-2 rounded-3xl bg-zinc-50 text-zinc-900 placeholder-zinc-500 border border-zinc-300
+          dark:bg-zinc-700 dark:text-white dark:placeholder-zinc-400 dark:border-zinc-600
+          focus:outline-none focus:ring-2 focus:ring-zinc-600 dark:focus:ring-zinc-400 transition-colors duration-300"
         placeholder={props.placeholder}
+        type={props.type || "text"} // Adds flexibility for different input types
       />
     </div>
   );

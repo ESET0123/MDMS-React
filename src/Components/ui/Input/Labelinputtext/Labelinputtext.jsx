@@ -1,22 +1,30 @@
-import React from 'react'
+import React, { useId } from 'react';
 
 export default function Labelinputtext(props) {
+  const uniqueId = useId(); // Generate a unique ID for accessibility
+
   return (
-    <div className="relative mt-5 justify-self-center  w-full">
-        <input
-            type="text"
-            id="my-input"
-            placeholder=" "
-            className="peer w-full p-3 pt-6 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-        />
-        <label
-            htmlFor="my-input"
-            className="absolute top-2 left-3 text-gray-500 text-sm transition-all duration-200 ease-in-out
-                peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base
-                peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600"
-        >
-           {props.label}
-        </label>
+    <div className="relative mt-5 justify-self-center w-full">
+      <input
+        type={props.type || "text"} // Use a prop for flexibility
+        id={uniqueId} // Use the generated unique ID
+        name={props.name} // Add name prop for form submission
+        value={props.value} // Controlled component value
+        onChange={props.onChange} // Controlled component change handler
+        placeholder=" "
+        className="peer w-full p-5 pt-6 border border-zinc-300 rounded-3xl bg-white text-zinc-900
+          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+          dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
+      />
+      <label
+        htmlFor={uniqueId} // Associate the label with the unique ID
+        className="absolute top-2 left-3 text-zinc-500 text-sm transition-all duration-200 ease-in-out
+          peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base
+          peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600
+          dark:text-zinc-400 dark:peer-focus:text-blue-400"
+      >
+        {props.label}
+      </label>
     </div>
-  )
+  );
 }

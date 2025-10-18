@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 export default function Notificationdetailedcard() {
   return (
-    <div className='bg-gray-100  ml-4 rounded-xl p-7 overflow-y-auto'>
+    <div className='bg-zinc-100 dark:bg-zinc-900 text-black dark:text-gray-100 ml-4 rounded-xl p-7 overflow-y-auto transition-colors duration-300'>
         <div className='flex justify-between'>
             <div>
             <p className='font-bold'>Title of the Notification</p>

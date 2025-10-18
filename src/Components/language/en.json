@@ -1,0 +1,17 @@
+{
+  "translation": {
+    "MDMS":"MDMS",
+    "welcome": "Welcome",
+    "logout": "Log out",
+    "dashboard": "Dashboard",
+    "bill_payment": "Bills and Payment",
+    "meter_data": "Meter Data",
+    "alert_notification": "Alert and Notification",
+    "profile_settings": "Profile and Settings",
+    "meter_management": "Meter Management",
+    "user_management": "User Management",
+    "report_analytics": "Reports and Analytics",
+    "setting_notification": "Settings and Notification",
+    "zone_management": "Zone Management"
+  }
+}
