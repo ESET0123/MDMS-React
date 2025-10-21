@@ -88,10 +88,7 @@ export default function Metermanagement() {
         </div>
       </div>
       {showMoreAction && (
-        <div
-          style={{ top: position.top, left: position.left }}
-          className="fixed z-10"
-        >
+        <div style={{ top: position.top, left: position.left }} className="fixed z-10" >
           <Moreaction onClose={closeMoreAction} />
         </div>
       )}

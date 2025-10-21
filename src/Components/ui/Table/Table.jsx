@@ -15,19 +15,13 @@ const Table = ({ data, actionsColumn }) => {
           <thead className="bg-zinc-50 dark:bg-zinc-800">
             <tr>
               {columns.map((column, index) => (
-                <th
-                  key={index}
-                  scope="col"
-                  className="border-b border-r border-zinc-800 dark:border-zinc-700 px-6 py-3 font-extrabold uppercase text-left text-xs text-zinc-900 dark:text-zinc-300 tracking-wider"
-                >
+                <th key={index} scope="col"
+                  className="border-b border-r border-zinc-800 dark:border-zinc-700 px-6 py-3 font-extrabold uppercase text-left text-xs text-zinc-900 dark:text-zinc-300 tracking-wider">
                   {column}
                 </th>
               ))}
               {actionsColumn && (
-                <th
-                  scope="col"
-                  className="border-b border-zinc-800 dark:border-zinc-700 px-6 py-3 text-left font-extrabold uppercase text-xs text-zinc-900 dark:text-zinc-300 tracking-wider"
-                >
+                <th scope="col" className="border-b border-zinc-800 dark:border-zinc-700 px-6 py-3 text-left font-extrabold uppercase text-xs text-zinc-900 dark:text-zinc-300 tracking-wider">
                   {actionsColumn.title}
                 </th>
               )}
@@ -37,10 +31,7 @@ const Table = ({ data, actionsColumn }) => {
             {data.map((item, rowIndex) => (
               <tr key={rowIndex}>
                 {columns.map((column, colIndex) => (
-                  <td 
-                    key={colIndex} 
-                    className="border-b border-r border-zinc-800 dark:border-zinc-700 px-6 py-4 whitespace-nowrap text-sm text-zinc-900 dark:text-white"
-                  >
+                  <td key={colIndex} className="border-b border-r border-zinc-800 dark:border-zinc-700 px-6 py-4 whitespace-nowrap text-sm text-zinc-900 dark:text-white">
                     {item[column]}
                   </td>
                 ))}

@@ -23,13 +23,8 @@ export default function Pagination({ currentPage, totalPages, setCurrentPage }) 
           {index + 1}
         </button>
       ))}
-      <button
-        onClick={() => setCurrentPage(currentPage + 1)}
-        disabled={currentPage === totalPages}
-        className="px-4 py-2 rounded-md disabled:opacity-50"
-      >
-        Next
-      </button>
+      <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages} 
+      className="px-4 py-2 rounded-md disabled:opacity-50">Next</button>
     </div>
   );
 }

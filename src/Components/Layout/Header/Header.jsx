@@ -30,10 +30,7 @@ export default function Header() {
         </div>
         <div className='flex items-center'>
           {!isLoginPage && (
-            <button 
-              onClick={handleButtonClick} 
-              className='mx-2' // Apply your Tailwind CSS classes
-              style={{ border: 'none', background: 'none', cursor: 'pointer' }}>
+            <button onClick={handleButtonClick} className='mx-2' style={{ border: 'none', background: 'none', cursor: 'pointer' }}>
               <IoMdNotificationsOutline color={iconColor} size='2rem' />
             </button>
           )}

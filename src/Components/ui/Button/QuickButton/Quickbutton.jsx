@@ -1,21 +1,18 @@
-import React from 'react'
-import { IoIosAddCircleOutline } from "react-icons/io";
-import { IoIosSettings } from "react-icons/io";
-import { MdOutlineFileDownload } from "react-icons/md";
-import { FiUpload } from "react-icons/fi";
-import { GoCircleSlash } from "react-icons/go";
+import React from "react";
 
-const clickHandler = (tag, msg) => {
-  console.log(tag+" "+msg);
-}
-export default function Quickbutton(props) {
+
+export default function Quickbutton({tag, msg="clicked", iconname}) {
+
+  const clickHandler = (tag, msg) => {
+    console.log(tag+" "+msg);
+  }
   return (
-    <button onClick={()=>clickHandler(props.tag, props.msg)} className='px-4 py-2 flex items-center border border-zinc-300 rounded-full w-fit mr-4 my-4 hover:bg-zinc-100 transition-colors'>
+    <button onClick={()=>clickHandler(tag, msg)} className='px-4 py-2 flex items-center border border-zinc-300 rounded-xl w-fit mr-4 my-4 hover:bg-zinc-100 transition-colors'>
         <div className='items-center justify-center mr-2'> 
-            {props.iconname}
+            {iconname}
         </div>
         <div className='items-center justify-center'>
-            {props.tag}
+            {tag}
         </div>
     </button>
   )

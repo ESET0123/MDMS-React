@@ -1,42 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Table from '../../../Components/ui/Table/Table';
-import Pagination from '../../../Components/ui/Pagination/Pagination'; // Import the new Pagination component
+import Pagination from '../../../Components/ui/Pagination/Pagination';
+import { setPaginationState, setCurrentPage } from '../../../redux/slices/pagination/paginationSlice';
 
 export default function Billpayment() {
-  const allBills = [
-    { id: 1, name: 'Alice', email: 'alice@example.com' },
-    { id: 2, name: 'Bob', email: 'bob@example.com' },
-    { id: 3, name: 'Charlie', email: 'charlie@example.com' },
-    { id: 4, name: 'Diana', email: 'diana@example.com' },
-    { id: 5, name: 'Edward', email: 'edward@example.com' },
-    { id: 6, name: 'Fiona', email: 'fiona@example.com' },
-    { id: 7, name: 'George', email: 'george@example.com' },
-    { id: 8, name: 'Hannah', email: 'hannah@example.com' },
-    { id: 9, name: 'Isaac', email: 'isaac@example.com' },
-    { id: 10, name: 'Jane', email: 'jane@example.com' },
-  ];
+  const dispatch = useDispatch();
+  
+  const bills = useSelector(state => state.data?.bills || []);
+  const paginationState = useSelector(state => state.pagination?.paginationState?.bills);
+  const { currentPage = 1, itemsPerPage = 4 } = paginationState || {};
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  useEffect(() => {
+    if (!paginationState) {
+      dispatch(setPaginationState({ name: 'bills', currentPage: 1, itemsPerPage: 4 }));
+    }
+  }, [dispatch, paginationState]);
 
-  const totalPages = Math.ceil(allBills.length / itemsPerPage);
-
+  const totalPages = Math.ceil(bills.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentBills = allBills.slice(indexOfFirstItem, indexOfLastItem);
+  const currentBills = bills.slice(indexOfFirstItem, indexOfLastItem);
 
   const viewPayActions = {
     title: "Actions",
     render: (item) => (
       <div className="space-x-2">
-        <button
-          onClick={() => alert(`Viewing bill for: ${item.name}`)}
+        <button onClick={() => alert(`Viewing bill for: ${item.name}`)}
           className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white rounded-full p-1 transition-colors duration-200">
           View
         </button>
         <span> / </span>
-        <button
-          onClick={() => alert(`Paying bill for: ${item.name}`)}
+        <button onClick={() => alert(`Paying bill for: ${item.name}`)}
           className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white rounded-full p-1 transition-colors duration-200">
           Pay
         </button>
@@ -49,12 +44,8 @@ export default function Billpayment() {
       <p className='font-bold my-3'>My Bills</p>
       <Table data={currentBills} actionsColumn={viewPayActions} />
       
-      {/* Call the Pagination component with props */}
-      <Pagination 
-        currentPage={currentPage} 
-        totalPages={totalPages} 
-        setCurrentPage={setCurrentPage} 
-      />
+      <Pagination currentPage={currentPage} totalPages={totalPages} 
+      setCurrentPage={(page) => dispatch(setCurrentPage({ name: 'bills', page }))} />
 
       <p className='my-3'><span className='font-bold'>Note: </span>All bills are generated on the 1st of each month.</p>
     </div>

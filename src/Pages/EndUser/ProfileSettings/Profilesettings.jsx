@@ -1,8 +1,12 @@
-import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import React, { useState } from 'react';
+// import { NavLink } from 'react-router-dom';
+import Profiletab from '../../../Components/tab/ProfileTab/Profiletab';
+import Securitytab from '../../../Components/tab/SecurityTab/Securitytab';
+import Notificationtab from '../../../Components/tab/NotificationTab/Notificationtab';
 
 export default function Profilesettings() {
-  const activeStyle = 'border-b-2 border-blue-700 text-blue-700 dark:text-white dark:border-white ';
+  const [activeTab, setActiveTab] = useState('profile');
+  const activeStyle = 'border-b-2 border-blue-700 text-blue-700 dark:text-white dark:border-white';
 
   return (
     <div>
@@ -10,30 +14,32 @@ export default function Profilesettings() {
         <p className='font-bold'>Profile & Settings</p>
       </div>
       <div>
-        <div className='flex p-12 text-xl font-bold text-zinc-500 justify-around border-b pb-0 border-zinc-400 pb-2'>
-          {/* Each NavLink will lead to a different nested route */}
-          <NavLink 
-            to="profile" 
-            className={({ isActive }) => (isActive ? activeStyle : '')}
+        <div className='flex p-12 text-xl font-bold text-zinc-500 justify-around border-b pb-0 border-zinc-400 '>
+          <button
+            onClick={() => setActiveTab('profile')}
+            className={activeTab === 'profile' ? activeStyle : 'cursor-pointer'}
           >
             Profile
-          </NavLink>
-          <NavLink 
-            to="security" 
-            className={({ isActive }) => (isActive ? activeStyle : '')}
+          </button>
+          <button
+            onClick={() => setActiveTab('security')}
+            className={activeTab === 'security' ? activeStyle : 'cursor-pointer'}
           >
             Security
-          </NavLink>
-          <NavLink 
-            to="notification" 
-            className={({ isActive }) => (isActive ? activeStyle : '')}
+          </button>
+          <button
+            onClick={() => setActiveTab('notification')}
+            className={activeTab === 'notification' ? activeStyle : 'cursor-pointer'}
           >
             Notification
-          </NavLink>
+          </button>
         </div>
         
         <div className='p-4'>
-          <Outlet />
+          {activeTab === 'profile' && <Profiletab />}
+          
+          {activeTab === 'security' && <Securitytab />}
+          {activeTab === 'notification' && <Notificationtab />}
         </div>
       </div>
     </div>

@@ -38,8 +38,8 @@ export default function Dashboard() {
         </div>
         <div>
             <div className='flex'>
-                <Quickbutton msg="clicked" iconname={<IoIosAddCircleOutline />} tag="Add meter"/>
-                <Quickbutton msg="clicked" iconname={<IoIosSettings />} tag="Generate Report"/>
+                <Quickbutton iconname={<IoIosAddCircleOutline />} tag="Add meter"/>
+                <Quickbutton iconname={<IoIosSettings />} tag="Generate Report"/>
             </div>
         </div>
     </div>
