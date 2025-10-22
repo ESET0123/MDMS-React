@@ -1,30 +1,25 @@
 import React, { useId } from 'react';
 
-export default function Labelinputtext(props) {
-  const uniqueId = useId(); // Generate a unique ID for accessibility
+export default function Labelinputtext({name, value, placeholder, label, onChangeFunc, type, }) {
+  const generatedId = useId();
 
   return (
-    <div className="relative mt-5 justify-self-center w-full">
-      <input
-        type={props.type || "text"} 
-        id={uniqueId} 
-        name={props.name} 
-        value={props.value} 
-        onChange={props.onChange}
-        placeholder=" "
-        className="peer w-full p-5 pt-6 border border-zinc-300 rounded-3xl bg-white text-zinc-900
-          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
-          dark:border-zinc-700 dark:bg-zinc-900 dark:text-white"
-      />
-      <label
-        htmlFor={uniqueId}
-        className="absolute top-2 left-3 text-zinc-500 text-sm transition-all duration-200 ease-in-out
-          peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base
-          peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600
-          dark:text-zinc-400 dark:peer-focus:text-blue-400"
-      >
-        {props.label}
-      </label>
-    </div>
+      <div className=" justify-self-center flex flex-col my-2 w-full static">
+        <label
+          htmlFor={generatedId}
+          className="text-gray-500 dark:text-gray-400 text-xs font-semibold relative top-2 ml-3 px-1 bg-white dark:bg-zinc-500 w-fit"
+        >
+          {label?label:placeholder}:
+        </label>
+        <input
+          id={generatedId}
+          type={type}
+          placeholder={placeholder}
+          className="border-gray-400 rounded-md dark:border-gray-700 input p-4 text-xs bg-white dark:bg-zinc-500 dark:text-white border-2 w-full focus:outline-none placeholder:text-black/25 dark:placeholder:text-gray-400"
+          name={name}
+          value={value}
+          onChange={onChangeFunc}
+        />
+      </div>
   );
 }

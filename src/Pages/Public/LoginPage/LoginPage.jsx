@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Inputtext from '../../../Components/ui/Input/Inputtext/Inputtext';
+import Labelinputtext from '../../../Components/ui/Input/Labelinputtext/Labelinputtext';
 import Inputcheck from '../../../Components/ui/Input/InputCheck/Inputcheck';
 import Submitbutton from '../../../Components/ui/Button/SubmitButton/Submitbutton';
 import { Link, useNavigate } from 'react-router-dom'; 
@@ -43,6 +44,7 @@ export default function LoginPage() {
         <p className='justify-self-center text-2xl'>Login Form</p>
         <form onSubmit={handleSubmit} className='flex-column'>
             <Inputtext name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+            {/* <Labelinputtext name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} /> */}
             <Inputtext name="password" type="password" placeholder="Password" value={formData.password} onChange={handleChange} />
             <Link to='/forgotpwd' className='flex justify-self-end text-blue-600 font-bold'>forgot password</Link>
             <Link to='/resetpwd' className='flex justify-self-end text-blue-600 font-bold'>reset password</Link>

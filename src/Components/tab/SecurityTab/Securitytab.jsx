@@ -1,21 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { FaRegUser } from "react-icons/fa";
-// import Labelinputtext from '../../../ui/Input/Labelinputtext/Labelinputtext';
-import Inputtext from '../../ui/Input/Inputtext/Inputtext';
+import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext';
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton';
 
 export default function Securitytab() {
+  const [passwordState, setPasswordState] = useState({
+    currentPassword: '',
+    newPassword: '',
+    confirmPassword: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPasswordState(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //todo
+    console.log(passwordState);
+  };
+
   return (
     <div className='m-5 w-2/3 p-4 justify-self-center'>
-            <div className='w-fit justify-self-center p-5 bg-zinc-800 rounded-full'>
-                <FaRegUser color='white' size='5rem'/>
-            </div>
-            <div className='p-4 '>
-                <Inputtext placeholder="current password"/>
-                <Inputtext placeholder="new password"/>
-                <Inputtext placeholder="confirm password"/>
-                <Submitbutton title="save and continue"/>
-            </div>
-        </div>
-  )
+      <div className='w-fit justify-self-center p-5 bg-zinc-800 rounded-full'>
+        <FaRegUser color='white' size='5rem'/>
+      </div>
+      <form className='p-4' onSubmit={handleSubmit}>
+        <Labelinputtext placeholder="Current Password" type="password" name="currentPassword" value={passwordState.currentPassword}  onChange={handleChange} />
+        <Labelinputtext placeholder="New Password" type="password" name="newPassword" value={passwordState.newPassword} onChange={handleChange} />
+        <Labelinputtext placeholder="Confirm Password" type="password" name="confirmPassword" value={passwordState.confirmPassword} onChange={handleChange} />
+        <Submitbutton title="Save and continue"/>
+      </form>
+    </div>
+  );
 }

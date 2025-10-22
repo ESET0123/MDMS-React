@@ -12,6 +12,9 @@
     "user_management": "उपयोगकर्ता प्रबंधन",
     "report_analytics": "रिपोर्ट और विश्लेषण",
     "setting_notification": "सेटिंग और सूचना",
-    "zone_management": "ज़ोन प्रबंधन"
+    "zone_management": "ज़ोन प्रबंधन",
+    "user_&_role_management": "उपयोगकर्ता और भूमिका प्रबंधन",
+    "audit_logs": "ऑडिट लॉग",
+    "setting_configuration": "सेटिंग और कॉन्फ़िगरेशन"
   }
 }

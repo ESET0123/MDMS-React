@@ -6,16 +6,17 @@ import { RiUserAddLine } from "react-icons/ri";
 import Table from '../../../Components/ui/Table/Table';
 import { IoMdMore } from 'react-icons/io';
 import Moreaction from '../../../Components/PopUps/MoreAction/Moreaction';
-// import InviteUserModal from '../../../Components/PopUps/InviteUserModal/InviteUserModal'; // Ensure this component exists
+import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { setSearchTerm, setFilterBy } from '../../../redux/slices/data/dataSlice';
 
 export default function Usermanagement() {
   const dispatch = useDispatch();
-  // FIX: Access the state correctly via `state.data`
   const { users, searchTerm, filterBy } = useSelector(state => state.data);
 
   const [selectedUserId, setSelectedUserId] = useState(null);
   const [isInviteModalOpen, setIsInviteModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5; // Adjust this value as needed
 
   const handleMoreActionClick = (e, userId) => {
     setSelectedUserId(selectedUserId === userId ? null : userId);
@@ -52,12 +53,24 @@ export default function Usermanagement() {
     ),
   };
 
+  // Filter data based on search
   const filteredData = users.filter(item => {
     if (!searchTerm) return true;
     const propertyValue = item[filterBy];
     const value = propertyValue ? propertyValue.toString().toLowerCase() : '';
     return value.includes(searchTerm.toLowerCase());
   });
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = filteredData.slice(startIndex, endIndex);
+
+  // Reset to page 1 when search term changes
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, filterBy]);
 
   return (
     <div className="p-4 bg-white dark:bg-zinc-950 min-h-screen transition-colors duration-300">
@@ -83,8 +96,16 @@ export default function Usermanagement() {
       </div>
 
       <div className='mt-7'>
-        <Table data={filteredData} actionsColumn={userActions} />
+        <Table data={paginatedData} actionsColumn={userActions} />
       </div>
+
+      {filteredData.length > itemsPerPage && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
 
       {/* {isInviteModalOpen && <InviteUserModal onClose={closeInviteModal} />} */}
     </div>

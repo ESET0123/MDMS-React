@@ -12,6 +12,9 @@
         "user_management": "Gestion des utilisateurs",
         "report_analytics": "Rapports et analyses",
         "setting_notification": "Paramètres et notification",
-        "zone_management": "Gestion des zones"
+        "zone_management": "Gestion des zones",
+        "user_role_management": "Gestion des utilisateurs et des rôles",
+        "audit_logs": "Journaux d'audit",
+        "setting_configuration": "Paramètres et configuration"
       }
 }

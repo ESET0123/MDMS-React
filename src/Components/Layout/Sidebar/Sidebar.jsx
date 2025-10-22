@@ -31,7 +31,15 @@ export default function Sidebar() {
       <NavLink to="/reportanalytics" className={getNavClassNames}>{t('report_analytics')}</NavLink>
       <NavLink to="/settingnotification" className={getNavClassNames}>{t('setting_notification')}</NavLink>
       
+        <p>-----------</p>
+
+      {/* Enterprise user */}
+      <NavLink to="/dashboardE" className={getNavClassNames}>{t('dashboard')}</NavLink>
       <NavLink to="/zonemanagement" className={getNavClassNames}>{t('zone_management')}</NavLink>
+      <NavLink to="/metermanagementE" className={getNavClassNames}>{t('meter_management')}</NavLink>
+      <NavLink to="/userrolemanagement" className={getNavClassNames}>{t('user_role_management')}</NavLink>
+      <NavLink to="/auditlogs" className={getNavClassNames}>{t('audit_logs')}</NavLink>
+      <NavLink to="/settingconfiguration" className={getNavClassNames}>{t('setting_configuration')}</NavLink>
     </div>
   );
 }

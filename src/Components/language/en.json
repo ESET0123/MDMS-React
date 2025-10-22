@@ -12,6 +12,10 @@
     "user_management": "User Management",
     "report_analytics": "Reports and Analytics",
     "setting_notification": "Settings and Notification",
-    "zone_management": "Zone Management"
+    "zone_management": "Zone Management",
+    "user_role_management": "User & Role Management",
+    "audit_logs": "Audit Logs",
+    "setting_configuration": "Settings and Configuration"
+
   }
 }

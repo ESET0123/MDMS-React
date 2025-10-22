@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Submitbutton(props) {
+export default function Submitbutton({title}) {
   return (
     <div className='justify-self-center'>
       <button
@@ -15,7 +15,7 @@ export default function Submitbutton(props) {
           transition-colors duration-300
         '
       >
-        {props.title}
+        {title}
       </button>
     </div>
   );
