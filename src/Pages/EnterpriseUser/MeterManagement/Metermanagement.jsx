@@ -1,46 +1,20 @@
-import React from 'react'
-import Searchbar from '../../../Components/ui/SearchBar/Searchbar'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';import Searchbar from '../../../Components/ui/SearchBar/Searchbar'
 import Table from '../../../Components/ui/Table/Table'
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
+import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
+import Pagination from '../../../Components/ui/Pagination/Pagination';
+import { usePagination } from '../../../hooks/usePagination';
 
 export default function Metermanagement() {
-    const meterData = [
-        {
-        meterId: 'M-001',
-        zone: 'Zone A',
-        owner: 'John Doe',
-        status: 'Active',
-        lastReading: '256.4 kWh',
-        },
-        {
-        meterId: 'M-002',
-        zone: 'Zone B',
-        owner: 'Jane Smith',
-        status: 'Inactive',
-        lastReading: '12.0 kWh',
-        },
-        {
-        meterId: 'M-003',
-        zone: 'Zone C',
-        owner: 'Alex Johnson',
-        status: 'Active',
-        lastReading: '501.9 kWh',
-        },
-        {
-        meterId: 'M-004',
-        zone: 'Zone A',
-        owner: 'Emily Davis',
-        status: 'Active',
-        lastReading: '345.1 kWh',
-        },
-        {
-        meterId: 'M-005',
-        zone: 'Zone B',
-        owner: 'Michael Brown',
-        status: 'Maintenance',
-        lastReading: '189.7 kWh',
-        },
-    ];
+    const meterData = useSelector(state => state.data?.metermanagementENT || []);
+    const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('meterData', meterData, 10);
+    
+    const viewPayActions = {
+        title: 'More Actions',
+        render: () => <MoreActionsButton />,
+    };
+      
   return (
     <div>
         <p className='font-bold text-xl'>Global Meter Management</p>
@@ -48,9 +22,11 @@ export default function Metermanagement() {
             <Searchbar/>
         </div>
         <div>
-            <Table data={meterData} />
-            {/* Add pagination */}
+            <Table data={currentItems} actionsColumn={viewPayActions} />
+            <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+         
         </div>
+       
         <div>
             <p className='my-2'>Each zones Trend of energy usage over time.</p>
             <Linegraph />

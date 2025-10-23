@@ -1,61 +1,48 @@
-// import { createSlice } from '@reduxjs/toolkit';
-
-// const initialState = {
-//   paginationState: {},
-// };
-
-// const paginationSlice = createSlice({
-//   name: 'pagination',
-//   initialState,
-//   reducers: {
-//     setPaginationState: (state, action) => {
-//       const { name, currentPage, itemsPerPage } = action.payload;
-//       state.paginationState[name] = { currentPage, itemsPerPage };
-//     },
-//     setCurrentPage: (state, action) => {
-//       const { name, page } = action.payload;
-//       if (state.paginationState[name]) {
-//         state.paginationState[name].currentPage = page;
-//       }
-//     },
-//     // Add other actions if needed, like setItemsPerPage
-//   },
-// });
-
-// export const { setPaginationState, setCurrentPage } = paginationSlice.actions;
-
-// export default paginationSlice.reducer;
+// redux/slices/pagination/paginationSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-
-const initialState = {
-  paginationState: {},
-};
 
 const paginationSlice = createSlice({
   name: 'pagination',
-  initialState,
+  initialState: {
+    paginationState: {}
+  },
   reducers: {
     setPaginationState: (state, action) => {
       const { name, currentPage, itemsPerPage } = action.payload;
-      // Ensure paginationState exists before setting properties
-      if (!state.paginationState) {
-        state.paginationState = {};
-      }
       state.paginationState[name] = { currentPage, itemsPerPage };
     },
     setCurrentPage: (state, action) => {
       const { name, page } = action.payload;
-      // Ensure paginationState and the specific entry exist
-      if (!state.paginationState) {
-        state.paginationState = {};
-      }
       if (state.paginationState[name]) {
         state.paginationState[name].currentPage = page;
       }
     },
-  },
+    setItemsPerPage: (state, action) => {
+      const { name, itemsPerPage } = action.payload;
+      if (state.paginationState[name]) {
+        state.paginationState[name].itemsPerPage = itemsPerPage;
+        state.paginationState[name].currentPage = 1; // Reset to first page
+      }
+    }
+  }
 });
 
-export const { setPaginationState, setCurrentPage } = paginationSlice.actions;
-
+export const { setPaginationState, setCurrentPage, setItemsPerPage } = paginationSlice.actions;
 export default paginationSlice.reducer;
+
+// Selectors
+export const selectPaginationState = (state, name) => 
+  state.pagination?.paginationState?.[name];
+
+export const selectPaginatedData = (state, name, data) => {
+  const paginationState = selectPaginationState(state, name);
+  if (!paginationState || !data) return { currentItems: [], totalPages: 0 };
+
+  const { currentPage = 1, itemsPerPage = 10 } = paginationState;
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  return { currentItems, totalPages, currentPage, itemsPerPage };
+};

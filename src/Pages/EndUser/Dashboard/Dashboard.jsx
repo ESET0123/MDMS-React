@@ -46,8 +46,10 @@ export default function Dashboard() {
                 <p className='font-bold text-xl'>Quick Actions</p>
             </div>
             <div className='flex'>
-                <Quickbutton iconname={<IoIosAddCircleOutline />} tag="Add meter"/>
-                <Quickbutton iconname={<IoIosSettings />} tag="Generate Report"/>
+                <Quickbutton iconname={<IoIosAddCircleOutline />} tag="Pay Bill"/>
+                <Quickbutton iconname={<IoIosSettings />} tag="View Bill History"/>
+                <Quickbutton iconname={<IoIosSettings />} tag="View Detailed Usage"/>
+                <Quickbutton iconname={<IoIosSettings />} tag="Manage Notification" />
             </div>
         </div>
     </div>

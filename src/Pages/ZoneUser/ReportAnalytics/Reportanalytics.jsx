@@ -1,53 +1,21 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph'
 import Bargraph from '../../../Components/graph/Bargraph/Bargraph'
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
 import Table from '../../../Components/ui/Table/Table';
+import Pagination from '../../../Components/ui/Pagination/Pagination';
+import { usePagination } from '../../../hooks/usePagination';
 
 import { MdOutlineFileUpload } from "react-icons/md";
 
 
 export default function Reportanalytics() {
 
-  const paginatedData = [
-    {
-      date: '2025-09-01',
-      reading: 1540,
-      difference: 40,
-      notes: 'Standard usage this month.',
-    },
-    {
-      date: '2025-08-01',
-      reading: 1500,
-      difference: 55,
-      notes: 'Higher usage due to summer.',
-    },
-    {
-      date: '2025-07-01',
-      reading: 1445,
-      difference: 45,
-      notes: 'Average consumption.',
-    },
-    {
-      date: '2025-06-01',
-      reading: 1400,
-      difference: 50,
-      notes: 'Increased AC usage.',
-    },
-    {
-      date: '2025-05-01',
-      reading: 1350,
-      difference: 40,
-      notes: 'Normal usage.',
-    },
-    {
-      date: '2025-04-01',
-      reading: 1310,
-      difference: 35,
-      notes: 'Lower usage in spring.',
-    },
-  ]
+  const reportAnalyticsData = useSelector(state => state.data?.reportAnalyticsData || []);
+  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('reportAnalyticsData', reportAnalyticsData, 10);
+
   return (
     <div>
       <div>
@@ -72,9 +40,10 @@ export default function Reportanalytics() {
           </div>
         </div>
         <div className='mt-7'>
-        <Table data={paginatedData} />
-        {/* add pagination */}
-      </div>
+          <Table data={currentItems} />
+          <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+          
+        </div>
       </div>
     </div>
   )

@@ -1,4 +1,6 @@
 import React from 'react';
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
+
 
 export default function Pagination({ currentPage, totalPages, setCurrentPage }) {
   return (
@@ -8,7 +10,9 @@ export default function Pagination({ currentPage, totalPages, setCurrentPage }) 
         disabled={currentPage === 1}
         className="px-4 py-2 rounded-md disabled:opacity-50 "
       >
-        Previous
+        <div className='flex items-center'>
+              <GrFormPreviousLink />  Previous 
+          </div> 
       </button>
       {Array.from({ length: totalPages }, (_, index) => (
         <button
@@ -24,7 +28,11 @@ export default function Pagination({ currentPage, totalPages, setCurrentPage }) 
         </button>
       ))}
       <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages} 
-      className="px-4 py-2 rounded-md disabled:opacity-50">Next</button>
+      className="px-4 py-2 rounded-md disabled:opacity-50">
+          <div className='flex items-center'>
+              Next <GrFormNextLink />
+          </div> 
+      </button>
     </div>
   );
 }

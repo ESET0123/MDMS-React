@@ -1,46 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
+import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 import Table from '../../../Components/ui/Table/Table';
+import Pagination from '../../../Components/ui/Pagination/Pagination';
+import { usePagination } from '../../../hooks/usePagination';
 
 export default function Zonemanagement() {
-  const zoneData = [
-    {
-      meterId: 'M-001',
-      zone: 'Zone A',
-      owner: 'John Doe',
-      status: 'Active',
-      lastReading: '256.4 kWh',
-    },
-    {
-      meterId: 'M-002',
-      zone: 'Zone B',
-      owner: 'Jane Smith',
-      status: 'Inactive',
-      lastReading: '12.0 kWh',
-    },
-    {
-      meterId: 'M-003',
-      zone: 'Zone C',
-      owner: 'Alex Johnson',
-      status: 'Active',
-      lastReading: '501.9 kWh',
-    },
-    {
-      meterId: 'M-004',
-      zone: 'Zone A',
-      owner: 'Emily Davis',
-      status: 'Active',
-      lastReading: '345.1 kWh',
-    },
-    {
-      meterId: 'M-005',
-      zone: 'Zone B',
-      owner: 'Michael Brown',
-      status: 'Maintenance',
-      lastReading: '189.7 kWh',
-    },
-  ];
+
+  const zonemanagementData = useSelector(state => state.data?.zonemanagementData || []);
+  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('zonemanagementData', zonemanagementData, 10);
+  
+  const viewPayActions = {
+    title: 'More Actions',
+    render: () => <MoreActionsButton />,
+  };
 
   return (
     <div>
@@ -48,8 +23,9 @@ export default function Zonemanagement() {
         <p className='font-bold text-xl'>Zone Management</p>
         <Quickbutton iconname={<MdOutlineAddCircleOutline />} tag="Add Zone" />
       </div>
-      <Table data={zoneData} />
-      {/* Add Pagination and more action*/}
+      <Table data={zonemanagementData} actionsColumn={viewPayActions}/>
+      <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+      
     </div>
   )
 }
