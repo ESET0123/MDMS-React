@@ -39,9 +39,9 @@ export default function Header() {
           </div>
           <Languagedropdown />
           {!isLoginPage && (
-           <div className='rounded-full p-2 mx-2 bg-white dark:bg-zinc-700'>
+           <button className='rounded-full p-2 mx-2 bg-white dark:bg-zinc-700' onClick={() =>{navigate('/login')}}>
              <CiUser color={iconColor} size='2rem'/>
-           </div>
+           </button>
           )}
         </div>
       </div>

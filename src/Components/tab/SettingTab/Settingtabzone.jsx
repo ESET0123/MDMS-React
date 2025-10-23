@@ -3,7 +3,7 @@ import Inputrange from '../../ui/Input/InputRange/Inputrange'
 import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext'
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton'
 
-export default function Settingtab() {
+export default function Settingtabzone() {
   return (
     <div>
       <div className='flex flex-wrap'>

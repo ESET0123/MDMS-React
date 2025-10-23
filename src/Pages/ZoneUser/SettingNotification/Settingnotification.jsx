@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Settingtab from '../../../Components/tab/SettingTab/Settingtab';
+import Settingtabzone from '../../../Components/tab/SettingTab/Settingtabzone';
 import Notificationtab from '../../../Components/tab/NotificationTab/Notificationtab';
 
 
@@ -32,7 +32,7 @@ export default function Settingnotification() {
             </div>
             
             <div className='p-4'>
-              {activeTab === 'setting' && <Settingtab />}
+              {activeTab === 'setting' && <Settingtabzone />}
               {activeTab === 'notification' && <Notificationtab />}
             </div>
           </div>

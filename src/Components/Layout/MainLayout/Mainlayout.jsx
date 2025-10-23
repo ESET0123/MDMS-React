@@ -11,7 +11,7 @@ export default function MainLayout() {
     <div className='flex flex-col min-h-screen'>
       <Header />
       
-      <div className='flex flex-grow'>
+      <div className='flex flex-grow '>
         {!isLoginPage && (
           <div className='w-1/5'>
             <Sidebar />

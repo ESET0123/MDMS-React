@@ -1,5 +1,7 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import MainLayout from '../../Components/Layout/MainLayout/Mainlayout';
+
 import LoginPage from '../../Pages/Public/LoginPage/LoginPage';
 import Forgotpwd from '../../Pages/Public/ForgotPwd/Forgotpwd';
 import Resetpwd from '../../Pages/Public/ResetPwd/Resetpwd';
@@ -15,10 +17,18 @@ import Metermanagement from '../../Pages/ZoneUser/MeterManagement/Metermanagemen
 import Usermanagement from '../../Pages/ZoneUser/UserManagement/Usermanagement';
 import Reportanalytics from '../../Pages/ZoneUser/ReportAnalytics/Reportanalytics';
 import Settingnotification from '../../Pages/ZoneUser/SettingNotification/Settingnotification';
+
+import DashboardE from '../../Pages/EnterpriseUser/Dashboard/Dashboard';
+import Zonemanagement from '../../Pages/EnterpriseUser/ZoneManagement/Zonemanagement';
+import MetermanagementE from '../../Pages/EnterpriseUser/MeterManagement/Metermanagement';
+import Userrolemanagement from '../../Pages/EnterpriseUser/UserRoleManagement/Userrolemanagement';
+import Auditlogs from '../../Pages/EnterpriseUser/AuditLogs/Auditlogs';
+import Settingconfiguration from '../../Pages/EnterpriseUser/SettingConfiguration/Settingconfiguration';
+
 import NotFound404 from '../../utils/NotFound404/NotFound404';
 // import EndUserRouter from '../EndUserRouter/EndUserRouter';
 // import ZoneUserRouter from '../ZoneUserRouter/ZoneUserRouter';
-import MainLayout from '../../Components/Layout/MainLayout/Mainlayout';
+
 
 export default function RouterSetup() {
   return (
@@ -41,6 +51,13 @@ export default function RouterSetup() {
                     <Route path="/usermanagement" element={<Usermanagement />} />
                     <Route path="/reportanalytics" element={<Reportanalytics />} />
                     <Route path="/settingnotification" element={<Settingnotification />} />
+
+                    <Route path="/dashboardE" element={<DashboardE />} />
+                    <Route path="/zonemanagement" element={<Zonemanagement />} />
+                    <Route path="/metermanagementE" element={<MetermanagementE />} />
+                    <Route path="/userrolemanagement" element={<Userrolemanagement />} />
+                    <Route path="/auditlogs" element={<Auditlogs />} />
+                    <Route path="/settingconfiguration" element={<Settingconfiguration />} />
 
                     <Route path="*" element={<NotFound404/> } />
                 </Route>
