@@ -4,110 +4,62 @@ import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton';
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import { RiUserAddLine } from "react-icons/ri";
 import Table from '../../../Components/ui/Table/Table';
-import { IoMdMore } from 'react-icons/io';
-import Moreaction from '../../../Components/PopUps/MoreAction/Moreaction';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
-import { setSearchTerm, setFilterBy } from '../../../redux/slices/data/dataSlice';
+import { usePagination } from '../../../hooks/usePagination';
+import { useFilter } from '../../../hooks/useFilter';
+import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
+import Inviteuser from '../../../Components/PopUps/InviteUser/Inviteuser';
 
 export default function Usermanagement() {
-  const dispatch = useDispatch();
-  const { users, searchTerm, filterBy } = useSelector(state => state.data);
+  const users = useSelector(state => state.data.users);
 
-  const [selectedUserId, setSelectedUserId] = useState(null);
-  const [isInviteModalOpen, setIsInviteModalOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Adjust this value as needed
+  const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(users);
 
-  const handleMoreActionClick = (e, userId) => {
-    setSelectedUserId(selectedUserId === userId ? null : userId);
-  };
+  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
 
   const handleInviteUserClick = () => {
-    setIsInviteModalOpen(true);
-  };
-
-  const closeMoreAction = () => {
-    setSelectedUserId(null);
-  };
-
-  const closeInviteModal = () => {
-    setIsInviteModalOpen(false);
+    alert('Invite User');
+    
   };
 
   const userActions = {
     title: 'More Actions',
-    render: (item) => (
-      <div className="space-x-2 flex justify-center relative">
-        <button
-          onClick={(e) => handleMoreActionClick(e, item.id)}
-          className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white rounded-full p-1 transition-colors duration-200"
-        >
-          <IoMdMore />
-        </button>
-        {selectedUserId === item.id && (
-          <div className="absolute right-0 top-full mt-2 z-10">
-            <Moreaction onClose={closeMoreAction} />
-          </div>
-        )}
-      </div>
-    ),
+    render: () => <MoreActionsButton />,
   };
 
-  // Filter data based on search
-  const filteredData = users.filter(item => {
-    if (!searchTerm) return true;
-    const propertyValue = item[filterBy];
-    const value = propertyValue ? propertyValue.toString().toLowerCase() : '';
-    return value.includes(searchTerm.toLowerCase());
-  });
-
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const paginatedData = filteredData.slice(startIndex, endIndex);
-
-  // Reset to page 1 when search term changes
-  React.useEffect(() => {
-    setCurrentPage(1);
-  }, [searchTerm, filterBy]);
 
   return (
-    <div className="p-4 bg-white dark:bg-zinc-950 min-h-screen transition-colors duration-300">
-      <div className='flex items-center justify-between'>
-        <p className='text-2xl font-bold dark:text-white'>User Management</p>
-        <div>
-          <Quickbutton
-            iconname={<RiUserAddLine />}
-            tag="Invite user"
-            onClick={handleInviteUserClick}
+    <div>
+      <div className="p-4 bg-white dark:bg-zinc-950 min-h-screen transition-colors duration-300">
+        <div className='flex items-center justify-between'>
+          <p className='text-2xl font-bold dark:text-white'>User Management</p>
+          <div>
+            <Quickbutton
+              iconname={<RiUserAddLine />}
+              tag="Invite user"
+              onClickFunc={handleInviteUserClick}
+            />
+          </div>
+        </div>
+
+        <div className='mt-5'>
+          <Searchbar
+            searchTerm={searchTerm}
+            onSearchChange={setSearchTerm}
+            selectedColumn={selectedColumn}
+            onColumnChange={setSelectedColumn}
+            columns={searchableColumns}
+            placeholder="Search users..."
           />
         </div>
-      </div>
-      
-      <div className='mt-5'>
-        <Searchbar
-          filterValue={filterBy}
-          onFilterChange={(e) => dispatch(setFilterBy(e.target.value))}
-          searchTerm={searchTerm}
-          onSearchChange={(e) => dispatch(setSearchTerm(e.target.value))}
-          placeholder="Search users..."
-        />
-      </div>
 
-      <div className='mt-7'>
-        <Table data={paginatedData} actionsColumn={userActions} />
+        <div>
+          <Table data={currentItems} actionsColumn={userActions} />
+          <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+        </div>
+          <Inviteuser />
+        {/* {isInviteModalOpen && <InviteUserModal onClose={closeInviteModal} />} */}
       </div>
-
-      {filteredData.length > itemsPerPage && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          setCurrentPage={setCurrentPage}
-        />
-      )}
-
-      {/* {isInviteModalOpen && <InviteUserModal onClose={closeInviteModal} />} */}
     </div>
   );
 }

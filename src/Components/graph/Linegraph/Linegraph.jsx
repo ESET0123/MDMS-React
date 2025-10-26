@@ -17,15 +17,9 @@ export default function Linegraph() {
     {month: "December", sales: 6000, expenses: 4000}
 ];
 
-// Determine chart color based on dark mode. Recharts needs static colors.
-// You'll need a way to pass the dark mode state, for example, from a context or prop.
-// For this example, we use a custom utility hook to get the theme.
-// A simpler approach would be to manage the theme with React state in a parent component.
-
-// Placeholder for dark mode state (you'll need to pass this from a parent or context)
 const isDarkMode = document.documentElement.classList.contains('dark');
 const chartStroke = isDarkMode ? 'white' : 'black';
-const chartFill = isDarkMode ? '#8884d8' : '#52ccf0ff'; // Example colors
+const chartFill = isDarkMode ? '#8884d8' : '#52ccf0ff';
 
     return (
         <div className='bg-zinc-50 dark:bg-zinc-900 flex w-full justify-center m-2 p-10'>

@@ -11,8 +11,9 @@ export default function Profiletab() {
     mobile: '',
   });
 
-  const [profilePicture, setProfilePicture] = useState(null); 
-  const fileInputRef = useRef(null); 
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,15 +30,32 @@ export default function Profiletab() {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      setProfilePicture(file); 
-      console.log('Selected file:', file.name);
+      setProfilePicture(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(profileData);
-    console.log('Submitted profile picture:', profilePicture);
+    
+    const formData = new FormData();
+    formData.append('name', profileData.name);
+    formData.append('email', profileData.email);
+    formData.append('mobile', profileData.mobile);
+    if (profilePicture) {
+      formData.append('profilePicture', profilePicture);
+    }
+
+    console.log('Form submitted with data:', {
+      ...profileData,
+      profilePicture: profilePicture?.name || 'No file selected'
+    });
+
+    alert('Profile updated successfully!');
   };
 
   return (

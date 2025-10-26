@@ -4,7 +4,7 @@ import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext';
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton';
 
 export default function Securitytab() {
-  const [passwordState, setPasswordState] = useState({
+  const [securityData, setSecurityData] = useState({
     currentPassword: '',
     newPassword: '',
     confirmPassword: '',
@@ -12,7 +12,7 @@ export default function Securitytab() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPasswordState(prevState => ({
+    setSecurityData(prevState => ({
       ...prevState,
       [name]: value,
     }));
@@ -20,9 +20,21 @@ export default function Securitytab() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //todo
-    console.log(passwordState);
+    
+    if (securityData.newPassword !== securityData.confirmPassword) {
+      alert('New passwords do not match!');
+      return;
+    }
+
+    console.log('Security settings updated:', securityData);
+    alert('Password changed successfully!');
+    setSecurityData({
+      currentPassword: '',
+      newPassword: '',
+      confirmPassword: '',
+    });
   };
+
 
   return (
     <div className='m-5 w-2/3 p-4 justify-self-center'>

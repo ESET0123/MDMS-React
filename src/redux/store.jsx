@@ -16,7 +16,9 @@ const rootReducer = combineReducers({
 
 const persistConfig = {
     key: 'root', 
-    storage
+    storage, 
+    whitelist: ['theme', 'language', 'data', 'pagination'],
+
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

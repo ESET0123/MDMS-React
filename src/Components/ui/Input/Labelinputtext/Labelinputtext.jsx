@@ -1,6 +1,6 @@
 import React, { useId } from 'react';
 
-export default function Labelinputtext({name, value, placeholder, label, onChangeFunc, type, }) {
+export default function Labelinputtext({ placeholder, name, type, value, onChange, label }) {
   const generatedId = useId();
 
   return (
@@ -11,14 +11,14 @@ export default function Labelinputtext({name, value, placeholder, label, onChang
         >
           {label?label:placeholder}:
         </label>
-        <input
-          id={generatedId}
+         <input
+          id={name}
+          name={name}
           type={type}
+          value={value}
+          onChange={onChange}
           placeholder={placeholder}
           className="border-gray-400 rounded-md dark:border-gray-700 input p-4 text-xs bg-white dark:bg-zinc-500 dark:text-white border-2 w-full focus:outline-none placeholder:text-black/25 dark:placeholder:text-gray-400"
-          name={name}
-          value={value}
-          onChange={onChangeFunc}
         />
       </div>
   );

@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';import Searchbar from '../../../Components/ui/SearchBar/Searchbar'
-import Table from '../../../Components/ui/Table/Table'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
+import Table from '../../../Components/ui/Table/Table';
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
+import { useFilter } from '../../../hooks/useFilter';
 
 export default function Metermanagement() {
     const meterData = useSelector(state => state.data?.metermanagementENT || []);
-    const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('meterData', meterData, 10);
+    
+    const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(meterData);
+
+    const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
     
     const viewPayActions = {
         title: 'More Actions',
@@ -19,7 +24,14 @@ export default function Metermanagement() {
     <div>
         <p className='font-bold text-xl'>Global Meter Management</p>
         <div className='my-4'>
-            <Searchbar/>
+             <Searchbar
+                searchTerm={searchTerm}
+                onSearchChange={setSearchTerm}
+                selectedColumn={selectedColumn}
+                onColumnChange={setSelectedColumn}
+                columns={searchableColumns}
+                placeholder="Search meters..."
+            />
         </div>
         <div>
             <Table data={currentItems} actionsColumn={viewPayActions} />
