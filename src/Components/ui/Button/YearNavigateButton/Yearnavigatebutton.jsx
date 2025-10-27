@@ -12,10 +12,10 @@ export default function YearNavigatebutton() {
   };
 
   return (
-    <div className="flex items-center justify-center gap-4 p-8">
+    <div className=" flex items-center justify-center gap-4 p-8">
       <button
         onClick={handlePreviousYear}
-        className="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
+        className="p-2  flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
         aria-label="Previous year"
       >
         <svg 
@@ -33,13 +33,13 @@ export default function YearNavigatebutton() {
         </svg>
       </button>
 
-      <div className="px-8 py-2 bg-gray-100 rounded-lg min-w-[100px] text-center">
+      <div className="px-4 py-1 bg-gray-100 rounded-lg min-w-[100px] text-center">
         <span className="text-lg font-medium text-gray-800">{year}</span>
       </div>
 
       <button
         onClick={handleNextYear}
-        className="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
+        className=" p-2 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
         aria-label="Next year"
       >
         <svg 

@@ -2,11 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import Table from '../../../Components/ui/Table/Table';
-import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
+import Linegraphcolor from '../../../Components/graph/Linegraph/Linegraphcolor';
+import YearNavigatebutton from '../../../Components/ui/Button/YearNavigateButton/Yearnavigatebutton';
 
 export default function Metermanagement() {
     const meterData = useSelector(state => state.data?.metermanagementENT || []);
@@ -38,10 +39,13 @@ export default function Metermanagement() {
             <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
          
         </div>
-       
-        <div>
-            <p className='my-2'>Each zones Trend of energy usage over time.</p>
-            <Linegraph />
+
+        <div className='w-3/4'>
+            <div className='flex items-center justify-between'>
+                <p className='my-2'>Each zones Trend of energy usage over time.</p>
+                < YearNavigatebutton />
+            </div>
+            <Linegraphcolor />
         </div>
     </div>
   )

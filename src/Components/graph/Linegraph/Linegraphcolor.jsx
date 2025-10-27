@@ -1,0 +1,88 @@
+import React from 'react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from 'recharts';
+
+export default function Linegraphcolor() {
+  const data = [
+    { location: "Mangalore", value: 52 },
+    { location: "Kotekar", value: 71 },
+    { location: "Pumpwell", value: 28 },
+    { location: "Deralakatte", value: 17 },
+    { location: "Padil", value: 29 },
+    { location: "Udupi", value: 65 },
+    { location: "Bantwal", value: 84 },
+    { location: "Suratkal", value: 77 }
+  ];
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-white px-3 py-2 rounded shadow-lg border border-gray-200">
+          <p className="text-sm font-semibold text-gray-800">{payload[0].payload.location}</p>
+          <p className="text-sm text-indigo-600">{payload[0].value}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <div className='bg-white dark:bg-zinc-900 flex w-full justify-center p-8'>
+      <div className='w-full max-w-4xl'>
+        <ResponsiveContainer width="100%" height={400}>
+          <AreaChart 
+            data={data}
+            margin={{ top: 10, right: 30, left: 0, bottom: 40 }}
+          >
+            <defs>
+              <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#8b9ff5" stopOpacity={0.4}/>
+                <stop offset="95%" stopColor="#8b9ff5" stopOpacity={0.1}/>
+              </linearGradient>
+            </defs>
+            
+            <CartesianGrid 
+              strokeDasharray="3 3" 
+              vertical={true}
+              stroke="#e5e7eb"
+            />
+            
+            <XAxis 
+              dataKey="location" 
+              axisLine={false}
+              tickLine={false}
+              tick={{ fill: '#6b7280', fontSize: 12 }}
+              dy={10}
+            />
+            
+            <YAxis 
+              axisLine={false}
+              tickLine={false}
+              tick={{ fill: '#6b7280', fontSize: 12 }}
+              domain={[0, 100]}
+              ticks={[0, 20, 40, 60, 80, 100]}
+            />
+            
+            <Tooltip content={<CustomTooltip />} />
+            
+            <Area 
+              type="monotone" 
+              dataKey="value" 
+              stroke="#8b9ff5" 
+              strokeWidth={2}
+              fill="url(#colorValue)"
+              dot={{ fill: '#8b9ff5', strokeWidth: 2, r: 4, stroke: '#fff' }}
+              activeDot={{ r: 6, fill: '#8b9ff5', stroke: '#fff', strokeWidth: 2 }}
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+        
+        <div className='flex justify-center items-center mt-4 gap-2'>
+          <div className='flex items-center gap-2'>
+            <div className='w-3 h-3 rounded-full' style={{ backgroundColor: '#8b9ff5' }}></div>
+            <span className='text-sm text-gray-600'>2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
