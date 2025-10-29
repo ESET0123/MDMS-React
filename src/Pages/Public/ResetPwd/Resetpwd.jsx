@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Inputtext from '../../../Components/ui/Input/Inputtext/Inputtext';
-import Submitbutton from '../../../Components/ui/Button/SubmitButton/Submitbutton';
+import Inputtext from '../../../components/ui/Input/Inputtext/Inputtext';
+import Submitbutton from '../../../components/ui/Button/SubmitButton/Submitbutton';
 
 export default function Resetpwd() {
   const [formData, setFormData] = useState({

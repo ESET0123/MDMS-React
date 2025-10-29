@@ -1,14 +1,15 @@
 import { useSelector } from 'react-redux';
-import Searchbar from '../../../Components/ui/SearchBar/Searchbar'
-import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
-import Table from '../../../Components/ui/Table/Table';
+import Searchbar from '../../../components/ui/SearchBar/Searchbar'
+import Quickbutton from '../../../components/ui/Button/QuickButton/Quickbutton'
+import Table from '../../../components/ui/table/Table';
 
 import { MdOutlineFileUpload } from "react-icons/md";
-import Pagination from '../../../Components/ui/Pagination/Pagination';
+import Pagination from '../../../components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
 
-import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
+// import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
 
 export default function Auditlogs() {
   const meterData = useSelector(state => state.data?.meterData || []);
@@ -18,7 +19,7 @@ export default function Auditlogs() {
   
     const viewPayActions = {
       title: 'More Actions',
-      render: () => <MoreActionsButton />,
+      render: () => <MoreActionButton />,
     };
   return (
     <div>

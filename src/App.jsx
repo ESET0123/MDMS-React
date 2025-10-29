@@ -3,7 +3,7 @@
 // // import { initDB } from './repo/indexedDB';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
-// import MainLayout from './Components/Layout/MainLayout/Mainlayout';
+// import MainLayout from './components/Layout/MainLayout/Mainlayout';
 // import LoginPage from './Pages/Public/LoginPage/LoginPage';
 // import Forgotpwd from './Pages/Public/ForgotPwd/Forgotpwd';
 // import Resetpwd from './Pages/Public/ResetPwd/Resetpwd';
@@ -18,9 +18,9 @@
 // import Settingnotification from './Pages/ZoneUser/SettingNotification/Settingnotification';
 // import Billpayment from './Pages/EndUser/BillPayment/Billpayment';
 // import NotFound404 from './utils/NotFound404/NotFound404';
-// import Profiletab from './Components/tab/ProfileTab/Profiletab';
-// import Securitytab from './Components/tab/SecurityTab/Securitytab';
-// import Notificationtab from './Components/tab/NotificationTab/Notificationtab';
+// import Profiletab from './components/tab/ProfileTab/Profiletab';
+// import Securitytab from './components/tab/SecurityTab/Securitytab';
+// import Notificationtab from './components/tab/NotificationTab/Notificationtab';
 
 // function App() {
 //   const { t, i18n } = useTranslation();

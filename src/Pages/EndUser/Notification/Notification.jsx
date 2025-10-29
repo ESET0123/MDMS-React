@@ -1,7 +1,7 @@
 // src/Notification.jsx
 import React from 'react';
-import Notificationcard from '../../../Components/Cards/NotificationCard/Notificationcard';
-import Notificationdetailedcard from '../../../Components/Cards/NotificationDetailedCard/Notificationdetailedcard';
+import Notificationcard from '../../../components/Cards/NotificationCard/Notificationcard';
+import Notificationdetailedcard from '../../../components/Cards/NotificationDetailedCard/Notificationdetailedcard';
 
 export default function Notification() {
 

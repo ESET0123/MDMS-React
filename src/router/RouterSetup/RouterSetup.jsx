@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import MainLayout from '../../Components/Layout/MainLayout/Mainlayout';
+import MainLayout from '../../components/Layout/MainLayout/Mainlayout';
 
 import LoginPage from '../../Pages/Public/LoginPage/LoginPage';
 import Forgotpwd from '../../Pages/Public/ForgotPwd/Forgotpwd';

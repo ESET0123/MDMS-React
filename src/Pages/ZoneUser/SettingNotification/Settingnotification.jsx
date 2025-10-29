@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import Settingtabzone from '../../../Components/tab/SettingTab/Settingtabzone';
-import Notificationtab from '../../../Components/tab/NotificationTab/Notificationtab';
+import Settingtabzone from '../../../components/tab/SettingTab/Settingtabzone';
+import Notificationtab from '../../../components/tab/NotificationTab/Notificationtab';
 
 
 export default function Settingnotification() {

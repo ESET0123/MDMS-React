@@ -1,57 +1,88 @@
 import React from 'react'
-import Dashboardcard from '../../../Components/Cards/DashboardCard/Dashboardcard'
-import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
+import { useSelector } from 'react-redux';
+
+import Dashboardcard from '../../../components/Cards/DashboardCard/Dashboardcard'
+import Quickbutton from '../../../components/ui/Button/QuickButton/Quickbutton'
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosSettings } from "react-icons/io";
 import { FaRegClock } from "react-icons/fa6";
 
-import Graphheader from '../../../Components/GraphHeader/Graphheader';
-import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
+import Graphheader from '../../../components/GraphHeader/Graphheader';
+import Linegraph from '../../../components/graph/Linegraph/Linegraph';
+import useDateFilter from '../../../hooks/useDateFilter';
 
 export default function Dashboard() {
-  return (
-    <div className='p-2 h-full '>
-        <div >
-            <p className='text-2xl font-bold my-4'>Welcome, xyz</p>
-        </div>
-        <div className='flex justify-between'>
-            <div>
-                <p>As of Oct 5, 2025</p>
-                <p>Zone: Bangalore North</p>
+
+    // const linegraphdata = [
+    //     { month: "January", sales: 4000, expenses: 2400 },
+    //     { month: "February", sales: 3000, expenses: 2600 },
+    //     { month: "March", sales: 2000, expenses: 2700 },
+    //     { month: "April", sales: 2500, expenses: 2100 },
+    //     { month: "May", sales: 3000, expenses: 2900 },
+    // ];
+    const data = useSelector((state) => state.data.linegraphdata) || [];
+
+    const lineConfiguration = [
+        { dataKey: 'sales', color: 'black' , fillcolor: 'black'},
+    ];
+
+    const billData = useSelector((state) => state.data.datedbillData) || [];
+
+    const { filteredData, selectedRange, setSelectedRange } = useDateFilter(
+        billData,
+        'date',
+        'day'
+    );
+    return (
+        <div className='p-2 h-full '>
+            <div >
+                <p className='text-2xl font-bold my-4'>Welcome, xyz</p>
+            </div>
+            <div className='flex justify-between'>
+                <div>
+                    <p>As of Oct 5, 2025</p>
+                    <p>Zone: Bangalore North</p>
+                </div>
+                <div>
+                    <p className='justify-self-center font-bold'>Last synced at 10:45 AM</p>
+                    <p className='justify-self-center'>Data Source: Smart Meter #1023</p>
+                </div>
+            </div>
+            <div className=' flex justify-self-center'>
+                <div className='flex flex-wrap gap-4 justify-start'>
+                    <Dashboardcard icon={<FaRegClock size="2rem" />} heading="256kWh" description="Current Consumption" />
+                    <Dashboardcard icon={<FaRegClock size="2rem" />} heading="Rs. 1230 Due on 12 Oct" description="This Month's Bill" />
+                    <Dashboardcard icon={<FaRegClock size="2rem" />} heading="Rs. 120 Pending" description="Outstanding Balance" />
+                    <Dashboardcard icon={<FaRegClock size="2rem" />} heading="Paid Rs. 1200 on 10 Sep" description="Last Payment" />
+                </div>
             </div>
             <div>
-                <p className='justify-self-center font-bold'>Last synced at 10:45 AM</p>
-                <p className='justify-self-center'>Data Source: Smart Meter #1023</p>
-            </div>
-        </div>
-        <div className=' flex justify-self-center'>
-            <div className='flex flex-wrap gap-4 justify-start'>
-            <Dashboardcard icon={<FaRegClock size="2rem" />}  heading="256kWh" description="Current Consumption"/>
-            <Dashboardcard icon={<FaRegClock size="2rem" />}  heading="Rs. 1230 Due on 12 Oct" description="This Month's Bill"/>
-            <Dashboardcard icon={<FaRegClock size="2rem" />}  heading="Rs. 120 Pending" description="Outstanding Balance"/>
-            <Dashboardcard icon={<FaRegClock size="2rem" />}  heading="Paid Rs. 1200 on 10 Sep" description="Last Payment"/>
-            </div>
-        </div>
-        <div>
-            <div>
-                <Graphheader title="Electricity Consumption Overview"/>
+                <div>
+                    <Graphheader title="Electricity Consumption Overview"
+                        buttons={['Day', 'Week', 'Month']}
+                        selected={selectedRange}
+                        onSelect={setSelectedRange} />
+                </div>
+                <div>
+                    <Linegraph 
+                        graphdata={data} 
+                        xaxisdatakey="month" 
+                        lineConfig={lineConfiguration} 
+                    />
+                </div>
             </div>
             <div>
-                <Linegraph/>
+                <div>
+                    <p className='font-bold text-xl'>Quick Actions</p>
+                </div>
+                <div className='flex'>
+                    <Quickbutton iconname={<IoIosAddCircleOutline />} tag="Pay Bill" />
+                    <Quickbutton iconname={<IoIosSettings />} tag="View Bill History" />
+                    <Quickbutton iconname={<IoIosSettings />} tag="View Detailed Usage" />
+                    <Quickbutton iconname={<IoIosSettings />} tag="Manage Notification" />
+                </div>
             </div>
         </div>
-        <div>
-            <div>
-                <p className='font-bold text-xl'>Quick Actions</p>
-            </div>
-            <div className='flex'>
-                <Quickbutton iconname={<IoIosAddCircleOutline />} tag="Pay Bill"/>
-                <Quickbutton iconname={<IoIosSettings />} tag="View Bill History"/>
-                <Quickbutton iconname={<IoIosSettings />} tag="View Detailed Usage"/>
-                <Quickbutton iconname={<IoIosSettings />} tag="Manage Notification" />
-            </div>
-        </div>
-    </div>
-  )
+    )
 }

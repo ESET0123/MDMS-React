@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboardcard from '../../../Components/Cards/DashboardCard/Dashboardcard';
+import Dashboardcard from '../../../components/Cards/DashboardCard/Dashboardcard';
 import { FaRegClock } from "react-icons/fa6";
 import { TbActivityHeartbeat } from "react-icons/tb";
 import { PiWarningOctagon } from "react-icons/pi";

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton';
-import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
+import Quickbutton from '../../../components/ui/Button/QuickButton/Quickbutton';
+import Searchbar from '../../../components/ui/SearchBar/Searchbar';
 import { RiUserAddLine } from "react-icons/ri";
-import Table from '../../../Components/ui/Table/Table';
-import Pagination from '../../../Components/ui/Pagination/Pagination';
+import Table from '../../../components/ui/table/Table';
+import Pagination from '../../../components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
-import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
-import Inviteuser from '../../../Components/PopUps/InviteUser/Inviteuser';
+import MoreActionButton from '../../../components/ui/Button/MoreActionButton/moreactionbutton';
+import Inviteuser from '../../../components/PopUps/InviteUser/Inviteuser';
 
 export default function Usermanagement() {
   const users = useSelector(state => state.data.users);
@@ -24,7 +24,7 @@ export default function Usermanagement() {
 
   const userActions = {
     title: 'More Actions',
-    render: () => <MoreActionsButton />,
+    render: () => <MoreActionButton />,
   };
 
 

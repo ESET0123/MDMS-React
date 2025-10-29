@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 // import { NavLink } from 'react-router-dom';
-import Profiletab from '../../../Components/tab/ProfileTab/Profiletab';
-import Securitytab from '../../../Components/tab/SecurityTab/Securitytab';
-import Notificationtab from '../../../Components/tab/NotificationTab/Notificationtab';
+import Profiletab from '../../../components/tab/ProfileTab/Profiletab';
+import Securitytab from '../../../components/tab/SecurityTab/Securitytab';
+import Notificationtab from '../../../components/tab/NotificationTab/Notificationtab';
 
 export default function Profilesettings() {
   const [activeTab, setActiveTab] = useState('profile');

@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
-import Table from '../../../Components/ui/Table/Table';
+import Quickbutton from '../../../components/ui/Button/QuickButton/Quickbutton'
+import Table from '../../../components/ui/table/Table';
 import { MdOutlineFileUpload } from "react-icons/md";
 import { useSelector } from 'react-redux';
 
-import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
-import Pagination from '../../../Components/ui/Pagination/Pagination';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
+import Pagination from '../../../components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 
-import YearNavigatebutton from '../../../Components/ui/Button/YearNavigateButton/Yearnavigatebutton';
-import Bargraph2 from '../../../Components/graph/BarGraph/Bargraph2';
+import YearNavigatebutton from '../../../components/ui/Button/YearNavigateButton/Yearnavigatebutton';
+import Bargraph2 from '../../../components/graph/BarGraph/Bargraph2';
+import Inviteuser from '../../../Components/PopUps/InviteUser/Inviteuser';
 
 export default function Userrolemanagement() {
 
@@ -18,7 +19,7 @@ export default function Userrolemanagement() {
     
     const viewPayActions = {
       title: 'More Actions',
-      render: () => <MoreActionsButton />,
+      render: () => <MoreActionButton />,
     };
   
   return (
@@ -38,6 +39,7 @@ export default function Userrolemanagement() {
           <YearNavigatebutton />
         </div>
         <Bargraph2 />
+        {/* <Inviteuser /> */}
     </div>
   )
 }

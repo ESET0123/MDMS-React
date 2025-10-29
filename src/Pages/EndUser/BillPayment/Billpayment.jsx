@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Table from '../../../Components/ui/Table/Table';
-import Pagination from '../../../Components/ui/Pagination/Pagination';
+import Table from '../../../components/ui/table/Table';
+import Pagination from '../../../components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 
 export default function Billpayment() {

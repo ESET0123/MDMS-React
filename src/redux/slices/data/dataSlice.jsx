@@ -9,6 +9,20 @@ const initialState = {
     { id: '5', name: 'Michael Brown', email: 'michael.b@example.com', role: 'User' },
     { id: '6', name: 'Michael Black', email: 'michael.bl@example.com', role: 'User' },
   ],
+   linegraphdata : [
+    { month: "January", sales: 4200, expenses: 2450 },
+    { month: "February", sales: 3100, expenses: 2650 },
+    { month: "March", sales: 2300, expenses: 2750 },
+    { month: "April", sales: 2650, expenses: 2150 },
+    { month: "May", sales: 3400, expenses: 2950 },
+    { month: "June", sales: 3800, expenses: 2850 },
+    { month: "July", sales: 4700, expenses: 3150 },
+    { month: "August", sales: 4500, expenses: 3050 },
+    { month: "September", sales: 3900, expenses: 2550 },
+    { month: "October", sales: 5200, expenses: 3250 },
+    { month: "November", sales: 5700, expenses: 3550 },
+    { month: "December", sales: 6200, expenses: 4050 }
+  ],
   bills: [
     { id: 1, name: 'Alice', email: 'alice@example.com' },
     { id: 2, name: 'Bob', email: 'bob@example.com' },
@@ -469,12 +483,12 @@ const dataSlice = createSlice({
   name: 'data',
   initialState,
   reducers: {
-    setSearchTerm: (state, action) => {
-      state.searchTerm = action.payload;
-    },
-    setFilterBy: (state, action) => {
-      state.filterBy = action.payload;
-    },
+    // setSearchTerm: (state, action) => {
+    //   state.searchTerm = action.payload;
+    // },
+    // setFilterBy: (state, action) => {
+    //   state.filterBy = action.payload;
+    // },
     // Add other actions here
   },
 });

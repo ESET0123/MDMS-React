@@ -12,7 +12,7 @@ export default function SearchBar({
   className = ''
 }) {
   return (
-    <div className={`my-4 flex w-full max-w-2xl items-center bg-zinc-100 dark:bg-zinc-800 rounded-lg shadow-sm divide-x divide-gray-300 dark:divide-zinc-700 transition-colors ${className}`}>
+    <div className={`my-4 flex w-2/4 max-w-2xl items-center bg-zinc-100 dark:bg-zinc-800 rounded-lg shadow-sm divide-x divide-gray-300 dark:divide-zinc-700 transition-colors ${className}`}>
       
       <div className="flex items-center relative">
         <select

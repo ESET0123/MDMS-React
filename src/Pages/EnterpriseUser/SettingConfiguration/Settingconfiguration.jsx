@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import Settingtabenterprise from '../../../Components/tab/SettingTab/Settingtabenterprise';
-import Notificationtab from '../../../Components/tab/NotificationTab/Notificationtab';
+import Settingtabenterprise from '../../../components/tab/SettingTab/Settingtabenterprise';
+import Notificationtab from '../../../components/tab/NotificationTab/Notificationtab';
 
 export default function Settingconfiguration() {
   const [activeTab, setActiveTab]= useState('setting');
@@ -11,7 +11,7 @@ export default function Settingconfiguration() {
     <div>
       <div>
         <p className='font-bold'>Settings & Notification</p>
-        <p>Manage orahanization-wide configurations and integrations</p>
+        <p>Manage organization-wide configurations and integrations</p>
       </div>
       <div>
         <div className='flex p-12 text-xl font-bold text-zinc-500 justify-around border-b pb-0 border-zinc-400 '>

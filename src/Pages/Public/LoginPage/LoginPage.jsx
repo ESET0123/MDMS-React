@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Inputtext from '../../../Components/ui/Input/Inputtext/Inputtext';
-import Labelinputtext from '../../../Components/ui/Input/Labelinputtext/Labelinputtext';
-import Inputcheck from '../../../Components/ui/Input/InputCheck/Inputcheck';
-import Submitbutton from '../../../Components/ui/Button/SubmitButton/Submitbutton';
+import Inputtext from '../../../components/ui/Input/Inputtext/Inputtext';
+import Labelinputtext from '../../../components/ui/Input/Labelinputtext/Labelinputtext';
+import Inputcheck from '../../../components/ui/Input/InputCheck/Inputcheck';
+import Submitbutton from '../../../components/ui/Button/SubmitButton/Submitbutton';
 import { Link, useNavigate } from 'react-router-dom'; 
 
 export default function LoginPage() {

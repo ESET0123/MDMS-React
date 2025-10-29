@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import { useMoreActions } from '../../../../hooks/useMoreActions';
-import Moreaction from '../../../PopUps/MoreAction/Moreaction';
+import Moreaction from '../../../PopUps/MoreAction/EnterpriseUser/Moreaction';
+import MoreactionVEA from '../../../PopUps/MoreAction/ZoneUser/MoreactionVEA';
+import MoreactionEAR from '../../../PopUps/MoreAction/ZoneUser/MoreactionEAR';
 import { IoMdMore } from 'react-icons/io';
 
-export default function MoreActionsButton() {
+export default function MoreActionButton() {
     const { isVisible, position, handleButtonClick, handleClose } = useMoreActions();
     const buttonRef = useRef(null);
     
@@ -22,7 +24,9 @@ export default function MoreActionsButton() {
             </button>
             {isVisible && (
                 <div style={{ top: position.top, left: position.left }} className="fixed z-10">
-                    <Moreaction onClose={handleClose} />
+                    {/* <Moreaction onClose={handleClose} /> */}
+                    {/* <MoreactionVEA onClose={handleClose} /> */}
+                    <MoreactionEAR onClose={handleClose} />
                 </div>
             )}
         </div>

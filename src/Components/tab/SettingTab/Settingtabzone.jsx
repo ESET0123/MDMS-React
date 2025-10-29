@@ -6,6 +6,10 @@ import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton'
 export default function Settingtabzone() {
   return (
     <div>
+      <div className='my-2 '>
+        <p className='font-bold'>Alert Thresholds</p>
+        <p>Set consumption limits that trigger automatic alerts for meters in your zone.</p>
+      </div>
       <div className='flex flex-wrap'>
         <Inputrange title="High Consumption Threshold (kWh)" minvalue={0} maxvalue={1000} />
         <Inputrange title="Low Consumption Threshold (kWh)" minvalue={0} maxvalue={1000} />

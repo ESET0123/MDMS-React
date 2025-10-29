@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Table from '../../../Components/ui/Table/Table';
-import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
-import Pagination from '../../../Components/ui/Pagination/Pagination';
+import Table from '../../../components/ui/table/Table';
+
+import Quickbutton from '../../../components/ui/Button/QuickButton/Quickbutton'
+import Pagination from '../../../components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
+import { MdOutlineFileUpload, MdOutlineFileDownload } from "react-icons/md";
+import { MdBlockFlipped } from "react-icons/md";
 
-import { IoIosAddCircleOutline } from "react-icons/io";
-import { IoIosSettings } from "react-icons/io";
-
-import MoreActionsButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
-
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
 
 export default function Metermanagement() {
   const meterData = useSelector(state => state.data?.meterData || []);
@@ -17,7 +16,7 @@ export default function Metermanagement() {
   
   const viewPayActions = {
     title: 'More Actions',
-    render: () => <MoreActionsButton />,
+    render: () => <MoreActionButton />,
   };
 
   return (
@@ -41,8 +40,9 @@ export default function Metermanagement() {
         </div>
         <div>
             <div className='flex'>
-                <Quickbutton msg="clicked" iconname={<IoIosAddCircleOutline />} tag="Add meter"/>
-                <Quickbutton msg="clicked" iconname={<IoIosSettings />} tag="Generate Report"/>
+                <Quickbutton iconname={<MdOutlineFileDownload />} tag="Import CSV"/>
+                <Quickbutton iconname={<MdOutlineFileUpload />} tag="Export CSV"/>
+                <Quickbutton iconname={<MdBlockFlipped />} tag="De-Activate meters"/>
             </div>
         </div>
       </div>

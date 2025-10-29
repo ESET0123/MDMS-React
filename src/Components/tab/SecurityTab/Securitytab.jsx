@@ -42,9 +42,9 @@ export default function Securitytab() {
         <FaRegUser color='white' size='5rem'/>
       </div>
       <form className='p-4' onSubmit={handleSubmit}>
-        <Labelinputtext placeholder="Current Password" type="password" name="currentPassword" value={passwordState.currentPassword}  onChange={handleChange} />
-        <Labelinputtext placeholder="New Password" type="password" name="newPassword" value={passwordState.newPassword} onChange={handleChange} />
-        <Labelinputtext placeholder="Confirm Password" type="password" name="confirmPassword" value={passwordState.confirmPassword} onChange={handleChange} />
+        <Labelinputtext placeholder="Current Password" type="password" name="currentPassword" value={securityData.currentPassword}  onChange={handleChange} />
+        <Labelinputtext placeholder="New Password" type="password" name="newPassword" value={securityData.newPassword} onChange={handleChange} />
+        <Labelinputtext placeholder="Confirm Password" type="password" name="confirmPassword" value={securityData.confirmPassword} onChange={handleChange} />
         <Submitbutton title="Save and continue"/>
       </form>
     </div>
