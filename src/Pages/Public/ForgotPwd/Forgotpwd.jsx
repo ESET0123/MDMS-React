@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Inputtext from '../../../components/ui/Input/Inputtext/Inputtext';
-import Submitbutton from '../../../components/ui/Button/SubmitButton/Submitbutton';
+import Inputtext from '../../../Components/ui/Input/Inputtext/Inputtext';
+import Submitbutton from '../../../Components/ui/Button/SubmitButton/Submitbutton';
 
 export default function Forgotpwd() {
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ export default function Forgotpwd() {
               type="email"
               name="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChangeFunc={(e) => setEmail(e.target.value)}
             />
             <Link to='/login' className='text-blue-600 font-bold'>login</Link>
             <Submitbutton title="send reset link"/>

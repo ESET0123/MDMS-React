@@ -10,10 +10,13 @@ import { usePagination } from '../../../hooks/usePagination';
 
 import YearNavigatebutton from '../../../components/ui/Button/YearNavigateButton/Yearnavigatebutton';
 import Bargraph2 from '../../../components/graph/BarGraph/Bargraph2';
+import ExportCsvButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportCsvButton';
 import Inviteuser from '../../../Components/PopUps/InviteUser/Inviteuser';
+import  usePopup  from '../../../hooks/usePopup'
+import Popup from '../../../Components/PopUps/Popup';
 
 export default function Userrolemanagement() {
-
+    const invitePopup = usePopup() ;
     const userroleData = useSelector(state => state.data?.metermanagementENT || []);
     const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('userroleData', userroleData, 10);
     
@@ -27,8 +30,8 @@ export default function Userrolemanagement() {
       <div className='flex items-center justify-between'>
         <p className='font-bold text-xl'>User and Role Management</p>
         <div className='flex'>
-              <Quickbutton iconname={<MdOutlineFileUpload />} tag="Export as CSV"/>
-              <Quickbutton iconname={<MdOutlineFileUpload />} tag="Invite User"/>
+              <ExportCsvButton data={currentItems} filename="userrole_data.csv" />
+              <Quickbutton iconname={<MdOutlineFileUpload />} tag="Invite User" onClickFunc={invitePopup.openPopup}/>
         </div>
       </div>
         <Table data={currentItems} actionsColumn={viewPayActions} />
@@ -39,7 +42,9 @@ export default function Userrolemanagement() {
           <YearNavigatebutton />
         </div>
         <Bargraph2 />
-        {/* <Inviteuser /> */}
+        <Popup isOpen={invitePopup.isOpen} onClose={invitePopup.closePopup}>
+          <Inviteuser />
+        </Popup>
     </div>
   )
 }

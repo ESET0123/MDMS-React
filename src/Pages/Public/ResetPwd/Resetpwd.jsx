@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Inputtext from '../../../components/ui/Input/Inputtext/Inputtext';
-import Submitbutton from '../../../components/ui/Button/SubmitButton/Submitbutton';
+import Inputtext from '../../../Components/ui/Input/Inputtext/Inputtext';
+import Submitbutton from '../../../Components/ui/Button/SubmitButton/Submitbutton';
 
 export default function Resetpwd() {
   const [formData, setFormData] = useState({
@@ -30,14 +30,14 @@ export default function Resetpwd() {
               name="email"
               type="email"
               value={formData.email}
-              onChange={handleChange}
+              onChangeFunc={handleChange}
             />
             <Inputtext
               placeholder="Enter your new password"
               name="newPassword"
               type="password"
               value={formData.newPassword}
-              onChange={handleChange}
+              onChangeFunc={handleChange}
             />
             <Submitbutton title="Update password"/>
         </form>

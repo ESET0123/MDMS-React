@@ -39,11 +39,11 @@ export default function Inviteuser() {
         </div>
       </div>
       
-      < Submitbutton  title={<div className='flex items-center'>
-        <HiOutlineUserAdd className="w-5 h-5" />
-        <span className='ml-2'>Invite User</span></div>}/>
-              
+      < Submitbutton>
+              <HiOutlineUserAdd className="w-5 h-5" />
+        <span>Invite User</span>
 
+      </Submitbutton>
     </div>
   );
 }

@@ -7,11 +7,15 @@ import Table from '../../../components/ui/table/Table';
 import Pagination from '../../../components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
-import MoreActionButton from '../../../components/ui/Button/MoreActionButton/moreactionbutton';
-import Inviteuser from '../../../components/PopUps/InviteUser/Inviteuser';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
+import Inviteuser from '../../../Components/PopUps/InviteUser/Inviteuser';
+import  usePopup  from '../../../hooks/usePopup'
+import Popup from '../../../Components/PopUps/Popup';
 
 export default function Usermanagement() {
   const users = useSelector(state => state.data.users);
+
+  const invitePopup = usePopup() ;
 
   const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(users);
 
@@ -37,7 +41,7 @@ export default function Usermanagement() {
             <Quickbutton
               iconname={<RiUserAddLine />}
               tag="Invite user"
-              onClickFunc={handleInviteUserClick}
+              onClickFunc={invitePopup.openPopup}
             />
           </div>
         </div>
@@ -57,8 +61,10 @@ export default function Usermanagement() {
           <Table data={currentItems} actionsColumn={userActions} />
           <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
         </div>
-          <Inviteuser />
-        {/* {isInviteModalOpen && <InviteUserModal onClose={closeInviteModal} />} */}
+          {/* <Inviteuser /> */}
+          <Popup isOpen={invitePopup.isOpen} onClose={invitePopup.closePopup} >
+            <Inviteuser />
+          </Popup>
       </div>
     </div>
   );

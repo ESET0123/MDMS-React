@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 import Searchbar from '../../../components/ui/SearchBar/Searchbar'
-import Quickbutton from '../../../components/ui/Button/QuickButton/Quickbutton'
 import Table from '../../../components/ui/table/Table';
 
-import { MdOutlineFileUpload } from "react-icons/md";
 import Pagination from '../../../components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
 import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
+import ExportCsvButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportCsvButton';
+import ExportPdfButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportPdfButton';
 
 // import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
 
@@ -33,8 +33,10 @@ export default function Auditlogs() {
                 columns={searchableColumns}
                 placeholder="Search meters..." />
             <div className='flex flex-wrap'>
-                <Quickbutton iconname={<MdOutlineFileUpload />} tag="Export as CSV"/>
-                <Quickbutton iconname={<MdOutlineFileUpload />} tag="Export as PDF"/>
+                <ExportCsvButton data={currentItems} filename="audit_data.csv" />
+                <ExportPdfButton data={currentItems} filename="auditlog_data.pdf" title = 'Audit Log' />
+
+                {/* <Quickbutton iconname={<MdOutlineFileUpload />} tag="Export as PDF"/> */}
             </div>
         </div>
         <div>

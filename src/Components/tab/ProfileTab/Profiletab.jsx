@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { FaRegUser } from "react-icons/fa";
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton';
-import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext';
 import { MdModeEdit } from "react-icons/md";
+import Labelinputtext from '../../ui/input/Labelinputtext/Labelinputtext';
 
 export default function Profiletab() {
   const [profileData, setProfileData] = useState({
@@ -69,9 +69,9 @@ export default function Profiletab() {
             <input type="file" ref={fileInputRef} onChange={handleFileChange} accept="image/*" style={{ display: 'none' }} />
           </div>
           <div className='w-2/4 justify-self-center'>
-            <Labelinputtext placeholder="Name" name="name" type="text" value={profileData.name} onChange={handleChange} />
-            <Labelinputtext placeholder="Email" name="email" type="email" value={profileData.email} onChange={handleChange} />
-            <Labelinputtext placeholder="Mobile no." name="mobile" type="tel" value={profileData.mobile} onChange={handleChange} />
+            <Labelinputtext placeholder="Name" name="name" type="text" value={profileData.name} onChangeFunc={handleChange} />
+            <Labelinputtext placeholder="Email" name="email" type="email" value={profileData.email} onChangeFunc={handleChange} />
+            <Labelinputtext placeholder="Mobile no." name="mobile" type="tel" value={profileData.mobile} onChangeFunc={handleChange} />
             <Submitbutton title="Save and continue" />
           </div>
         </form>
