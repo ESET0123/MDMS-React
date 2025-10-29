@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Settingtabenterprise from '../../../Components/tab/SettingTab/Settingtabenterprise';
+import Settingtabenterprise from '../../../Components/tab/SettingTab/settingtabenterprise';
 import Notificationtab from '../../../Components/tab/NotificationTab/Notificationtab';
 
 export default function Settingconfiguration() {

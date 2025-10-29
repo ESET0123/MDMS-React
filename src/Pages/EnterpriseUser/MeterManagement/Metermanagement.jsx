@@ -16,6 +16,17 @@ export default function Metermanagement() {
 
     const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
 
+    const colorgraphdata = [
+    { location: "Mangalore", value: 52 },
+    { location: "Kotekar", value: 71 },
+    { location: "Pumpwell", value: 28 },
+    { location: "Deralakatte", value: 17 },
+    { location: "Padil", value: 29 },
+    { location: "Udupi", value: 65 },
+    { location: "Bantwal", value: 84 },
+    { location: "Suratkal", value: 77 }
+  ];
+
     const viewPayActions = {
         title: 'More Actions',
         render: () => <MoreActionButton />,
@@ -45,7 +56,7 @@ export default function Metermanagement() {
                     <p className='my-2'>Each zones Trend of energy usage over time.</p>
                     < YearNavigatebutton />
                 </div>
-                <Linegraphcolor />
+                <Linegraphcolor data={colorgraphdata} xAxisKey = 'location' yAxisKey = 'value'/>
             </div>
         </div>
     )

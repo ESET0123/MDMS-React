@@ -1,23 +1,13 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from 'recharts';
 
-export default function Linegraphcolor() {
-  const data = [
-    { location: "Mangalore", value: 52 },
-    { location: "Kotekar", value: 71 },
-    { location: "Pumpwell", value: 28 },
-    { location: "Deralakatte", value: 17 },
-    { location: "Padil", value: 29 },
-    { location: "Udupi", value: 65 },
-    { location: "Bantwal", value: 84 },
-    { location: "Suratkal", value: 77 }
-  ];
-
+export default function Linegraphcolor({ data = [],xAxisKey, yAxisKey }) {
+  
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
         <div className="bg-white px-3 py-2 rounded shadow-lg border border-gray-200">
-          <p className="text-sm font-semibold text-gray-800">{payload[0].payload.location}</p>
+          <p className="text-sm font-semibold text-gray-800">{payload[0].payload[xAxisKey]}</p>
           <p className="text-sm text-indigo-600">{payload[0].value}</p>
         </div>
       );
@@ -31,7 +21,7 @@ export default function Linegraphcolor() {
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart
             data={data}
-            margin={{ top: 10, right: 10, left: 0, bottom: 40 }}
+            margin={{ top: 0, right: 40, left: 0, bottom: 40 }}
           >
             <defs>
               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
@@ -44,10 +34,23 @@ export default function Linegraphcolor() {
               strokeDasharray="3 3"
               vertical={true}
               stroke="#e5e7eb"
+              verticalCoordinatesGenerator={(props) => {
+                const { width, offset } = props;
+                const { left, right } = offset;
+                const availableWidth = width - left - right;
+                const count = data.length;
+                const gap = availableWidth / count;
+                
+                const coordinates = [];
+                for (let i = 1; i < count; i++) {
+                  coordinates.push(left + gap * i);
+                }
+                return coordinates;
+              }}
             />
 
             <XAxis
-              dataKey="location"
+              dataKey={xAxisKey}
               axisLine={false}
               tickLine={false}
               padding={{ left: 40, right: 40 }}
@@ -67,7 +70,7 @@ export default function Linegraphcolor() {
 
             <Area
               type="monotone"
-              dataKey="value"
+              dataKey={yAxisKey}
               stroke="#8b9ff5"
               strokeWidth={2}
               fill="url(#colorValue)"
