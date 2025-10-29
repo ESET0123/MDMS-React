@@ -15,8 +15,8 @@ const rootReducer = combineReducers({
 });
 
 const persistConfig = {
-    key: 'root', 
-    storage, 
+    key: 'root',
+    storage,
     whitelist: ['theme', 'language', 'data', 'pagination'],
 
 };
@@ -24,13 +24,13 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) => 
-       getDefaultMiddleware({
-          serializableCheck: {
-              ignoredActions: [ PERSIST ],
-          },
-      })
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [PERSIST],
+            },
+        })
 });
 
 export const persistedStore = persistStore(store);

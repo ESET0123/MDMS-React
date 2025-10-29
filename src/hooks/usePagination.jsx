@@ -1,4 +1,3 @@
-// hooks/usePagination.js
 import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPaginationState, setCurrentPage, selectPaginatedData } from '../redux/slices/pagination/paginationSlice';
@@ -6,13 +5,13 @@ import { setPaginationState, setCurrentPage, selectPaginatedData } from '../redu
 export const usePagination = (name, data, defaultItemsPerPage = 10) => {
   const dispatch = useDispatch();
   const paginationState = useSelector(state => state.pagination?.paginationState?.[name]);
-  
+
   useEffect(() => {
     if (!paginationState) {
-      dispatch(setPaginationState({ 
-        name, 
-        currentPage: 1, 
-        itemsPerPage: defaultItemsPerPage 
+      dispatch(setPaginationState({
+        name,
+        currentPage: 1,
+        itemsPerPage: defaultItemsPerPage
       }));
     }
   }, [dispatch, paginationState, name, defaultItemsPerPage]);

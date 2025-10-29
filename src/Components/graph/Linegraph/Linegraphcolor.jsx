@@ -29,46 +29,46 @@ export default function Linegraphcolor() {
     <div className='bg-white dark:bg-zinc-900 flex w-full justify-center p-8'>
       <div className='w-full max-w-4xl'>
         <ResponsiveContainer width="100%" height={400}>
-          <AreaChart 
+          <AreaChart
             data={data}
             margin={{ top: 10, right: 10, left: 0, bottom: 40 }}
           >
             <defs>
               <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#8b9ff5" stopOpacity={0.4}/>
-                <stop offset="95%" stopColor="#8b9ff5" stopOpacity={0.1}/>
+                <stop offset="5%" stopColor="#8b9ff5" stopOpacity={0.4} />
+                <stop offset="95%" stopColor="#8b9ff5" stopOpacity={0.1} />
               </linearGradient>
             </defs>
-            
-            <CartesianGrid 
-              strokeDasharray="3 3" 
+
+            <CartesianGrid
+              strokeDasharray="3 3"
               vertical={true}
               stroke="#e5e7eb"
             />
-            
-            <XAxis 
-              dataKey="location" 
+
+            <XAxis
+              dataKey="location"
               axisLine={false}
               tickLine={false}
-              padding={{ left: 40, right: 40 }} 
+              padding={{ left: 40, right: 40 }}
               tick={{ fill: '#6b7280', fontSize: 12 }}
               dy={10}
             />
-            
-            <YAxis 
+
+            <YAxis
               axisLine={false}
               tickLine={false}
               tick={{ fill: '#6b7280', fontSize: 12 }}
               domain={[0, 100]}
               ticks={[0, 20, 40, 60, 80, 100]}
             />
-            
+
             <Tooltip content={<CustomTooltip />} />
-            
-            <Area 
-              type="monotone" 
-              dataKey="value" 
-              stroke="#8b9ff5" 
+
+            <Area
+              type="monotone"
+              dataKey="value"
+              stroke="#8b9ff5"
               strokeWidth={2}
               fill="url(#colorValue)"
               dot={{ fill: '#8b9ff5', strokeWidth: 2, r: 4, stroke: '#fff' }}
@@ -76,7 +76,7 @@ export default function Linegraphcolor() {
             />
           </AreaChart>
         </ResponsiveContainer>
-        
+
         <div className='flex justify-center items-center mt-4 gap-2'>
           <div className='flex items-center gap-2'>
             <div className='w-3 h-3 rounded-full' style={{ backgroundColor: '#8b9ff5' }}></div>

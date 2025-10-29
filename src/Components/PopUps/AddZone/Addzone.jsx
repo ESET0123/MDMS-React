@@ -45,7 +45,7 @@ export default function Addzone() {
             placeholder="Description here"
           />
         </div>
-        <Submitbutton title="Add Zone"/>
+        <Submitbutton title="Add Zone" />
       </div>
     </div>
   )

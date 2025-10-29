@@ -1,11 +1,11 @@
 import React from "react";
 import { IoMdSearch } from "react-icons/io";
 
-export default function SearchBar({ 
-  searchTerm, 
-  onSearchChange, 
-  selectedColumn, 
-  onColumnChange, 
+export default function SearchBar({
+  searchTerm,
+  onSearchChange,
+  selectedColumn,
+  onColumnChange,
   columns = [],
   placeholder = "Search...",
   showAllOption = true,
@@ -13,7 +13,6 @@ export default function SearchBar({
 }) {
   return (
     <div className={`my-4 flex w-2/4 max-w-2xl items-center bg-zinc-100 dark:bg-zinc-800 rounded-lg shadow-sm divide-x divide-gray-300 dark:divide-zinc-700 transition-colors ${className}`}>
-      
       <div className="flex items-center relative">
         <select
           id="search-filter"
@@ -42,13 +41,13 @@ export default function SearchBar({
 
       {/* Search input */}
       <div className='px-2 flex-grow flex items-center'>
-        <IoMdSearch size='1.5rem' className="text-zinc-500 dark:text-zinc-400"/>
-        <input 
-          type="text" 
-          value={searchTerm} 
-          onChange={(e) => onSearchChange(e.target.value)} 
-          placeholder={placeholder} 
-          className="w-full h-full p-2 text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 dark:placeholder-zinc-400 bg-transparent border-none focus:outline-none focus:ring-0" 
+        <IoMdSearch size='1.5rem' className="text-zinc-500 dark:text-zinc-400" />
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => onSearchChange(e.target.value)}
+          placeholder={placeholder}
+          className="w-full h-full p-2 text-zinc-900 dark:text-zinc-100 placeholder-zinc-500 dark:placeholder-zinc-400 bg-transparent border-none focus:outline-none focus:ring-0"
         />
         {searchTerm && (
           <button
@@ -62,7 +61,6 @@ export default function SearchBar({
           </button>
         )}
       </div>
-
     </div>
   );
 }

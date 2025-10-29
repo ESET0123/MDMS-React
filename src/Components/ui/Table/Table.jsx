@@ -1,5 +1,4 @@
 import React from 'react';
-import { IoMdMore } from "react-icons/io";
 
 const Table = ({ data, actionsColumn }) => {
   if (!data || data.length === 0) {
@@ -50,4 +49,3 @@ const Table = ({ data, actionsColumn }) => {
 };
 
 export default Table;
-

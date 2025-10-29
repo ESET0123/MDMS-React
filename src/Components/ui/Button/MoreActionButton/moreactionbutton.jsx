@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
 import { useMoreActions } from '../../../../hooks/useMoreActions';
 import Moreaction from '../../../PopUps/MoreAction/EnterpriseUser/Moreaction';
-import MoreactionVEA from '../../../PopUps/MoreAction/ZoneUser/MoreactionVEA';
-import MoreactionEAR from '../../../PopUps/MoreAction/ZoneUser/MoreactionEAR';
+import MoreactionEAR from '../../../PopUps/MoreAction/ZoneUser/MoreActionEAR';
+import MoreactionVEA from '../../../PopUps/MoreAction/ZoneUser/MoreActionVEA';
 import { IoMdMore } from 'react-icons/io';
 
 export default function MoreActionButton() {
     const { isVisible, position, handleButtonClick, handleClose } = useMoreActions();
     const buttonRef = useRef(null);
-    
+
     const handleMoreActionClick = (e) => {
         handleButtonClick(e);
     };

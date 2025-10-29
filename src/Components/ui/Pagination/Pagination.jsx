@@ -11,27 +11,26 @@ export default function Pagination({ currentPage, totalPages, setCurrentPage }) 
         className="px-4 py-2 rounded-md disabled:opacity-50 "
       >
         <div className='flex items-center'>
-              <GrFormPreviousLink />  Previous 
-          </div> 
+          <GrFormPreviousLink />  Previous
+        </div>
       </button>
       {Array.from({ length: totalPages }, (_, index) => (
         <button
           key={index + 1}
           onClick={() => setCurrentPage(index + 1)}
-          className={`px-4 py-2 rounded-md ${
-            currentPage === index + 1
+          className={`px-4 py-2 rounded-md ${currentPage === index + 1
               ? 'bg-gray-600 text-white dark:bg-gray-400'
               : ''
-          }`}
+            }`}
         >
           {index + 1}
         </button>
       ))}
-      <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages} 
-      className="px-4 py-2 rounded-md disabled:opacity-50">
-          <div className='flex items-center'>
-              Next <GrFormNextLink />
-          </div> 
+      <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages}
+        className="px-4 py-2 rounded-md disabled:opacity-50">
+        <div className='flex items-center'>
+          Next <GrFormNextLink />
+        </div>
       </button>
     </div>
   );

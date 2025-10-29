@@ -1,20 +1,20 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, CartesianGrid } from 'recharts';
 
-export default function Linegraph({ graphdata, xaxisdatakey, lineConfig}) {
+export default function Linegraph({ graphdata, xaxisdatakey, lineConfig }) {
     const isDarkMode = document.documentElement.classList.contains('dark');
     const chartStroke = isDarkMode ? 'white' : 'black';
 
     return (
         <div className='bg-zinc-50 dark:bg-zinc-900 flex w-full justify-center m-2 p-10'>
             <LineChart width={500} height={300} data={graphdata}>
-                <CartesianGrid vertical={false} stroke={isDarkMode ? '#4a4a4a' : '#ccc'}/>
+                <CartesianGrid vertical={false} stroke={isDarkMode ? '#4a4a4a' : '#ccc'} />
                 <XAxis dataKey={xaxisdatakey} stroke={chartStroke} />
-                <YAxis axisLine={false} stroke={chartStroke}/>
-                <Tooltip 
-                    contentStyle={{ 
-                        backgroundColor: isDarkMode ? '#333' : '#fff', 
-                        borderColor: isDarkMode ? '#555' : '#ccc' 
+                <YAxis axisLine={false} stroke={chartStroke} />
+                <Tooltip
+                    contentStyle={{
+                        backgroundColor: isDarkMode ? '#333' : '#fff',
+                        borderColor: isDarkMode ? '#555' : '#ccc'
                     }}
                     labelStyle={{ color: isDarkMode ? 'white' : 'black' }}
                 />

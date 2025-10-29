@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import Settingtabenterprise from '../../../components/tab/SettingTab/Settingtabenterprise';
-import Notificationtab from '../../../components/tab/NotificationTab/Notificationtab';
+import Settingtabenterprise from '../../../Components/tab/SettingTab/Settingtabenterprise';
+import Notificationtab from '../../../Components/tab/NotificationTab/Notificationtab';
 
 export default function Settingconfiguration() {
-  const [activeTab, setActiveTab]= useState('setting');
+  const [activeTab, setActiveTab] = useState('setting');
   const activeStyle = 'border-b-2 border-blue-700 text-blue-700 dark:text-white dark:border-white';
 
   return (
@@ -28,7 +28,7 @@ export default function Settingconfiguration() {
             Notification
           </button>
         </div>
-        
+
         <div className='p-4'>
           {activeTab === 'setting' && <Settingtabenterprise />}
           {activeTab === 'notification' && <Notificationtab />}

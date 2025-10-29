@@ -10,10 +10,10 @@ const ExportCsvButton = ({ data, filename, headers }) => {
       headers={headers}
       className="px-4 py-2 flex items-center border border-zinc-300 rounded-xl w-fit mr-4 my-4 hover:bg-zinc-100 transition-colors"
     >
-        <div className='flex items-center'>
-            <MdOutlineFileUpload />
-            <p className='ml-2'>Export as CSV</p>
-        </div>
+      <div className='flex items-center'>
+        <MdOutlineFileUpload />
+        <p className='ml-2'>Export as CSV</p>
+      </div>
     </CSVLink>
   );
 };

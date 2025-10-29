@@ -12,7 +12,7 @@ export default function Inviteuser() {
         <h2 className="font-bold text-xl mb-2">Invite User</h2>
         <p className="text-gray-600">This is a dialogue for inviting user</p>
       </div>
-      
+
       <div className="space-y-4 mb-6">
         <div>
           <Labelinputtext
@@ -21,7 +21,7 @@ export default function Inviteuser() {
             placeholder="abc@xyz.com"
           />
         </div>
-        
+
         <div>
           <Labelinputtext
             type="text"
@@ -29,7 +29,7 @@ export default function Inviteuser() {
             placeholder="end user"
           />
         </div>
-        
+
         <div>
           <Labelinputtext
             type="text"
@@ -38,11 +38,10 @@ export default function Inviteuser() {
           />
         </div>
       </div>
-      
-      < Submitbutton  title={<div className='flex items-center'>
+
+      < Submitbutton title={<div className='flex items-center'>
         <HiOutlineUserAdd className="w-5 h-5" />
-        <span className='ml-2'>Invite User</span></div>}/>
-              
+        <span className='ml-2'>Invite User</span></div>} />
 
     </div>
   );

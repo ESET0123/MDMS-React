@@ -1,20 +1,20 @@
 {
-     "translation": {
-        "MDMS":"MDMS",
-        "welcome": "Bienvenue",
-        "logout": "Se déconnecter",
-        "dashboard": "Tableau de bord",
-        "bill_payment": "Factures et paiement",
-        "meter_data": "Données de compteur",
-        "alert_notification": "Alerte et notification",
-        "profile_settings": "Profil et paramètres",
-        "meter_management": "Gestion des compteurs",
-        "user_management": "Gestion des utilisateurs",
-        "report_analytics": "Rapports et analyses",
-        "setting_notification": "Paramètres et notification",
-        "zone_management": "Gestion des zones",
-        "user_role_management": "Gestion des utilisateurs et des rôles",
-        "audit_logs": "Journaux d'audit",
-        "setting_configuration": "Paramètres et configuration"
-      }
+  "translation": {
+    "MDMS": "MDMS",
+    "welcome": "Bienvenue",
+    "logout": "Se déconnecter",
+    "dashboard": "Tableau de bord",
+    "bill_payment": "Factures et paiement",
+    "meter_data": "Données de compteur",
+    "alert_notification": "Alerte et notification",
+    "profile_settings": "Profil et paramètres",
+    "meter_management": "Gestion des compteurs",
+    "user_management": "Gestion des utilisateurs",
+    "report_analytics": "Rapports et analyses",
+    "setting_notification": "Paramètres et notification",
+    "zone_management": "Gestion des zones",
+    "user_role_management": "Gestion des utilisateurs et des rôles",
+    "audit_logs": "Journaux d'audit",
+    "setting_configuration": "Paramètres et configuration"
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Inputrange from '../../ui/Input/InputRange/Inputrange'
-import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext'
+import Labelinputtext from '../../ui/input/Labelinputtext/Labelinputtext'
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton'
 
 export default function Settingtabzone() {

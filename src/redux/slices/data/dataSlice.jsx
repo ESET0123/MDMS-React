@@ -9,7 +9,7 @@ const initialState = {
     { id: '5', name: 'Michael Brown', email: 'michael.b@example.com', role: 'User' },
     { id: '6', name: 'Michael Black', email: 'michael.bl@example.com', role: 'User' },
   ],
-   linegraphdata : [
+  linegraphdata: [
     { month: "January", sales: 4200, expenses: 2450 },
     { month: "February", sales: 3100, expenses: 2650 },
     { month: "March", sales: 2300, expenses: 2750 },
@@ -35,7 +35,7 @@ const initialState = {
     { id: 9, name: 'Isaac', email: 'isaac@example.com' },
     { id: 10, name: 'Jane', email: 'jane@example.com' },
   ],
-  billDataWithDetails : [
+  billDataWithDetails: [
     {
       date: '2025-09-01',
       reading: 1540,
@@ -73,7 +73,7 @@ const initialState = {
       notes: 'Lower usage in spring.',
     },
   ],
-  meterData : [
+  meterData: [
     {
       meterId: 'M-001',
       zone: 'Zone A',
@@ -182,7 +182,7 @@ const initialState = {
       "Status": "De-Activated"
     }
   ],
-  zonemanagementData : [
+  zonemanagementData: [
     {
       "Zone ID": 123,
       "Zone name": "Mangalore",
@@ -253,8 +253,8 @@ const initialState = {
       "Total Meters": 4,
       "Status": "De-Activated"
     }
-  ], 
-  metermanagementENT : [
+  ],
+  metermanagementENT: [
     {
       "Meter ID": 123,
       "Zone": "Mangalore",
@@ -466,7 +466,7 @@ const initialState = {
       "Last Reading": "2025-10-15T15:15:15Z"
     }
   ],
-  datedbillData : [
+  datedbillData: [
     { id: 1, date: '2025-10-26', usage: 150, cost: 45 },
     { id: 2, date: '2025-10-25', usage: 120, cost: 36 },
     { id: 3, date: '2025-10-24', usage: 180, cost: 54 },

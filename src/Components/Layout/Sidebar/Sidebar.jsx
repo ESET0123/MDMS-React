@@ -6,10 +6,9 @@ export default function Sidebar() {
   const { t, i18n } = useTranslation();
 
   const getNavClassNames = ({ isActive }) =>
-    `flex pt-4 text-md transition-colors duration-300 ${
-      isActive
-        ? 'font-bold text-zinc-800 dark:text-white'
-        : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-white'
+    `flex pt-4 text-md transition-colors duration-300 ${isActive
+      ? 'font-bold text-zinc-800 dark:text-white'
+      : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-white'
     }`;
 
   return (
@@ -30,8 +29,8 @@ export default function Sidebar() {
       <NavLink to="/usermanagement" className={getNavClassNames}>{t('user_management')}</NavLink>
       <NavLink to="/reportanalytics" className={getNavClassNames}>{t('report_analytics')}</NavLink>
       <NavLink to="/settingnotification" className={getNavClassNames}>{t('setting_notification')}</NavLink>
-      
-        <p>-----------</p>
+
+      <p>-----------</p>
 
       {/* Enterprise user */}
       <NavLink to="/dashboardE" className={getNavClassNames}>{t('dashboard')}</NavLink>

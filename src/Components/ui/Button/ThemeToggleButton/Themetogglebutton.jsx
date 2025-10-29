@@ -5,13 +5,11 @@ import ToggleButton from '../ToggleButton/ToggleButton'
 
 export default function ThemeToggleButton() {
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
-  
+
   const dispatch = useDispatch();
 
   const handleToggle = () => {
     dispatch(toggleDarkMode());
-    // console.log({isDarkMode});
-    
   };
 
   return (

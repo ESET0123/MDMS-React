@@ -10,14 +10,12 @@ export default function MainLayout() {
   return (
     <div className='flex flex-col min-h-screen'>
       <Header />
-      
       <div className='flex flex-grow '>
         {!isLoginPage && (
           <div className='w-1/5'>
             <Sidebar />
           </div>
         )}
-        
         <div className={`m-5 p-6 overflow-auto ${isLoginPage ? 'w-full' : 'w-4/5'}`}>
           <Outlet />
         </div>

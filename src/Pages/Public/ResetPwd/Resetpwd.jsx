@@ -23,24 +23,24 @@ export default function Resetpwd() {
 
   return (
     <div className='flex-column justify-self-center py-8 w-2/4'>
-        <p className='justify-self-center text-2xl'>Reset password</p>
-        <form onSubmit={handleSubmit} className='flex-column'>
-            <Inputtext
-              placeholder="Email"
-              name="email"
-              type="email"
-              value={formData.email}
-              onChangeFunc={handleChange}
-            />
-            <Inputtext
-              placeholder="Enter your new password"
-              name="newPassword"
-              type="password"
-              value={formData.newPassword}
-              onChangeFunc={handleChange}
-            />
-            <Submitbutton title="Update password"/>
-        </form>
+      <p className='justify-self-center text-2xl'>Reset password</p>
+      <form onSubmit={handleSubmit} className='flex-column'>
+        <Inputtext
+          placeholder="Email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChangeFunc={handleChange}
+        />
+        <Inputtext
+          placeholder="Enter your new password"
+          name="newPassword"
+          type="password"
+          value={formData.newPassword}
+          onChangeFunc={handleChange}
+        />
+        <Submitbutton title="Update password" />
+      </form>
     </div>
   );
 }

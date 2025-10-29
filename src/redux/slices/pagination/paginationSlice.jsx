@@ -1,4 +1,3 @@
-// redux/slices/pagination/paginationSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
 const paginationSlice = createSlice({
@@ -30,8 +29,7 @@ const paginationSlice = createSlice({
 export const { setPaginationState, setCurrentPage, setItemsPerPage } = paginationSlice.actions;
 export default paginationSlice.reducer;
 
-// Selectors
-export const selectPaginationState = (state, name) => 
+export const selectPaginationState = (state, name) =>
   state.pagination?.paginationState?.[name];
 
 export const selectPaginatedData = (state, name, data) => {

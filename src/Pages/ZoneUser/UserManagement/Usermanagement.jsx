@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Quickbutton from '../../../components/ui/Button/QuickButton/Quickbutton';
-import Searchbar from '../../../components/ui/SearchBar/Searchbar';
+import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton';
+import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import { RiUserAddLine } from "react-icons/ri";
-import Table from '../../../components/ui/table/Table';
-import Pagination from '../../../components/ui/Pagination/Pagination';
+import Table from '../../../Components/ui/Table/Table';
+import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
-import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/moreactionbutton';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
 import Inviteuser from '../../../Components/PopUps/InviteUser/Inviteuser';
-import  usePopup  from '../../../hooks/usePopup'
+import usePopup from '../../../hooks/usePopup'
 import Popup from '../../../Components/PopUps/Popup';
 
 export default function Usermanagement() {
   const users = useSelector(state => state.data.users);
 
-  const invitePopup = usePopup() ;
+  const invitePopup = usePopup();
 
   const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(users);
 
@@ -23,7 +23,7 @@ export default function Usermanagement() {
 
   const handleInviteUserClick = () => {
     alert('Invite User');
-    
+
   };
 
   const userActions = {
@@ -61,10 +61,10 @@ export default function Usermanagement() {
           <Table data={currentItems} actionsColumn={userActions} />
           <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
         </div>
-          {/* <Inviteuser /> */}
-          <Popup isOpen={invitePopup.isOpen} onClose={invitePopup.closePopup} >
-            <Inviteuser />
-          </Popup>
+        {/* <Inviteuser /> */}
+        <Popup isOpen={invitePopup.isOpen} onClose={invitePopup.closePopup} >
+          <Inviteuser />
+        </Popup>
       </div>
     </div>
   );

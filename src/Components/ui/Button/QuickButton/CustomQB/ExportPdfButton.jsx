@@ -7,19 +7,19 @@ import Quickbutton from '../Quickbutton';
 const ExportPdfButton = ({ data, filename = 'export.pdf', title = 'Report' }) => {
   const handleExport = () => {
     if (!data || data.length === 0) {
-    //   console.error('No data provided to generate PDF.');
+      //   console.error('No data provided to generate PDF.');
       alert('No data available to export');
       return;
     }
 
     try {
       const doc = new jsPDF();
-      
+
       // Get headers from the first data object
       const headers = Object.keys(data[0]);
 
       // Map data to rows
-      const body = data.map(item => 
+      const body = data.map(item =>
         headers.map(header => {
           const value = item[header];
           // Handle arrays, objects, null, undefined
@@ -47,16 +47,16 @@ const ExportPdfButton = ({ data, filename = 'export.pdf', title = 'Report' }) =>
       // Save the PDF
       doc.save(filename);
     } catch (error) {
-    //   console.error('Error generating PDF:', error);
+      //   console.error('Error generating PDF:', error);
       alert('Failed to generate PDF. Please try again.');
     }
   };
 
   return (
-    <Quickbutton 
-      iconname={<MdOutlineFileUpload />} 
-      tag="Export as PDF" 
-      onClickFunc={handleExport} 
+    <Quickbutton
+      iconname={<MdOutlineFileUpload />}
+      tag="Export as PDF"
+      onClickFunc={handleExport}
     />
   );
 };

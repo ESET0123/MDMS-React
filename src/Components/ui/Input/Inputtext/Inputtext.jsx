@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Inputtext({name, value, onChangeFunc, placeholder, type}) {
+export default function Inputtext({ name, value, onChangeFunc, placeholder, type }) {
   return (
     <div className='flex-column place-items-center justify-center w-full'>
       <input name={name} value={value} onChange={onChangeFunc}

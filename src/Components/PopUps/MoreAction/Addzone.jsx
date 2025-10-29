@@ -16,7 +16,7 @@ export default function Addzone() {
         <Inputtext placeholder="Admin" />
         <Inputtext placeholder="Address or Pincode" />
         <Inputtext placeholder="Description" />
-        <Submitbutton title="Add Zone"/>
+        <Submitbutton title="Add Zone" />
       </div>
     </div>
   )

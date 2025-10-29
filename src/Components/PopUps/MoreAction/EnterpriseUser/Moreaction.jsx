@@ -22,12 +22,12 @@ export default function Moreaction({ onClose }) {
     <div
       ref={popupRef}
       className='w-fit rounded-xl p-3 border border-zinc-200 bg-white shadow-lg z-50'>
-        
-        <button className='flex items-center gap-2 pb-1'><VscEye />View</button>
-        
-        <button  className='flex items-center gap-2  pb-1'><MdEdit/> Edit</button>
-        
-        <button  className='flex items-center gap-2  pb-1 text-red-500 '> <RiDeleteBinLine color='red' /> Delete</button>
+
+      <button className='flex items-center gap-2 pb-1'><VscEye />View</button>
+
+      <button className='flex items-center gap-2  pb-1'><MdEdit /> Edit</button>
+
+      <button className='flex items-center gap-2  pb-1 text-red-500 '> <RiDeleteBinLine color='red' /> Delete</button>
     </div>
   );
 }

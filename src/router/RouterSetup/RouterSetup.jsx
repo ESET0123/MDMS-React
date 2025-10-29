@@ -1,6 +1,6 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import MainLayout from '../../components/Layout/MainLayout/Mainlayout';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainLayout from '../../Components/Layout/MainLayout/Mainlayout';
 
 import LoginPage from '../../Pages/Public/LoginPage/LoginPage';
 import Forgotpwd from '../../Pages/Public/ForgotPwd/Forgotpwd';
@@ -31,38 +31,38 @@ import NotFound404 from '../../utils/NotFound404/NotFound404';
 
 
 export default function RouterSetup() {
-  return (
-    <div>
-        <BrowserRouter>
-            <Routes>
-                <Route element={<MainLayout />}>
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/forgotpwd" element={<Forgotpwd />} />
-                    <Route path="/resetpwd" element={<Resetpwd />} />
+    return (
+        <div>
+            <BrowserRouter>
+                <Routes>
+                    <Route element={<MainLayout />}>
+                        <Route path="/login" element={<LoginPage />} />
+                        <Route path="/forgotpwd" element={<Forgotpwd />} />
+                        <Route path="/resetpwd" element={<Resetpwd />} />
 
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/meterdata" element={<Meterdata />} />
-                    <Route path="/billpayment" element={<Billpayment />} />
-                    <Route path="/notification" element={<Notification />} />
-                    <Route path="/profile" element={<Profilesettings />}/>
-                
-                    <Route path="/dashboardz" element={<Dashboardz />} />
-                    <Route path="/metermanagement" element={<Metermanagement />} />
-                    <Route path="/usermanagement" element={<Usermanagement />} />
-                    <Route path="/reportanalytics" element={<Reportanalytics />} />
-                    <Route path="/settingnotification" element={<Settingnotification />} />
+                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/meterdata" element={<Meterdata />} />
+                        <Route path="/billpayment" element={<Billpayment />} />
+                        <Route path="/notification" element={<Notification />} />
+                        <Route path="/profile" element={<Profilesettings />} />
 
-                    <Route path="/dashboardE" element={<DashboardE />} />
-                    <Route path="/zonemanagement" element={<Zonemanagement />} />
-                    <Route path="/metermanagementE" element={<MetermanagementE />} />
-                    <Route path="/userrolemanagement" element={<Userrolemanagement />} />
-                    <Route path="/auditlogs" element={<Auditlogs />} />
-                    <Route path="/settingconfiguration" element={<Settingconfiguration />} />
+                        <Route path="/dashboardz" element={<Dashboardz />} />
+                        <Route path="/metermanagement" element={<Metermanagement />} />
+                        <Route path="/usermanagement" element={<Usermanagement />} />
+                        <Route path="/reportanalytics" element={<Reportanalytics />} />
+                        <Route path="/settingnotification" element={<Settingnotification />} />
 
-                    <Route path="*" element={<NotFound404/> } />
-                </Route>
-            </Routes>
-            {/*<Routes>
+                        <Route path="/dashboardE" element={<DashboardE />} />
+                        <Route path="/zonemanagement" element={<Zonemanagement />} />
+                        <Route path="/metermanagementE" element={<MetermanagementE />} />
+                        <Route path="/userrolemanagement" element={<Userrolemanagement />} />
+                        <Route path="/auditlogs" element={<Auditlogs />} />
+                        <Route path="/settingconfiguration" element={<Settingconfiguration />} />
+
+                        <Route path="*" element={<NotFound404 />} />
+                    </Route>
+                </Routes>
+                {/*<Routes>
                 <Route element={<MainLayout/>}>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/billpayment" element={<Billpayment />} />
@@ -84,7 +84,7 @@ export default function RouterSetup() {
                 </Route>
                 <Route path="*" element={<NotFound404/> } />
             </Routes>  */}
-        </BrowserRouter>
-    </div>
-  )
+            </BrowserRouter>
+        </div>
+    )
 }

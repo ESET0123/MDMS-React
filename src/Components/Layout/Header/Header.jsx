@@ -10,16 +10,16 @@ import Languagedropdown from '../../ui/Button/LanguageDropdown/Languagedropdown'
 import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
-  const { t,i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
-  
+
   const isLoginPage = location.pathname === '/login' || location.pathname === '/forgotpwd' || location.pathname === '/resetpwd';
   const iconColor = isDarkMode ? 'white' : 'black';
 
   const handleButtonClick = () => {
-      navigate('/notification');
+    navigate('/notification');
   };
 
   return (
@@ -39,9 +39,9 @@ export default function Header() {
           </div>
           <Languagedropdown />
           {!isLoginPage && (
-           <button className='rounded-full p-2 mx-2 bg-white dark:bg-zinc-700' onClick={() =>{navigate('/login')}}>
-             <CiUser color={iconColor} size='2rem'/>
-           </button>
+            <button className='rounded-full p-2 mx-2 bg-white dark:bg-zinc-700' onClick={() => { navigate('/login') }}>
+              <CiUser color={iconColor} size='2rem' />
+            </button>
           )}
         </div>
       </div>

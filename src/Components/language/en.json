@@ -1,6 +1,6 @@
 {
   "translation": {
-    "MDMS":"MDMS",
+    "MDMS": "MDMS",
     "welcome": "Welcome",
     "logout": "Log out",
     "dashboard": "Dashboard",
@@ -16,6 +16,5 @@
     "user_role_management": "User & Role Management",
     "audit_logs": "Audit Logs",
     "setting_configuration": "Settings and Configuration"
-
   }
 }

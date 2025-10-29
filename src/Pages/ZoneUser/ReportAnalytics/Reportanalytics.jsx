@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Linegraph from '../../../components/graph/Linegraph/Linegraph';
-import Searchbar from '../../../components/ui/SearchBar/Searchbar';
-import Table from '../../../components/ui/table/Table';
-import Pagination from '../../../components/ui/Pagination/Pagination';
+import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
+import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
+import Table from '../../../Components/ui/Table/Table';
+import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
-import YearNavigatebutton from '../../../components/ui/Button/YearNavigateButton/Yearnavigatebutton';
+import YearNavigatebutton from '../../../Components/ui/Button/YearNavigateButton/Yearnavigatebutton';
 import Bargraph from '../../../Components/graph/BarGraph/Bargraph';
 import ExportCsvButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportCsvButton';
 import ExportPdfButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportPdfButton';
@@ -50,7 +50,7 @@ export default function Reportanalytics() {
           <p className='font-bold text-xl'>Reports</p>
           <div className='flex'>
             <ExportCsvButton data={filteredData} filename="report_data.csv" />
-            <ExportPdfButton data={filteredData} filename="report_data.pdf" title = 'Report & Analytics' />
+            <ExportPdfButton data={filteredData} filename="report_data.pdf" title='Report & Analytics' />
           </div>
         </div>
         <div className='mt-7'>
