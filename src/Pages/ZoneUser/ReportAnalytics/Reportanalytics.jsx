@@ -1,5 +1,4 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import Table from '../../../Components/ui/Table/Table';
@@ -12,12 +11,28 @@ import ExportCsvButton from '../../../Components/ui/Button/QuickButton/CustomQB/
 import ExportPdfButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportPdfButton';
 
 export default function Reportanalytics() {
-  const data = useSelector((state) => state.data.linegraphdata) || [];
+  const [graphData, setGraphData] = useState([]);
+  const [reportAnalyticsData, setReportAnalyticsData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/linegraphdata')
+      .then(res => res.json())
+      .then(data => setGraphData(data))
+      .catch(err => console.log(err));
+
+    fetch('http://localhost:8000/reportAnalyticsData')
+      .then(res => res.json())
+      .then(data => setReportAnalyticsData(data))
+      .catch(err => console.log(err));
+
+    // console.log(graphData);
+
+  }, []);
+
   const lineConfiguration = [
     { dataKey: 'sales', color: '#D05ACF', fillcolor: 'white' },
   ];
 
-  const reportAnalyticsData = useSelector(state => state.data?.reportAnalyticsData || []);
   const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(reportAnalyticsData);
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
 
@@ -26,7 +41,7 @@ export default function Reportanalytics() {
       <div>
         <p className='font-bold text-xl'>Reports and Analytics</p>
         <p className='text-l'>Trends of energy usage over time.</p>
-        <Linegraph graphdata={data} xaxisdatakey="month" lineConfig={lineConfiguration} />
+        <Linegraph graphdata={graphData} xaxisdatakey="month" lineConfig={lineConfiguration} />
       </div>
       <div>
         <p>Compare Zone consumption</p>
@@ -44,7 +59,7 @@ export default function Reportanalytics() {
           </div>
         </div>
         <div className='my-4 w-full'>
-          <Bargraph data={data} xdatakey="month" bardatakey="sales" />
+          <Bargraph data={graphData} xdatakey="month" bardatakey="sales" />
         </div>
         <div className='flex items-center justify-between'>
           <p className='font-bold text-xl'>Reports</p>

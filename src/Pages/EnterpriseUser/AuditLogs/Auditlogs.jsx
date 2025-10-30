@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar'
 import Table from '../../../Components/ui/Table/Table';
 
@@ -11,7 +11,15 @@ import ExportPdfButton from '../../../Components/ui/Button/QuickButton/CustomQB/
 
 
 export default function Auditlogs() {
-  const meterData = useSelector(state => state.data?.meterData || []);
+  // const meterData = useSelector(state => state.data?.meterData || []);
+  const [meterData, setMeterData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/meterData')
+      .then(res => res.json())
+      .then(data => setMeterData(data))
+      .catch(err => console.log(err));
+  }, []);
   const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(meterData);
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('meterData', meterData, 10);
 

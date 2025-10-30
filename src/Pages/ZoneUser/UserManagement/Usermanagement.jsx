@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react'
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton';
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import { RiUserAddLine } from "react-icons/ri";
@@ -13,7 +12,16 @@ import usePopup from '../../../hooks/usePopup'
 import Popup from '../../../Components/PopUps/Popup';
 
 export default function Usermanagement() {
-  const users = useSelector(state => state.data.users);
+  // const users = useSelector(state => state.data.users);
+
+  const [users, setUsers] = useState([]);
+  
+      useEffect(() => {
+          fetch('http://localhost:8000/users')
+              .then(res => res.json())
+              .then(data => setUsers(data))
+              .catch(err => console.log(err));
+      }, []);
 
   const invitePopup = usePopup();
 

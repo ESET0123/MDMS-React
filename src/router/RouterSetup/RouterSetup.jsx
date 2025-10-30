@@ -26,6 +26,7 @@ import Auditlogs from '../../Pages/EnterpriseUser/AuditLogs/Auditlogs';
 import Settingconfiguration from '../../Pages/EnterpriseUser/SettingConfiguration/Settingconfiguration';
 
 import NotFound404 from '../../utils/NotFound404/NotFound404';
+// import { AuthProvider } from '../../context/AuthContext';
 // import EndUserRouter from '../EndUserRouter/EndUserRouter';
 // import ZoneUserRouter from '../ZoneUserRouter/ZoneUserRouter';
 
@@ -34,6 +35,8 @@ export default function RouterSetup() {
     return (
         <div>
             <BrowserRouter>
+            {/* <AuthProvider > */}
+
                 <Routes>
                     <Route element={<MainLayout />}>
                         <Route path="/login" element={<LoginPage />} />
@@ -84,6 +87,8 @@ export default function RouterSetup() {
                 </Route>
                 <Route path="*" element={<NotFound404/> } />
             </Routes>  */}
+            {/* </AuthProvider> */}
+
             </BrowserRouter>
         </div>
     )

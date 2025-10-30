@@ -1,8 +1,8 @@
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from 'recharts';
 
-export default function Linegraphcolor({ data = [],xAxisKey, yAxisKey }) {
-  
+export default function Linegraphcolor({ data = [], xAxisKey, yAxisKey }) {
+
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -40,7 +40,7 @@ export default function Linegraphcolor({ data = [],xAxisKey, yAxisKey }) {
                 const availableWidth = width - left - right;
                 const count = data.length;
                 const gap = availableWidth / count;
-                
+
                 const coordinates = [];
                 for (let i = 1; i < count; i++) {
                   coordinates.push(left + gap * i);
@@ -62,8 +62,8 @@ export default function Linegraphcolor({ data = [],xAxisKey, yAxisKey }) {
               axisLine={false}
               tickLine={false}
               tick={{ fill: '#6b7280', fontSize: 12 }}
-              domain={[0, 100]}
-              ticks={[0, 20, 40, 60, 80, 100]}
+              domain={[0, 'auto']}
+              // ticks={[0, 20, 40, 60, 80, 100]}
             />
 
             <Tooltip content={<CustomTooltip />} />

@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
 import Table from '../../../Components/ui/Table/Table';
 import { MdOutlineFileUpload } from "react-icons/md";
-import { useSelector } from 'react-redux';
-
 import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
@@ -17,7 +15,15 @@ import Popup from '../../../Components/PopUps/Popup';
 
 export default function Userrolemanagement() {
   const invitePopup = usePopup();
-  const userroleData = useSelector(state => state.data?.metermanagementENT || []);
+  const [userroleData, setUserroleData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/metermanagementENT')
+      .then(res => res.json())
+      .then(data => setUserroleData(data))
+      .catch(err => console.log(err));
+  }, []);
+
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('userroleData', userroleData, 10);
 
   const viewPayActions = {

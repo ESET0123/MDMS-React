@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComposedChart, Bar, Line, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Cell, Tooltip } from 'recharts';
 
-export default function BagGraph2({ 
+export default function BagGraph2({
   data = [
     { name: 'Active', value: 85, color: '#8979FF' },
     { name: 'De-Activated', value: 50, color: '#ef4444' }
@@ -33,9 +33,9 @@ export default function BagGraph2({
         >
           <defs>
             <linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#8b9ff5" stopOpacity={0.4} />
-                <stop offset="95%" stopColor="#8b9ff5" stopOpacity={0.1} />
-              </linearGradient>
+              <stop offset="5%" stopColor="#8b9ff5" stopOpacity={0.4} />
+              <stop offset="95%" stopColor="#8b9ff5" stopOpacity={0.1} />
+            </linearGradient>
           </defs>
 
           <CartesianGrid
@@ -49,7 +49,7 @@ export default function BagGraph2({
               const availableWidth = width - left - right;
               const count = data.length;
               const gap = availableWidth / count;
-              
+
               const coordinates = [];
               for (let i = 1; i < count; i++) {
                 coordinates.push(left + gap * i);
@@ -70,8 +70,8 @@ export default function BagGraph2({
             tick={{ fill: '#6b7280', fontSize: 14 }}
             axisLine={{ stroke: '#d1d5db' }}
             tickLine={false}
-            domain={[0, 100]}
-            ticks={[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
+            domain={[0, 'auto']}
+            // ticks={[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
           />
 
           <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }} />

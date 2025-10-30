@@ -1,0 +1,851 @@
+{
+  "dashboardgraphdata": [
+    {
+      "value": 457,
+      "percentage": "19.4%"
+    },
+    {
+      "value": 348,
+      "percentage": "14.8%"
+    },
+    {
+      "value": 73,
+      "percentage": "3.1%"
+    },
+    {
+      "value": 222,
+      "percentage": "9.4%"
+    },
+    {
+      "value": 230,
+      "percentage": "9.8%"
+    },
+    {
+      "value": 81,
+      "percentage": "3.4%"
+    },
+    {
+      "value": 293,
+      "percentage": "12.5%"
+    },
+    {
+      "value": 364,
+      "percentage": "15.5%"
+    },
+    {
+      "value": 220,
+      "percentage": "9.3%"
+    },
+    {
+      "value": 65,
+      "percentage": "2.8%"
+    }
+  ],
+  "bill_payments": [
+    {
+      "month": "Sep 2025",
+      "amount": "1230.00",
+      "due_date": "12 Oct",
+      "status": "Pending"
+    },
+    {
+      "month": "Sep 2025",
+      "amount": "1230.00",
+      "due_date": "12 Oct",
+      "status": "Pending"
+    },
+    {
+      "month": "Sep 2025",
+      "amount": "1230.00",
+      "due_date": "12 Oct",
+      "status": "Pending"
+    },
+    {
+      "month": "Sep 2025",
+      "amount": "1230.00",
+      "due_date": "12 Oct",
+      "status": "Pending"
+    },
+    {
+      "month": "Aug 2025",
+      "amount": "1150.50",
+      "due_date": "12 Sep",
+      "status": "Paid"
+    },
+    {
+      "month": "Jul 2025",
+      "amount": "1340.25",
+      "due_date": "12 Aug",
+      "status": "Paid"
+    },
+    {
+      "month": "Jun 2025",
+      "amount": "1000.00",
+      "due_date": "12 Jul",
+      "status": "Paid"
+    },
+    {
+      "month": "May 2025",
+      "amount": "1250.75",
+      "due_date": "12 Jun",
+      "status": "Paid"
+    },
+    {
+      "month": "Apr 2025",
+      "amount": "1180.30",
+      "due_date": "12 May",
+      "status": "Paid"
+    },
+    {
+      "month": "Mar 2025",
+      "amount": "1300.00",
+      "due_date": "12 Apr",
+      "status": "Paid"
+    },
+    {
+      "month": "Feb 2025",
+      "amount": "1190.10",
+      "due_date": "12 Mar",
+      "status": "Paid"
+    },
+    {
+      "month": "Jan 2025",
+      "amount": "1225.00",
+      "due_date": "12 Feb",
+      "status": "Paid"
+    },
+    {
+      "month": "Dec 2024",
+      "amount": "1450.60",
+      "due_date": "12 Jan",
+      "status": "Paid"
+    },
+    {
+      "month": "Nov 2024",
+      "amount": "1100.00",
+      "due_date": "12 Dec",
+      "status": "Paid"
+    },
+    {
+      "month": "Oct 2024",
+      "amount": "1275.40",
+      "due_date": "12 Nov",
+      "status": "Paid"
+    },
+    {
+      "month": "Sep 2024",
+      "amount": "1350.00",
+      "due_date": "12 Oct",
+      "status": "Paid"
+    },
+    {
+      "month": "Aug 2024",
+      "amount": "1050.80",
+      "due_date": "12 Sep",
+      "status": "Paid"
+    },
+    {
+      "month": "Jul 2024",
+      "amount": "1200.00",
+      "due_date": "12 Aug",
+      "status": "Paid"
+    },
+    {
+      "month": "Jun 2024",
+      "amount": "1125.00",
+      "due_date": "12 Jul",
+      "status": "Paid"
+    },
+    {
+      "month": "May 2024",
+      "amount": "1375.50",
+      "due_date": "12 Jun",
+      "status": "Paid"
+    },
+    {
+      "month": "Apr 2024",
+      "amount": "1240.20",
+      "due_date": "12 May",
+      "status": "Paid"
+    },
+    {
+      "month": "Mar 2024",
+      "amount": "1080.00",
+      "due_date": "12 Apr",
+      "status": "Paid"
+    },
+    {
+      "month": "Feb 2024",
+      "amount": "1310.90",
+      "due_date": "12 Mar",
+      "status": "Paid"
+    },
+    {
+      "month": "Jan 2024",
+      "amount": "1290.15",
+      "due_date": "12 Feb",
+      "status": "Paid"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "role": "User"
+    },
+    {
+      "id": "3",
+      "name": "Alex Johnson",
+      "email": "alex.j@example.com",
+      "role": "User"
+    },
+    {
+      "id": "4",
+      "name": "Emily Davis",
+      "email": "emily.d@example.com",
+      "role": "Manager"
+    },
+    {
+      "id": "5",
+      "name": "Michael Brown",
+      "email": "michael.b@example.com",
+      "role": "User"
+    },
+    {
+      "id": "6",
+      "name": "Michael Black",
+      "email": "michael.bl@example.com",
+      "role": "User"
+    }
+  ],
+  "colorgraphdata": [
+    {
+      "location": "Mangalore",
+      "value": 52
+    },
+    {
+      "location": "Kotekar",
+      "value": 71
+    },
+    {
+      "location": "Pumpwell",
+      "value": 28
+    },
+    {
+      "location": "Deralakatte",
+      "value": 17
+    },
+    {
+      "location": "Padil",
+      "value": 29
+    },
+    {
+      "location": "Udupi",
+      "value": 65
+    },
+    {
+      "location": "Bantwal",
+      "value": 84
+    },
+    {
+      "location": "Suratkal",
+      "value": 77
+    }
+  ],
+  "linegraphdata": [
+    {
+      "month": "January",
+      "sales": 4200,
+      "expenses": 2450
+    },
+    {
+      "month": "February",
+      "sales": 3100,
+      "expenses": 2650
+    },
+    {
+      "month": "March",
+      "sales": 2300,
+      "expenses": 2750
+    },
+    {
+      "month": "April",
+      "sales": 2650,
+      "expenses": 2150
+    },
+    {
+      "month": "May",
+      "sales": 3400,
+      "expenses": 2950
+    },
+    {
+      "month": "June",
+      "sales": 3800,
+      "expenses": 2850
+    },
+    {
+      "month": "July",
+      "sales": 4700,
+      "expenses": 3150
+    },
+    {
+      "month": "August",
+      "sales": 4500,
+      "expenses": 3050
+    },
+    {
+      "month": "September",
+      "sales": 3900,
+      "expenses": 2550
+    },
+    {
+      "month": "October",
+      "sales": 5200,
+      "expenses": 3250
+    },
+    {
+      "month": "November",
+      "sales": 5700,
+      "expenses": 3550
+    },
+    {
+      "month": "December",
+      "sales": 6200,
+      "expenses": 4050
+    }
+  ],
+  "bills": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "email": "alice@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "email": "bob@example.com"
+    },
+    {
+      "id": 3,
+      "name": "Charlie",
+      "email": "charlie@example.com"
+    },
+    {
+      "id": 4,
+      "name": "Diana",
+      "email": "diana@example.com"
+    },
+    {
+      "id": 5,
+      "name": "Edward",
+      "email": "edward@example.com"
+    },
+    {
+      "id": 6,
+      "name": "Fiona",
+      "email": "fiona@example.com"
+    },
+    {
+      "id": 7,
+      "name": "George",
+      "email": "george@example.com"
+    },
+    {
+      "id": 8,
+      "name": "Hannah",
+      "email": "hannah@example.com"
+    },
+    {
+      "id": 9,
+      "name": "Isaac",
+      "email": "isaac@example.com"
+    },
+    {
+      "id": 10,
+      "name": "Jane",
+      "email": "jane@example.com"
+    }
+  ],
+  "billDataWithDetails": [
+    {
+      "date": "2025-09-01",
+      "reading": 1540,
+      "difference": 40,
+      "notes": "Standard usage this month."
+    },
+    {
+      "date": "2025-08-01",
+      "reading": 1500,
+      "difference": 55,
+      "notes": "Higher usage due to summer."
+    },
+    {
+      "date": "2025-07-01",
+      "reading": 1445,
+      "difference": 45,
+      "notes": "Average consumption."
+    },
+    {
+      "date": "2025-06-01",
+      "reading": 1400,
+      "difference": 50,
+      "notes": "Increased AC usage."
+    },
+    {
+      "date": "2025-05-01",
+      "reading": 1350,
+      "difference": 40,
+      "notes": "Normal usage."
+    },
+    {
+      "date": "2025-04-01",
+      "reading": 1310,
+      "difference": 35,
+      "notes": "Lower usage in spring."
+    }
+  ],
+  "meterData": [
+    {
+      "meterId": "M-001",
+      "zone": "Zone A",
+      "owner": "John Doe",
+      "status": "Active",
+      "lastReading": "256.4 kWh"
+    },
+    {
+      "meterId": "M-002",
+      "zone": "Zone B",
+      "owner": "Jane Smith",
+      "status": "Inactive",
+      "lastReading": "12.0 kWh"
+    },
+    {
+      "meterId": "M-003",
+      "zone": "Zone C",
+      "owner": "Alex Johnson",
+      "status": "Active",
+      "lastReading": "501.9 kWh"
+    },
+    {
+      "meterId": "M-004",
+      "zone": "Zone A",
+      "owner": "Emily Davis",
+      "status": "Active",
+      "lastReading": "345.1 kWh"
+    },
+    {
+      "meterId": "M-005",
+      "zone": "Zone B",
+      "owner": "Michael Brown",
+      "status": "Maintenance",
+      "lastReading": "189.7 kWh"
+    }
+  ],
+  "reportAnalyticsData": [
+    {
+      "Meter ID": 123,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "abc",
+      "Consumption": "24kWh",
+      "Status": "Active"
+    },
+    {
+      "Meter ID": 123,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "abc",
+      "Consumption": "24kWh",
+      "Status": "Active"
+    },
+    {
+      "Meter ID": 123,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "abc",
+      "Consumption": "24kWh",
+      "Status": "Active"
+    },
+    {
+      "Meter ID": 123,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "abc",
+      "Consumption": "24kWh",
+      "Status": "Active"
+    },
+    {
+      "Meter ID": 123,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "abc",
+      "Consumption": "24kWh",
+      "Status": "Active"
+    },
+    {
+      "Meter ID": 124,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "xyz",
+      "Consumption": "16kWh",
+      "Status": "De-Activated"
+    },
+    {
+      "Meter ID": 124,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "xyz",
+      "Consumption": "16kWh",
+      "Status": "De-Activated"
+    },
+    {
+      "Meter ID": 124,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "xyz",
+      "Consumption": "16kWh",
+      "Status": "De-Activated"
+    },
+    {
+      "Meter ID": 124,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "xyz",
+      "Consumption": "16kWh",
+      "Status": "De-Activated"
+    },
+    {
+      "Meter ID": 124,
+      "Dates": "2025-10-07T07:15:13Z",
+      "User name": "xyz",
+      "Consumption": "16kWh",
+      "Status": "De-Activated"
+    }
+  ],
+  "zonemanagementData": [
+    {
+      "Zone ID": 123,
+      "Zone name": "Mangalore",
+      "Admin assigned": "abc",
+      "Total Meters": 5,
+      "Status": "Active"
+    },
+    {
+      "Zone ID": 123,
+      "Zone name": "Mangalore",
+      "Admin assigned": "abc",
+      "Total Meters": 6,
+      "Status": "Active"
+    },
+    {
+      "Zone ID": 123,
+      "Zone name": "Mangalore",
+      "Admin assigned": "abc",
+      "Total Meters": 8,
+      "Status": "Active"
+    },
+    {
+      "Zone ID": 124,
+      "Zone name": "Mangalore",
+      "Admin assigned": "xyz",
+      "Total Meters": 12,
+      "Status": "Active"
+    },
+    {
+      "Zone ID": 124,
+      "Zone name": "Bajpe",
+      "Admin assigned": "xyz",
+      "Total Meters": 23,
+      "Status": "De-Activated"
+    },
+    {
+      "Zone ID": 124,
+      "Zone name": "Bajpe",
+      "Admin assigned": "xyz",
+      "Total Meters": 34,
+      "Status": "De-Activated"
+    },
+    {
+      "Zone ID": 124,
+      "Zone name": "Bajpe",
+      "Admin assigned": "xyz",
+      "Total Meters": 12,
+      "Status": "De-Activated"
+    },
+    {
+      "Zone ID": 124,
+      "Zone name": "Bajpe",
+      "Admin assigned": "xyz",
+      "Total Meters": 2,
+      "Status": "De-Activated"
+    },
+    {
+      "Zone ID": 124,
+      "Zone name": "Bajpe",
+      "Admin assigned": "xyz",
+      "Total Meters": 7,
+      "Status": "De-Activated"
+    },
+    {
+      "Zone ID": 124,
+      "Zone name": "Mangalore",
+      "Admin assigned": "xyz",
+      "Total Meters": 4,
+      "Status": "De-Activated"
+    }
+  ],
+  "metermanagementENT": [
+    {
+      "Meter ID": 123,
+      "Zone": "Mangalore",
+      "Owner": "abc",
+      "Status": "Active",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 123,
+      "Zone": "Mangalore",
+      "Owner": "abc",
+      "Status": "Active",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 123,
+      "Zone": "Mangalore",
+      "Owner": "abc",
+      "Status": "Active",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 124,
+      "Zone": "Mangalore",
+      "Owner": "xyz",
+      "Status": "Active",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 124,
+      "Zone": "Mangalore",
+      "Owner": "xyz",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 124,
+      "Zone": "Mangalore",
+      "Owner": "xyz",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 124,
+      "Zone": "Mangalore",
+      "Owner": "xyz",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 124,
+      "Zone": "Mangalore",
+      "Owner": "xyz",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 124,
+      "Zone": "Mangalore",
+      "Owner": "xyz",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 124,
+      "Zone": "Mangalore",
+      "Owner": "xyz",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-07T07:15:13Z"
+    },
+    {
+      "Meter ID": 125,
+      "Zone": "Mangalore",
+      "Owner": "pqr",
+      "Status": "Active",
+      "Last Reading": "2025-10-08T08:20:20Z"
+    },
+    {
+      "Meter ID": 125,
+      "Zone": "Mangalore",
+      "Owner": "pqr",
+      "Status": "Active",
+      "Last Reading": "2025-10-08T08:20:20Z"
+    },
+    {
+      "Meter ID": 125,
+      "Zone": "Mangalore",
+      "Owner": "pqr",
+      "Status": "Active",
+      "Last Reading": "2025-10-08T08:20:20Z"
+    },
+    {
+      "Meter ID": 126,
+      "Zone": "Udupi",
+      "Owner": "def",
+      "Status": "Active",
+      "Last Reading": "2025-10-09T09:30:30Z"
+    },
+    {
+      "Meter ID": 126,
+      "Zone": "Udupi",
+      "Owner": "def",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-09T09:30:30Z"
+    },
+    {
+      "Meter ID": 126,
+      "Zone": "Udupi",
+      "Owner": "def",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-09T09:30:30Z"
+    },
+    {
+      "Meter ID": 127,
+      "Zone": "Mangalore",
+      "Owner": "ghi",
+      "Status": "Active",
+      "Last Reading": "2025-10-10T10:45:45Z"
+    },
+    {
+      "Meter ID": 127,
+      "Zone": "Mangalore",
+      "Owner": "ghi",
+      "Status": "Active",
+      "Last Reading": "2025-10-10T10:45:45Z"
+    },
+    {
+      "Meter ID": 127,
+      "Zone": "Mangalore",
+      "Owner": "ghi",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-10T10:45:45Z"
+    },
+    {
+      "Meter ID": 128,
+      "Zone": "Bajpe",
+      "Owner": "jkl",
+      "Status": "Active",
+      "Last Reading": "2025-10-11T11:50:50Z"
+    },
+    {
+      "Meter ID": 128,
+      "Zone": "Bajpe",
+      "Owner": "jkl",
+      "Status": "Active",
+      "Last Reading": "2025-10-11T11:50:50Z"
+    },
+    {
+      "Meter ID": 128,
+      "Zone": "Bajpe",
+      "Owner": "jkl",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-11T11:50:50Z"
+    },
+    {
+      "Meter ID": 129,
+      "Zone": "Udupi",
+      "Owner": "mno",
+      "Status": "Active",
+      "Last Reading": "2025-10-12T12:55:55Z"
+    },
+    {
+      "Meter ID": 129,
+      "Zone": "Udupi",
+      "Owner": "mno",
+      "Status": "Active",
+      "Last Reading": "2025-10-12T12:55:55Z"
+    },
+    {
+      "Meter ID": 130,
+      "Zone": "Mangalore",
+      "Owner": "pqr",
+      "Status": "Active",
+      "Last Reading": "2025-10-13T13:05:05Z"
+    },
+    {
+      "Meter ID": 130,
+      "Zone": "Mangalore",
+      "Owner": "pqr",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-13T13:05:05Z"
+    },
+    {
+      "Meter ID": 130,
+      "Zone": "Mangalore",
+      "Owner": "pqr",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-13T13:05:05Z"
+    },
+    {
+      "Meter ID": 131,
+      "Zone": "Bajpe",
+      "Owner": "stu",
+      "Status": "Active",
+      "Last Reading": "2025-10-14T14:10:10Z"
+    },
+    {
+      "Meter ID": 131,
+      "Zone": "Bajpe",
+      "Owner": "stu",
+      "Status": "De-Activated",
+      "Last Reading": "2025-10-14T14:10:10Z"
+    },
+    {
+      "Meter ID": 132,
+      "Zone": "Udupi",
+      "Owner": "vwx",
+      "Status": "Active",
+      "Last Reading": "2025-10-15T15:15:15Z"
+    }
+  ],
+  "datedbillData": [
+    {
+      "id": 1,
+      "date": "2025-10-26",
+      "usage": 150,
+      "cost": 45
+    },
+    {
+      "id": 2,
+      "date": "2025-10-25",
+      "usage": 120,
+      "cost": 36
+    },
+    {
+      "id": 3,
+      "date": "2025-10-24",
+      "usage": 180,
+      "cost": 54
+    },
+    {
+      "id": 4,
+      "date": "2025-10-20",
+      "usage": 140,
+      "cost": 42
+    },
+    {
+      "id": 5,
+      "date": "2025-10-15",
+      "usage": 160,
+      "cost": 48
+    },
+    {
+      "id": 6,
+      "date": "2025-10-01",
+      "usage": 170,
+      "cost": 51
+    },
+    {
+      "id": 7,
+      "date": "2025-09-25",
+      "usage": 130,
+      "cost": 39
+    }
+  ]
+}

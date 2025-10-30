@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 
 import Dashboardcard from '../../../Components/Cards/DashboardCard/Dashboardcard';
@@ -16,16 +16,21 @@ import useDateFilter from '../../../hooks/useDateFilter';
 
 
 export default function Dashboard() {
+    const [graphData, setGraphData] = useState([]);
 
-    const billData = useSelector((state) => state.data.datedbillData) || [];
-    const data = useSelector((state) => state.data.linegraphdata) || [];
+    useEffect(() => {
+        fetch('http://localhost:8000/linegraphdata')
+            .then(res => res.json())
+            .then(data => setGraphData(data))
+            .catch(err => console.log(err));
+    }, []);
 
     const lineConfiguration = [
         { dataKey: 'sales', color: '#D05ACF', fillcolor: 'white' },
     ];
 
     const { filteredData, selectedRange, setSelectedRange } = useDateFilter(
-        billData,
+        graphData,
         'date',
         'day'
     );
@@ -54,7 +59,7 @@ export default function Dashboard() {
                 </div>
                 <div>
                     <Linegraph
-                        graphdata={data}
+                        graphdata={filteredData}
                         xaxisdatakey="month"
                         lineConfig={lineConfiguration}
                     />

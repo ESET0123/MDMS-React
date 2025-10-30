@@ -1,28 +1,30 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-
+import React, { useEffect, useState } from 'react'
 import Dashboardcard from '../../../Components/Cards/DashboardCard/Dashboardcard'
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
-
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosSettings } from "react-icons/io";
 import { FaRegClock } from "react-icons/fa6";
-
 import Graphheader from '../../../Components/GraphHeader/Graphheader';
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import useDateFilter from '../../../hooks/useDateFilter';
 
 export default function Dashboard() {
-    const data = useSelector((state) => state.data.linegraphdata) || [];
+
+    const [graphData, setGraphData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/dashboardgraphdata')
+            .then(res => res.json())
+            .then(data => setGraphData(data))
+            .catch(err => console.log(err));
+    }, []);
 
     const lineConfiguration = [
-        { dataKey: 'sales', color: 'black', fillcolor: 'black' },
+        { dataKey: 'value', color: 'black', fillcolor: 'black' },
     ];
 
-    const billData = useSelector((state) => state.data.datedbillData) || [];
-
     const { filteredData, selectedRange, setSelectedRange } = useDateFilter(
-        billData,
+        graphData,
         'date',
         'day'
     );
@@ -58,8 +60,8 @@ export default function Dashboard() {
                 </div>
                 <div>
                     <Linegraph
-                        graphdata={data}
-                        xaxisdatakey="month"
+                        graphdata={filteredData}
+                        xaxisdatakey="value"
                         lineConfig={lineConfiguration}
                     />
                 </div>
@@ -68,7 +70,7 @@ export default function Dashboard() {
                 <div>
                     <p className='font-bold text-xl'>Quick Actions</p>
                 </div>
-                <div className='flex'>
+                <div className='flex flex-wrap'>
                     <Quickbutton iconname={<IoIosAddCircleOutline />} tag="Pay Bill" />
                     <Quickbutton iconname={<IoIosSettings />} tag="View Bill History" />
                     <Quickbutton iconname={<IoIosSettings />} tag="View Detailed Usage" />

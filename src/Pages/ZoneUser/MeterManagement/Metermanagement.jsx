@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { usePagination } from '../../../hooks/usePagination';
 import Table from '../../../Components/ui/Table/Table';
@@ -9,8 +9,16 @@ import { MdOutlineFileUpload, MdOutlineFileDownload } from "react-icons/md";
 import { MdBlockFlipped } from "react-icons/md";
 
 export default function Metermanagement() {
-  const meterData = useSelector(state => state.data?.meterData || []);
-  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('meterData', meterData, 10);
+    const [tableData, setTableData] = useState([]);
+
+    useEffect(() => {    
+        fetch('http://localhost:8000/meterData')
+          .then(res => res.json())
+          .then(data => setTableData(data))
+          .catch(err => console.log(err));
+      }, []);
+  
+  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('meterData', tableData, 10);
 
   const viewPayActions = {
     title: 'More Actions',

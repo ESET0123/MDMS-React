@@ -1,16 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-
+import React, { useEffect, useState } from 'react'
 import Graphheader from '../../../Components/GraphHeader/Graphheader';
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import Table from '../../../Components/ui/Table/Table';
 import useDateFilter from '../../../hooks/useDateFilter';
 
 export default function MeterData() {
+  const [graphData, setGraphData] = useState([]);
+  const [tableData, setTableData] = useState([]);
 
-  const billData = useSelector((state) => state.data.datedbillData) || [];
+  useEffect(() => {
+    fetch('http://localhost:8000/linegraphdata')
+      .then(res => res.json())
+      .then(data => setGraphData(data))
+      .catch(err => console.log(err));
 
-  const data = useSelector((state) => state.data.linegraphdata) || [];
+    fetch('http://localhost:8000/datedbillData')
+      .then(res => res.json())
+      .then(data => setTableData(data))
+      .catch(err => console.log(err));
+  }, []);
 
   const lineConfiguration = [
     { dataKey: 'sales', color: '#D28561', fillcolor: 'white' },
@@ -18,7 +26,7 @@ export default function MeterData() {
   ];
 
   const { filteredData, selectedRange, setSelectedRange } = useDateFilter(
-    billData,
+    graphData,
     'date',
     'day'
   );
@@ -36,11 +44,13 @@ export default function MeterData() {
         <div className=''>
           {/* <Linegraph data={filteredData} /> */}
           <Linegraph
-            graphdata={data}
+            graphdata={filteredData}
             xaxisdatakey="month"
             lineConfig={lineConfiguration}
           />
-          <Table data={filteredData} />
+          </div>
+          <div className='mt-4'>
+          <Table data={tableData} />
         </div>
       </div>
     </div>

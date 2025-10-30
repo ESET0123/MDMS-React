@@ -1,12 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
 import { usePagination } from '../../../hooks/usePagination';
 import Table from '../../../Components/ui/Table/Table';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 
 export default function Billpayment() {
-  const bills = useSelector(state => state.data?.bills || []);
-  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('bills', bills, 4);
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/bill_payments')
+      .then(res => res.json())
+      .then(data => setTableData(data))
+      .catch(err => console.log(err));
+  }, []);
+  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('tableData', tableData, 4);
 
   const viewPayActions = {
     title: "Actions",

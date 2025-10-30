@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
 import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
 import { MdOutlineAddCircleOutline } from "react-icons/md";
@@ -11,9 +10,17 @@ import Popup from '../../../Components/PopUps/Popup';
 import Addzone from '../../../Components/PopUps/AddZone/Addzone';
 
 export default function Zonemanagement() {
+  const [zoneData, setZoneData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/zonemanagementData')
+      .then(res => res.json())
+      .then(data => setZoneData(data))
+      .catch(err => console.log(err));
+  }, []);
   const invitePopup = usePopup();
-  const zonemanagementData = useSelector(state => state.data?.zonemanagementData || []);
-  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('zonemanagementData', zonemanagementData, 10);
+  // const zonemanagementData = useSelector(state => state.data?.zonemanagementData || []);
+  const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('zonemanagementData', zoneData, 8);
 
   const viewPayActions = {
     title: 'More Actions',
@@ -27,9 +34,9 @@ export default function Zonemanagement() {
         <Quickbutton
           iconname={<MdOutlineAddCircleOutline />}
           tag={<p className=' p-0 text-sm font-bold'>Add Zone</p>}
-          onClickFunc={invitePopup.openPopup}/>
+          onClickFunc={invitePopup.openPopup} />
       </div>
-      <Table data={zonemanagementData} actionsColumn={viewPayActions} />
+      <Table data={currentItems} actionsColumn={viewPayActions} />
       <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
       <Popup
         isOpen={invitePopup.isOpen}

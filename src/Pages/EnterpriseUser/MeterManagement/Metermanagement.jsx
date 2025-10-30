@@ -1,5 +1,4 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react'
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import Table from '../../../Components/ui/Table/Table';
 import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
@@ -10,22 +9,25 @@ import Linegraphcolor from '../../../Components/graph/Linegraph/Linegraphcolor';
 import YearNavigatebutton from '../../../Components/ui/Button/YearNavigateButton/Yearnavigatebutton';
 
 export default function Metermanagement() {
-    const meterData = useSelector(state => state.data?.metermanagementENT || []);
+    // const meterData = useSelector(state => state.data?.metermanagementENT || []);
+    const [meterData, setMeterData] = useState([]);
+    const [colorgraphdata, setColorgraphdata] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/metermanagementENT')
+            .then(res => res.json())
+            .then(data => setMeterData(data))
+            .catch(err => console.log(err));
+
+        fetch('http://localhost:8000/colorgraphdata')
+            .then(res => res.json())
+            .then(data => setColorgraphdata(data))
+            .catch(err => console.log(err));
+    }, []);
 
     const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(meterData);
 
     const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
-
-    const colorgraphdata = [
-    { location: "Mangalore", value: 52 },
-    { location: "Kotekar", value: 71 },
-    { location: "Pumpwell", value: 28 },
-    { location: "Deralakatte", value: 17 },
-    { location: "Padil", value: 29 },
-    { location: "Udupi", value: 65 },
-    { location: "Bantwal", value: 84 },
-    { location: "Suratkal", value: 77 }
-  ];
 
     const viewPayActions = {
         title: 'More Actions',
@@ -56,7 +58,7 @@ export default function Metermanagement() {
                     <p className='my-2'>Each zones Trend of energy usage over time.</p>
                     < YearNavigatebutton />
                 </div>
-                <Linegraphcolor data={colorgraphdata} xAxisKey = 'location' yAxisKey = 'value'/>
+                <Linegraphcolor data={colorgraphdata} xAxisKey='location' yAxisKey='value' />
             </div>
         </div>
     )
