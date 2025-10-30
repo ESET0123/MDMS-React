@@ -32,7 +32,7 @@ export default function Dashboard() {
     const { filteredData, selectedRange, setSelectedRange } = useDateFilter(
         graphData,
         'date',
-        'day'
+        'week'
     );
 
     return (

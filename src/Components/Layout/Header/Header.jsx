@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <div>
-      <div className="flex p-4 justify-between items-center bg-zinc-300 dark:bg-zinc-800 transition-colors duration-300">
+      <div className="flex p-4 justify-between items-center bg-zinc-300 dark:bg-gray-800 transition-colors duration-300">
         <div>
           <p className="font-bold text-2xl text-zinc-900 dark:text-white">{t('MDMS')}</p>
         </div>
@@ -39,7 +39,7 @@ export default function Header() {
           </div>
           <Languagedropdown />
           {!isLoginPage && (
-            <button className='rounded-full p-2 mx-2 bg-white dark:bg-zinc-700' onClick={() => { navigate('/login') }}>
+            <button className='rounded-full p-2 mx-2 bg-white dark:bg-slate-700' onClick={() => { navigate('/login') }}>
               <CiUser color={iconColor} size='2rem' />
             </button>
           )}

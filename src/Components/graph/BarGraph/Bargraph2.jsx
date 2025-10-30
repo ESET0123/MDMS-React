@@ -24,7 +24,7 @@ export default function BagGraph2({
   };
 
   return (
-    <div className="bg-white dark:bg-zinc-900 gap-2 rounded-2xl shadow-xl p-8 h-fit">
+    <div className="bg-white dark:bg-gray-700 gap-2 rounded-2xl shadow-xl p-8 h-fit">
       <ResponsiveContainer width="100%" height={450}>
         <ComposedChart
           data={data}
@@ -74,7 +74,7 @@ export default function BagGraph2({
             // ticks={[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]}
           />
 
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }} />
+          {/* <Tooltip content={<CustomTooltip />} cursor={{ fill: 'rgba(0, 0, 0, 0.05)' }} /> */}
 
           {/* Shaded area under the curve */}
           <Area

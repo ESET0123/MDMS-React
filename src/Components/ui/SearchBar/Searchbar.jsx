@@ -12,7 +12,7 @@ export default function SearchBar({
   className = ''
 }) {
   return (
-    <div className={`my-4 flex w-2/4 max-w-2xl items-center bg-zinc-100 dark:bg-zinc-800 rounded-lg shadow-sm divide-x divide-gray-300 dark:divide-zinc-700 transition-colors ${className}`}>
+    <div className={`my-4 flex w-2/4  max-w-2xl items-center bg-zinc-100 dark:bg-gray-700 rounded-lg shadow-sm divide-x divide-gray-300 dark:divide-zinc-500 transition-colors ${className}`}>
       <div className="flex items-center relative">
         <select
           id="search-filter"
@@ -20,7 +20,7 @@ export default function SearchBar({
           aria-label="Filter search results by"
           value={selectedColumn}
           onChange={(e) => onColumnChange(e.target.value)}
-          className="col-start-1 row-start-1 w-full appearance-none py-2 pr-7 pl-3 text-base text-zinc-900 dark:text-zinc-100 bg-transparent focus:outline-none sm:text-sm/6 cursor-pointer"
+          className="col-start-1 row-start-1 w-full appearance-none py-2 pr-7 pl-3 text-base text-zinc-900 dark:text-zinc-100 dark:bg-gray-700 bg-transparent focus:outline-none sm:text-sm/6 cursor-pointer"
         >
           {columns.map(column => (
             <option key={column.key} value={column.key}>

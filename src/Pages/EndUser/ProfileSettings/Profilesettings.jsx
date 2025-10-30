@@ -14,7 +14,7 @@ export default function Profilesettings() {
         <p className='font-bold'>Profile & Settings</p>
       </div>
       <div>
-        <div className='flex p-12 text-xl font-bold text-zinc-500 justify-around border-b pb-0 border-zinc-400 '>
+        <div className='flex p-12 text-xl font-bold text-zinc-400 justify-around border-b pb-0 border-zinc-400 '>
           <button
             onClick={() => setActiveTab('profile')}
             className={activeTab === 'profile' ? activeStyle : 'cursor-pointer'}

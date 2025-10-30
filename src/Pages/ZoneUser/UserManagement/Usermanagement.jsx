@@ -12,16 +12,14 @@ import usePopup from '../../../hooks/usePopup'
 import Popup from '../../../Components/PopUps/Popup';
 
 export default function Usermanagement() {
-  // const users = useSelector(state => state.data.users);
-
   const [users, setUsers] = useState([]);
-  
-      useEffect(() => {
-          fetch('http://localhost:8000/users')
-              .then(res => res.json())
-              .then(data => setUsers(data))
-              .catch(err => console.log(err));
-      }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+      .catch(err => console.log(err));
+  }, []);
 
   const invitePopup = usePopup();
 
@@ -42,7 +40,7 @@ export default function Usermanagement() {
 
   return (
     <div>
-      <div className="p-4 bg-white dark:bg-zinc-950 min-h-screen transition-colors duration-300">
+      <div className="p-4 min-h-screen transition-colors duration-300">
         <div className='flex items-center justify-between'>
           <p className='text-2xl font-bold dark:text-white'>User Management</p>
           <div>

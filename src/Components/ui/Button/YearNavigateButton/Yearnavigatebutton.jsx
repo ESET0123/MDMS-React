@@ -15,11 +15,11 @@ export default function YearNavigatebutton() {
     <div className=" flex items-center justify-center gap-4 p-8">
       <button
         onClick={handlePreviousYear}
-        className="p-2  flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
+        className="p-2  flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 rounded-lg transition-colors duration-200"
         aria-label="Previous year"
       >
         <svg
-          className="w-5 h-5 text-gray-700"
+          className="w-5 h-5 text-gray-800"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -33,17 +33,17 @@ export default function YearNavigatebutton() {
         </svg>
       </button>
 
-      <div className="px-4 py-1 bg-gray-100 rounded-lg min-w-[100px] text-center">
-        <span className="text-lg font-medium text-gray-800">{year}</span>
+      <div className="px-4 py-1 bg-gray-100 dark:bg-gray-700 rounded-lg min-w-[100px] text-center">
+        <span className="text-lg font-medium text-gray-900">{year}</span>
       </div>
 
       <button
         onClick={handleNextYear}
-        className=" p-2 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors duration-200"
+        className=" p-2 flex items-center justify-center bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 rounded-lg transition-colors duration-200"
         aria-label="Next year"
       >
         <svg
-          className="w-5 h-5 text-gray-700"
+          className="w-5 h-5 text-gray-800"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

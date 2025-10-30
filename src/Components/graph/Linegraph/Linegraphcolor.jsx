@@ -16,7 +16,7 @@ export default function Linegraphcolor({ data = [], xAxisKey, yAxisKey }) {
   };
 
   return (
-    <div className='bg-white dark:bg-zinc-900 flex w-full justify-center p-8'>
+    <div className='bg-white dark:bg-gray-800 flex w-full justify-center p-8'>
       <div className='w-full max-w-4xl'>
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart

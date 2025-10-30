@@ -12,7 +12,7 @@ export default function Sidebar() {
     }`;
 
   return (
-    <div className='flex-column h-full w-full p-2 px-6 bg-zinc-100 dark:bg-zinc-700 transition-colors duration-300'>
+    <div className='flex-column h-full w-full p-2 px-6 py-4 bg-zinc-100 dark:bg-gray-700 transition-colors duration-300'>
       <NavLink to="/dashboard" className={getNavClassNames}>{t('dashboard')}</NavLink>
 
       {/* End User */}

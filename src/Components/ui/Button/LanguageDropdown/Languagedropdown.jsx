@@ -11,7 +11,7 @@ const Languagedropdown = () => {
 
   return (
     <div className="mx-2 grid shrink-0 grid-cols-1 focus-within:relative">
-      <select id="lang" name="lang" aria-label="lang" className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-zinc-300 dark:bg-zinc-700 py-1.5 pr-7 pl-3 text-base text-zinc-900 dark:text-white placeholder:text-zinc-500 focus:outline-none sm:text-sm/6"
+      <select id="lang" name="lang" aria-label="lang" className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-zinc-300 dark:bg-gray-700 py-1.5 pr-7 pl-3 text-base text-zinc-900 dark:text-white placeholder:text-zinc-500 focus:outline-none sm:text-sm/6"
         onChange={handleLanguageChange} value={i18n.language} >
         <option value="en">en</option>
         <option value="hi">hi</option>

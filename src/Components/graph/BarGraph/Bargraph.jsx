@@ -1,7 +1,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Cell } from 'recharts';
 
-export default function Bargraph({ data = [], xdatakey, bardatakey }) {
+export default function Bargraph({ data, xdatakey, bardatakey }) {
 	const CustomTooltip = ({ active, payload }) => {
 		if (active && payload && payload.length) {
 			return (
@@ -15,7 +15,7 @@ export default function Bargraph({ data = [], xdatakey, bardatakey }) {
 	};
 
 	return (
-		<div className='bg-white dark:bg-zinc-900 flex w-full justify-center p-8'>
+		<div className='bg-white dark:bg-gray-700 flex w-full justify-center p-8'>
 			<div className='w-full max-w-4xl'>
 				<ResponsiveContainer width="100%" height={400}>
 					<BarChart

@@ -18,7 +18,7 @@ function App() {
   }, [isDarkMode]);
 
   return (
-    <div className='bg-white dark:bg-zinc-600 transition-colors duration-300'>
+    <div className='bg-white dark:bg-gray-600 transition-colors duration-300'>
       <RouterSetup />
     </div>
   );

@@ -24,37 +24,33 @@ import MetermanagementE from '../../Pages/EnterpriseUser/MeterManagement/Meterma
 import Userrolemanagement from '../../Pages/EnterpriseUser/UserRoleManagement/Userrolemanagement';
 import Auditlogs from '../../Pages/EnterpriseUser/AuditLogs/Auditlogs';
 import Settingconfiguration from '../../Pages/EnterpriseUser/SettingConfiguration/Settingconfiguration';
-
 import NotFound404 from '../../utils/NotFound404/NotFound404';
-// import { AuthProvider } from '../../context/AuthContext';
-// import EndUserRouter from '../EndUserRouter/EndUserRouter';
-// import ZoneUserRouter from '../ZoneUserRouter/ZoneUserRouter';
-
 
 export default function RouterSetup() {
     return (
         <div>
             <BrowserRouter>
-            {/* <AuthProvider > */}
+                {/* <AuthProvider > */}
 
                 <Routes>
                     <Route element={<MainLayout />}>
+                        {/* public routes */}
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/forgotpwd" element={<Forgotpwd />} />
                         <Route path="/resetpwd" element={<Resetpwd />} />
-
+                        {/* end user routes  */}
                         <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="/meterdata" element={<Meterdata />} />
                         <Route path="/billpayment" element={<Billpayment />} />
                         <Route path="/notification" element={<Notification />} />
                         <Route path="/profile" element={<Profilesettings />} />
-
+                        {/* zone user routes  */}
                         <Route path="/dashboardz" element={<Dashboardz />} />
                         <Route path="/metermanagement" element={<Metermanagement />} />
                         <Route path="/usermanagement" element={<Usermanagement />} />
                         <Route path="/reportanalytics" element={<Reportanalytics />} />
                         <Route path="/settingnotification" element={<Settingnotification />} />
-
+                        {/* enterprise user routes  */}
                         <Route path="/dashboardE" element={<DashboardE />} />
                         <Route path="/zonemanagement" element={<Zonemanagement />} />
                         <Route path="/metermanagementE" element={<MetermanagementE />} />
@@ -65,30 +61,6 @@ export default function RouterSetup() {
                         <Route path="*" element={<NotFound404 />} />
                     </Route>
                 </Routes>
-                {/*<Routes>
-                <Route element={<MainLayout/>}>
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/billpayment" element={<Billpayment />} />
-                    <Route path="/notification" element={<Notification />} />
-                    <Route path="/profile" element={<Profilesettings />}/>
-                </Route> 
-                 <Route element={<MainLayout />}>
-                    <Route path="/dashboardz" element={<Dashboardz />} />
-                    <Route path="/meterdata" element={<Meterdata />} />
-                    <Route path="/metermanagement" element={<Metermanagement />} />
-                    <Route path="/usermanagement" element={<Usermanagement />} />
-                    <Route path="/reportanalytics" element={<Reportanalytics />} />
-                    <Route path="/settingnotification" element={<Settingnotification />} />
-                </Route>
-                <Route  element={<MainLayout />}>
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/forgotpwd" element={<Forgotpwd />} />
-                    <Route path="/resetpwd" element={<Resetpwd />} />
-                </Route>
-                <Route path="*" element={<NotFound404/> } />
-            </Routes>  */}
-            {/* </AuthProvider> */}
-
             </BrowserRouter>
         </div>
     )
