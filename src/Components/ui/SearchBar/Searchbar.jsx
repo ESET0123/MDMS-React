@@ -52,7 +52,7 @@ export default function SearchBar({
         {searchTerm && (
           <button
             onClick={() => onSearchChange('')}
-            className="text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
+            className="text-zinc-500 hover:text-zinc-400 dark:text-zinc-400 dark:hover:text-zinc-200"
             aria-label="Clear search"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

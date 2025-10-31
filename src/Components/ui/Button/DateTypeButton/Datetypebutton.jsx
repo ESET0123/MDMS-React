@@ -11,7 +11,7 @@ export default function DateTypeButton({ buttons, selected, onSelect }) {
           onClick={() => onSelect(label.toLowerCase())}
           className={`px-4 py-2 text-sm font-medium transition-colors ${selected === label.toLowerCase()
             ? 'bg-purple-100 text-zinc-800'
-            : 'text-zinc-900 hover:bg-zinc-800'
+            : 'text-zinc-900 hover:bg-zinc-400'
             }`}
         >
           <div className='flex items-center gap-1'>

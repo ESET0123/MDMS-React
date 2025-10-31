@@ -1,33 +1,76 @@
-// import { createContext, useState, useContext } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// const AuthContext = createContext(null);
+const AuthContext = createContext(null);
 
-// export const AuthProvider = ({ children }) => {
-//   const [user, setUser] = useState(null);
-//   const navigate = useNavigate();
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-//   const login = (userData) => {
-//     const mockUser = {
-//       email: userData.email,
-//       role: userData.email,
-//     };
-//     setUser(mockUser);
-//     navigate('/dashboard');
-//   };
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+    setLoading(false);
+  }, []);
 
-//   const logout = () => {
-//     setUser(null);
-//     navigate('/login');
-//   };
+  const login = async (email, password) => {
+    try {
+      const response = await fetch('http://localhost:8000/users');
+      const users = await response.json();
+      
+      const foundUser = users.find(u => u.email === email);
+      
+      if (!foundUser) {
+        throw new Error('User not found');
+      }
+      
+      // todo: password verify
+      
+      const userData = {
+        id: foundUser.id,
+        name: foundUser.name,
+        email: foundUser.email,
+        role: foundUser.role
+      };
+      
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+      
+      return { success: true, user: userData };
+    } catch (error) {
+      console.error('Login error:', error);
+      return { success: false, error: error.message };
+    }
+  };
 
-//   return (
-//     <AuthContext.Provider value={{ user, login, logout }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+  };
 
-// export const useAuth = () => {
-//   return useContext(AuthContext);
-// };
+  const value = {
+    user,
+    login,
+    logout,
+    loading,
+    isAuthenticated: !!user,
+    isAdmin: user?.role === 'Admin',
+    isManager: user?.role === 'Manager',
+    isUser: user?.role === 'User'
+  };
+
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within AuthProvider');
+  }
+  return context;
+};

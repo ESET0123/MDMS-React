@@ -19,14 +19,14 @@ export default function Billpayment() {
     render: (item) => (
       <div className="space-x-2">
         <button
-          onClick={() => alert(`Viewing bill for: ${item.name}`)}
+          onClick={() => alert(`Viewing bill for: ${item.id}`)}
           className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white rounded-full p-1 transition-colors duration-200"
         >
           View
         </button>
         <span> / </span>
         <button
-          onClick={() => alert(`Paying bill for: ${item.name}`)}
+          onClick={() => alert(`Paying bill for: ${item.id}`)}
           className="text-zinc-500 hover:text-zinc-900 dark:hover:text-white rounded-full p-1 transition-colors duration-200"
         >
           Pay

@@ -1,9 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../../../context/AuthContext';
+import { ROLE_ROUTES } from '../../../config/roleConfig';
 
 export default function Sidebar() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+  const { user } = useAuth();
 
   const getNavClassNames = ({ isActive }) =>
     `flex pt-4 text-md transition-colors duration-300 ${isActive
@@ -11,34 +14,26 @@ export default function Sidebar() {
       : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-white'
     }`;
 
+  const userRoutes = user ? ROLE_ROUTES[user.role] || [] : [];
+
   return (
     <div className='flex-column h-full w-full p-2 px-6 py-4 bg-zinc-100 dark:bg-gray-700 transition-colors duration-300'>
-      <NavLink to="/dashboard" className={getNavClassNames}>{t('dashboard')}</NavLink>
+      {/* <div>
+        <p>
+          {user?.name}
+          {user?.role}
+        </p>
+      </div> */}
 
-      {/* End User */}
-      <NavLink to="/billpayment" className={getNavClassNames}>{t('bill_payment')}</NavLink>
-      <NavLink to="/meterdata" className={getNavClassNames}>{t('meter_data')}</NavLink>
-      <NavLink to="/notification" className={getNavClassNames}>{t('alert_notification')}</NavLink>
-      <NavLink to="/profile" className={getNavClassNames}>{t('profile_settings')}</NavLink>
-
-      <p>-----------</p>
-
-      {/* Zone user */}
-      <NavLink to="/dashboardz" className={getNavClassNames}>{t('dashboard')}</NavLink>
-      <NavLink to="/metermanagement" className={getNavClassNames}>{t('meter_management')}</NavLink>
-      <NavLink to="/usermanagement" className={getNavClassNames}>{t('user_management')}</NavLink>
-      <NavLink to="/reportanalytics" className={getNavClassNames}>{t('report_analytics')}</NavLink>
-      <NavLink to="/settingnotification" className={getNavClassNames}>{t('setting_notification')}</NavLink>
-
-      <p>-----------</p>
-
-      {/* Enterprise user */}
-      <NavLink to="/dashboardE" className={getNavClassNames}>{t('dashboard')}</NavLink>
-      <NavLink to="/zonemanagement" className={getNavClassNames}>{t('zone_management')}</NavLink>
-      <NavLink to="/metermanagementE" className={getNavClassNames}>{t('meter_management')}</NavLink>
-      <NavLink to="/userrolemanagement" className={getNavClassNames}>{t('user_role_management')}</NavLink>
-      <NavLink to="/auditlogs" className={getNavClassNames}>{t('audit_logs')}</NavLink>
-      <NavLink to="/settingconfiguration" className={getNavClassNames}>{t('setting_configuration')}</NavLink>
+      {userRoutes.map((route) => (
+        <NavLink
+          key={route.path}
+          to={route.path}
+          className={getNavClassNames}
+        >
+          {t(route.label)}
+        </NavLink>
+      ))}
     </div>
   );
 }
