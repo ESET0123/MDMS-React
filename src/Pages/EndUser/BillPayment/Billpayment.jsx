@@ -10,7 +10,7 @@ export default function Billpayment() {
     fetch('http://localhost:8000/bill_payments')
       .then(res => res.json())
       .then(data => setTableData(data))
-      .catch(err => console.log(err));
+      .catch(err => console.log(err));  //add error page
   }, []);
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('tableData', tableData, 4);
 

@@ -13,6 +13,6 @@ export default function ThemeToggleButton() {
   };
 
   return (
-    <ToggleButton isDarkMode={isDarkMode} onToggle={handleToggle} />
+    <ToggleButton isChecked={isDarkMode} onToggle={handleToggle} />
   );
 }

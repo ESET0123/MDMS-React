@@ -1,4 +1,3 @@
-// src/components/Header/Header.jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
@@ -8,10 +7,12 @@ import { CiUser } from "react-icons/ci";
 import ThemeToggleButton from '../../ui/Button/ThemeToggleButton/Themetogglebutton';
 import Languagedropdown from '../../ui/Button/LanguageDropdown/Languagedropdown';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../context/AuthContext';
 
 export default function Header() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const { logout } = useAuth();
   const location = useLocation();
   const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
@@ -19,8 +20,19 @@ export default function Header() {
   const iconColor = isDarkMode ? 'white' : 'black';
 
   const handleButtonClick = () => {
-    navigate('/notification');
+    // navigate('/notification');
+    alert('Notification button clicked')
   };
+
+  const onClickHandler = () =>{
+    const storedUser = sessionStorage.getItem('user');
+    if (storedUser) {
+      logout()
+    }
+    else{
+      navigate('/login')
+    }
+  }
 
   return (
     <div>
@@ -39,7 +51,7 @@ export default function Header() {
           </div>
           <Languagedropdown />
           {!isLoginPage && (
-            <button className='rounded-full p-2 mx-2 bg-white dark:bg-slate-700' onClick={() => { navigate('/login') }}>
+            <button className='rounded-full p-2 mx-2 bg-white dark:bg-slate-700' onClick={onClickHandler}>
               <CiUser color={iconColor} size='2rem' />
             </button>
           )}

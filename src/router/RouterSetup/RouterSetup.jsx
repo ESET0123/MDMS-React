@@ -39,7 +39,7 @@ export default function RouterSetup() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/forgotpwd" element={<Forgotpwd />} />
           <Route path="/resetpwd" element={<Resetpwd />} />
-          <Route path="/unauthorized" element={<AccessDenied />} />
+          <Route path="/accessdenied" element={<AccessDenied />} />
 
           {/* End User Routes - Role: User */}
           <Route
@@ -69,7 +69,7 @@ export default function RouterSetup() {
           <Route
             path="/notification"
             element={
-              <ProtectedRoute allowedRoles={[ROLES.USER, ROLES.MANAGER, ROLES.ADMIN]}>
+              <ProtectedRoute allowedRoles={[ROLES.USER]}>
                 <Notification />
               </ProtectedRoute>
             }

@@ -5,6 +5,7 @@ import Inputcheck from '../../../Components/ui/Input/Inputcheck/Inputcheck';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import { getDefaultRoute } from '../../../config/roleConfig';
+import toast from 'react-hot-toast';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -40,14 +41,17 @@ export default function LoginPage() {
       const result = await login(formData.email, formData.password);
 
       if (result.success) {
+        toast.success('Signed in successfully');
         const defaultRoute = getDefaultRoute(result.user.role);
         navigate(defaultRoute);
       } else {
         setError(result.error || 'Login failed. Please check your credentials.');
+        toast.error("Please check your credentials.");
       }
     } catch (err) {
       setError('An error occurred during login. Please try again.');
-      console.error('Login error:', err);
+      // console.error('Login error:', err);
+      toast.error("An error occurred during login. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -98,6 +102,7 @@ export default function LoginPage() {
         <p>Manager: emily.d@example.com</p>
         <p>User: jane.smith@example.com</p>
       </div>
+      {/* <Toaster /> */}
     </div>
   );
 }

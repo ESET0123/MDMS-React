@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import RouterSetup from './router/RouterSetup/RouterSetup';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   const { t, i18n } = useTranslation();
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div className='bg-white dark:bg-gray-600 transition-colors duration-300'>
+      <div><Toaster toastOptions={{duration: 2000}}/></div>
       <RouterSetup />
     </div>
   );

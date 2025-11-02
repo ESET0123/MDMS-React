@@ -4,6 +4,8 @@ import { FaRegClock } from "react-icons/fa6";
 import { TbActivityHeartbeat } from "react-icons/tb";
 import { PiWarningOctagon } from "react-icons/pi";
 import { IoIosTrendingUp } from "react-icons/io";
+import LeafletMap from '../../../Components/Map/LeafletMap';
+import GoogleMap from '../../../Components/Map/GoogleMap';
 
 export default function Dashboard() {
   return (
@@ -20,6 +22,10 @@ export default function Dashboard() {
           <Dashboardcard heading="26 %" description="Average Consumption per Zone" icon={<TbActivityHeartbeat size="2rem" />} />
         </div>
       </div>
+      {/* <div className=' w-80 h-80 shadow-xl '> */}
+        <LeafletMap />
+        {/* <GoogleMap /> */}
+      {/* </div> */}
     </div>
   )
 }

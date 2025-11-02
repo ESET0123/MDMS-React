@@ -26,7 +26,7 @@ export default function Linegraph({graphdata , xaxisdatakey,lineConfig}) {
                     >
                         <CartesianGrid
                             vertical={false}
-                            stroke="#e5e7eb"
+                            stroke="#79716B"
                             strokeDasharray="0"
                             verticalCoordinatesGenerator={(props) => {
                                 const { width, offset } = props;
@@ -64,7 +64,7 @@ export default function Linegraph({graphdata , xaxisdatakey,lineConfig}) {
                                 stroke={line.color}
                                 strokeWidth={2}
                                 fill={line.fillcolor}
-                                dot={{ fill: line.color, strokeWidth: 2, r: 4, stroke: '#fff' }}
+                                dot={{ fill: line.color, strokeWidth: 2, r: 4 }}
                                 activeDot={{ r: 6, fill: line.color, stroke: '#fff', strokeWidth: 2 }}
                             />
                         ))}

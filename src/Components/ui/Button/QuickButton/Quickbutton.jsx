@@ -8,7 +8,7 @@ export default function Quickbutton({ tag, iconname, onClickFunc }) {
   }
   return (
     <button onClick={onClickFunc ? onClickFunc : (() => clickHandler(tag))}
-      className='px-4 py-2 flex items-center border border-zinc-300 rounded-xl w-fit mr-4 my-4 hover:bg-zinc-100 transition-colors'>
+      className='px-4 py-2 flex items-center border border-zinc-300 rounded-xl w-fit mr-4 my-4 hover:bg-zinc-100 transition-colors dark:bg-gray-700 dark:border-none'>
       <div className='items-center justify-center mr-2'>
         {iconname}
       </div>
