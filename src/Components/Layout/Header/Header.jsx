@@ -8,6 +8,8 @@ import ThemeToggleButton from '../../ui/Button/ThemeToggleButton/Themetogglebutt
 import Languagedropdown from '../../ui/Button/LanguageDropdown/Languagedropdown';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
+import toast from 'react-hot-toast';
+
 
 export default function Header() {
   const { t, i18n } = useTranslation();

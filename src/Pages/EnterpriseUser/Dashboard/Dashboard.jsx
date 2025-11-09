@@ -5,7 +5,7 @@ import { TbActivityHeartbeat } from "react-icons/tb";
 import { PiWarningOctagon } from "react-icons/pi";
 import { IoIosTrendingUp } from "react-icons/io";
 import LeafletMap from '../../../Components/Map/LeafletMap';
-import GoogleMap from '../../../Components/Map/GoogleMap';
+// import GoogleMap from '../../../Components/Map/GoogleMap';
 
 export default function Dashboard() {
   return (

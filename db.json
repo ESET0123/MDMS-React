@@ -192,37 +192,43 @@
       "id": "1",
       "name": "John Doe",
       "email": "john.doe@example.com",
-      "role": "Admin"
+      "role": "Admin",
+      "password": "password"
     },
     {
       "id": "2",
       "name": "Jane Smith",
       "email": "jane.smith@example.com",
-      "role": "User"
+      "role": "User",
+      "password": "password"
     },
     {
       "id": "3",
       "name": "Alex Johnson",
       "email": "alex.j@example.com",
-      "role": "User"
+      "role": "User",
+      "password": "password"
     },
     {
       "id": "4",
       "name": "Emily Davis",
       "email": "emily.d@example.com",
-      "role": "Manager"
+      "role": "Manager",
+      "password": "password"
     },
     {
       "id": "5",
       "name": "Michael Brown",
       "email": "michael.b@example.com",
-      "role": "User"
+      "role": "User",
+      "password": "password"
     },
     {
       "id": "6",
       "name": "Michael Black",
       "email": "michael.bl@example.com",
-      "role": "User"
+      "role": "User",
+      "password": "password"
     }
   ],
   "colorgraphdata": [

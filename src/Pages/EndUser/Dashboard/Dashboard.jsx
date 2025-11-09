@@ -7,11 +7,12 @@ import { FaRegClock } from "react-icons/fa6";
 import Graphheader from '../../../Components/GraphHeader/Graphheader';
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import useDateFilter from '../../../hooks/useDateFilter';
+import { useAuth } from '../../../context/AuthContext'; 
 
 export default function Dashboard() {
-
     const [graphData, setGraphData] = useState([]);
-
+    const { user } = useAuth();
+    
     useEffect(() => {
         fetch('http://localhost:8000/dashboardgraphdata')
             .then(res => res.json())
@@ -28,10 +29,13 @@ export default function Dashboard() {
         'date',
         'day'
     );
+
+    const userName = user?.name || "Guest";
+
     return (
         <div className='p-2 h-full '>
             <div >
-                <p className='text-2xl font-bold my-4'>Welcome, xyz</p>
+                <p className='text-2xl font-bold my-4'>Welcome, {userName}</p>
             </div>
             <div className='flex justify-between'>
                 <div>
@@ -51,7 +55,7 @@ export default function Dashboard() {
                     <Dashboardcard icon={<FaRegClock size="2rem" />} heading="Paid Rs. 1200 on 10 Sep" description="Last Payment" />
                 </div>
             </div>
-            <div>
+            <div className='pr-12'>
                 <div>
                     <Graphheader title="Electricity Consumption Overview"
                         buttons={['Day', 'Week', 'Month']}
@@ -66,7 +70,7 @@ export default function Dashboard() {
                     />
                 </div>
             </div>
-            <div>
+            <div className='mt-6'>
                 <div>
                     <p className='font-bold text-xl'>Quick Actions</p>
                 </div>

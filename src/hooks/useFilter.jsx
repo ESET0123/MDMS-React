@@ -16,7 +16,6 @@ export function useFilter(data, columns = []) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedColumn, setSelectedColumn] = useState(searchableColumns[0]?.key || '');
 
-  // Filter data based on search term and selected column
   const filteredData = useMemo(() => {
     if (!searchTerm.trim()) return data;
 

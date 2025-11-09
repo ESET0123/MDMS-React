@@ -27,11 +27,6 @@ export default function Usermanagement() {
 
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
 
-  const handleInviteUserClick = () => {
-    alert('Invite User');
-
-  };
-
   const userActions = {
     title: 'More Actions',
     render: () => <MoreActionButton />,
@@ -67,7 +62,6 @@ export default function Usermanagement() {
           <Table data={currentItems} actionsColumn={userActions} />
           <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
         </div>
-        {/* <Inviteuser /> */}
         <Popup isOpen={invitePopup.isOpen} onClose={invitePopup.closePopup} >
           <Inviteuser />
         </Popup>

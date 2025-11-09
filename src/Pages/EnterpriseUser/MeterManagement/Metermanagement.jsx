@@ -9,7 +9,6 @@ import Linegraphcolor from '../../../Components/graph/Linegraph/Linegraphcolor';
 import YearNavigatebutton from '../../../Components/ui/Button/YearNavigateButton/Yearnavigatebutton';
 
 export default function Metermanagement() {
-    // const meterData = useSelector(state => state.data?.metermanagementENT || []);
     const [meterData, setMeterData] = useState([]);
     const [colorgraphdata, setColorgraphdata] = useState([]);
 

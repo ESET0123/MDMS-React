@@ -15,7 +15,6 @@ export const useMoreActions = () => {
         setIsVisible(false);
     };
 
-    // Close menu when clicking outside
     useEffect(() => {
         const handleOutsideClick = (event) => {
             if (buttonRef.current && !buttonRef.current.contains(event.target) && isVisible) {

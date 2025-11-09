@@ -7,7 +7,6 @@ export default function Inputrange({ title, minvalue, maxvalue }) {
 
   const percentage = ((value - min) / (max - min)) * 100;
 
-  // Generate tick marks - appears to be about 10-11 ticks
   const ticks = [];
   const tickCount = 10;
   for (let i = 0; i <= tickCount; i++) {
@@ -23,7 +22,7 @@ export default function Inputrange({ title, minvalue, maxvalue }) {
 
       <div className="relative">
         <div className="relative pt-2 px-4  pb-2">
-          <div className="absolute h-6 rounded-full bg-white left-0 px-2 top-1/2 left-0 right-0 -translate-y-1/2">
+          <div className="absolute h-6 rounded-full bg-white px-2 top-1/2 left-0 right-0 -translate-y-1/2">
             <div
               className="absolute h-6 bg-purple-800  rounded-l-full left-0"
               style={{ width: `${percentage}%` }}

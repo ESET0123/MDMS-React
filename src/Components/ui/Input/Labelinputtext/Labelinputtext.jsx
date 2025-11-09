@@ -1,5 +1,3 @@
-// src/ui/Input/Labelinputtext/Labelinputtext.jsx
-
 import React, { useId } from 'react';
 
 export default function Labelinputtext({ placeholder, name, type, value, onChangeFunc, label }) {

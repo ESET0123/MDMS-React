@@ -10,7 +10,7 @@ export default function Settingnotification() {
   return (
     <div>
       <div>
-        <p className='font-bold'>Settings & Notification</p>
+        <p className='font-bold my-4'>Settings & Notification</p>
         <p>Manage your alert rules and communication preferences.</p>
       </div>
       <div>

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 const AuthContext = createContext(null);
 
@@ -17,29 +18,37 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await fetch('http://localhost:8000/users');
-      const users = await response.json();
-      
-      const foundUser = users.find(u => u.email === email);
-      
-      if (!foundUser) {
-        throw new Error('User not found');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
-      // todo: password verify
-      
+      const users = await response.json();
+
+      const foundUser = users.find(u => u.email === email);
+
+      if (!foundUser) {
+        throw new Error('User not found. Please check your email.');
+      }
+
+      if (foundUser.password !== password) {
+        throw new Error('Invalid password. Please try again.');
+      }
+
       const userData = {
         id: foundUser.id,
         name: foundUser.name,
         email: foundUser.email,
         role: foundUser.role
       };
-      
+
       setUser(userData);
       sessionStorage.setItem('user', JSON.stringify(userData));
-      
+
+      toast.success(`Welcome back, ${userData.name}!`);
+
       return { success: true, user: userData };
     } catch (error) {
       console.error('Login error:', error);
+      toast.error(error.message || 'An unexpected error occurred during login.');
       return { success: false, error: error.message };
     }
   };
@@ -47,6 +56,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     sessionStorage.removeItem('user');
+    toast.success('Signed out successfully');
   };
 
   const value = {

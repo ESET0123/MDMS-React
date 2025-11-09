@@ -3,12 +3,12 @@ import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import Table from '../../../Components/ui/Table/Table';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
-import { usePagination } from '../../../hooks/usePagination';
-import { useFilter } from '../../../hooks/useFilter';
 import YearNavigatebutton from '../../../Components/ui/Button/YearNavigateButton/Yearnavigatebutton';
 import Bargraph from '../../../Components/graph/BarGraph/Bargraph';
 import ExportCsvButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportCsvButton';
 import ExportPdfButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportPdfButton';
+import { usePagination } from '../../../hooks/usePagination';
+import { useFilter } from '../../../hooks/useFilter';
 
 export default function Reportanalytics() {
   const [graphData, setGraphData] = useState([]);
@@ -24,11 +24,14 @@ export default function Reportanalytics() {
       .then(res => res.json())
       .then(data => setReportAnalyticsData(data))
       .catch(err => console.log(err));
-
-    // console.log(graphData);
-
   }, []);
 
+  const tableColumns = [
+    { header: 'ID', accessor: 'id' },
+    { header: 'Zone', accessor: 'zone' },
+    { header: 'Consumption', accessor: 'consumption' },
+    { header: 'Date', accessor: 'date' },
+  ];
   const lineConfiguration = [
     { dataKey: 'sales', color: '#D05ACF', fillcolor: 'white' },
   ];
@@ -37,13 +40,13 @@ export default function Reportanalytics() {
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
 
   return (
-    <div className='w-3/4'>
-      <div>
+    <div className='m-10'>
+      <div className='my-6'>
         <p className='font-bold text-xl'>Reports and Analytics</p>
-        <p className='text-l'>Trends of energy usage over time.</p>
+        <p className='text-l my-4'>Trends of energy usage over time.</p>
         <Linegraph graphdata={graphData} xaxisdatakey="month" lineConfig={lineConfiguration} />
       </div>
-      <div>
+      <div className='mr-10'>
         <p>Compare Zone consumption</p>
         <div className='flex justify-between items-center'>
           <Searchbar

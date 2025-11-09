@@ -2,7 +2,6 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 export default function Linegraph({graphdata , xaxisdatakey,lineConfig}) {
-    // const isDarkMode = document.documentElement.classList.contains('dark');
 
     const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {

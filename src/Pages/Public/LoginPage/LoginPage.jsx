@@ -50,7 +50,6 @@ export default function LoginPage() {
       }
     } catch (err) {
       setError('An error occurred during login. Please try again.');
-      // console.error('Login error:', err);
       toast.error("An error occurred during login. Please try again.");
     } finally {
       setLoading(false);
@@ -97,12 +96,11 @@ export default function LoginPage() {
         <Submitbutton title={loading ? "Logging in..." : "Login"} disabled={loading} />
       </form>
       <div className='mt-4 text-sm text-gray-600 dark:text-gray-300'>
-        <p>Test Accounts:</p>
+        <p className='font-bold'>Test Accounts (Password for all is "password"):</p>
         <p>Admin: john.doe@example.com</p>
         <p>Manager: emily.d@example.com</p>
         <p>User: jane.smith@example.com</p>
       </div>
-      {/* <Toaster /> */}
     </div>
   );
 }

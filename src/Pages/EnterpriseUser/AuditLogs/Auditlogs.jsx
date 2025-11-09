@@ -11,7 +11,6 @@ import ExportPdfButton from '../../../Components/ui/Button/QuickButton/CustomQB/
 
 
 export default function Auditlogs() {
-  // const meterData = useSelector(state => state.data?.meterData || []);
   const [meterData, setMeterData] = useState([]);
 
   useEffect(() => {

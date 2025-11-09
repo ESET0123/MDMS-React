@@ -26,9 +26,9 @@ export default function Metermanagement() {
   };
 
   return (
-    <div>
+    <div className="w-5/6">
       <div>
-        <div className="w-5/6">
+        <div >
           <div>
             <p className="font-bold">Meter Management</p>
           </div>
@@ -45,7 +45,7 @@ export default function Metermanagement() {
           <p className='font-bold'>Bulk operations</p>
         </div>
         <div>
-          <div className='flex'>
+          <div className='flex gap-6'>
             <Quickbutton iconname={<MdOutlineFileDownload />} tag="Import CSV" />
             <Quickbutton iconname={<MdOutlineFileUpload />} tag="Export CSV" />
             <Quickbutton iconname={<MdBlockFlipped />} tag="De-Activate meters" />
