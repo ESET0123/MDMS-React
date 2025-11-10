@@ -5,7 +5,7 @@ import MoreactionEAR from '../../../PopUps/MoreAction/ZoneUser/MoreActionEAR';
 import MoreactionVEA from '../../../PopUps/MoreAction/ZoneUser/MoreActionVEA';
 import { IoMdMore } from 'react-icons/io';
 
-export default function MoreActionButton() {
+export default function Moreactionbutton() {
     const { isVisible, position, handleButtonClick, handleClose } = useMoreActions();
     const buttonRef = useRef(null);
 
