@@ -6,7 +6,7 @@ import Table from '../../../Components/ui/Table/Table';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
-import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton.jsx';
 import Inviteuser from '../../../Components/PopUps/InviteUser/Inviteuser';
 import usePopup from '../../../hooks/usePopup'
 import Popup from '../../../Components/PopUps/Popup';
