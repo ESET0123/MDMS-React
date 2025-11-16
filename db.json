@@ -1,4 +1,55 @@
+
 {
+  "alerts": [
+    {
+      "id": 1,
+      "title": "Alert 1",
+      "description": "A dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      "details": "This is Alert 1. Its purpose is to demonstrate how an alert detail panel would appear in the UI layout."
+    },
+    {
+      "id": 2,
+      "title": "Alert 2",
+      "description": "A dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      "details": "Alert 2 is typically a medium priority issue requiring quick attention, like a meter connectivity drop."
+    },
+    {
+      "id": 3,
+      "title": "Alert 3",
+      "description": "A dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      "details": "Alert 3 represents lower priority notifications — informational updates or minor configuration changes."
+    },
+    {
+      "id": 4,
+      "title": "Alert 4",
+      "description": "A dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      "details": "Alert 4 may refer to resolved issues or historical alerts maintained for audit purposes."
+    },
+    {
+      "id": 5,
+      "title": "Alert 1",
+      "description": "A dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      "details": "This is Alert 1. Its purpose is to demonstrate how an alert detail panel would appear in the UI layout."
+    },
+    {
+      "id": 6,
+      "title": "Alert 2",
+      "description": "A dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      "details": "Alert 2 is typically a medium priority issue requiring quick attention, like a meter connectivity drop."
+    },
+    {
+      "id": 7,
+      "title": "Alert 3",
+      "description": "A dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      "details": "Alert 3 represents lower priority notifications — informational updates or minor configuration changes."
+    },
+    {
+      "id": 8,
+      "title": "Alert 4",
+      "description": "A dummy or placeholder text commonly used in graphic design, publishing, and web development.",
+      "details": "Alert 4 may refer to resolved issues or historical alerts maintained for audit purposes."
+    }
+  ],
   "dashboardgraphdata": [
     {
       "value": 457,
