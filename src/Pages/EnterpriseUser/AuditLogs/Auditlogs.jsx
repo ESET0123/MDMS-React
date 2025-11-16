@@ -5,7 +5,7 @@ import Table from '../../../Components/ui/Table/Table';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
-import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/MoreActionButton.jsx';
 import ExportCsvButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportCsvButton';
 import ExportPdfButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportPdfButton';
 

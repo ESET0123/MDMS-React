@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
 import Table from '../../../Components/ui/Table/Table';
 import { MdOutlineFileUpload } from "react-icons/md";
-import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/MoreActionButton.jsx';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 

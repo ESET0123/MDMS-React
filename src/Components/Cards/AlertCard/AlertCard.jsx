@@ -7,7 +7,6 @@ export default function AlertCard({ alerts }) {
     const [isExpanded, setIsExpanded] = useState(false);
     const { t } = useTranslation();
 
-    // Set first alert when alerts are loaded
     useEffect(() => {
         if (alerts && alerts.length > 0 && !selectedAlert) {
             setSelectedAlert(alerts[0]);
@@ -18,14 +17,12 @@ export default function AlertCard({ alerts }) {
         setIsExpanded((prev) => !prev);
     };
 
-    // Don't render if no alerts
     if (!alerts || alerts.length === 0) {
         return null;
     }
 
     return (
         <div className={`flex flex-col h-full transition-all duration-300 bg-white rounded-2xl shadow-lg overflow-hidden ${isExpanded ? 'absolute inset-0 z-50 m-4' : ''}`}>
-            {/* Header - stretched across top */}
             <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200">
                 <h2 className="text-base font-semibold text-gray-900">
                     Recent Alerts
@@ -43,9 +40,8 @@ export default function AlertCard({ alerts }) {
                 </button>
             </div>
 
-            {/* Content area - alerts list and detail side by side */}
             <div className="flex flex-row flex-1 overflow-hidden">
-                {/* Alerts List */}
+
                 <div className="flex flex-col w-[240px]  border-gray-200">
                     <div className="overflow-y-auto flex-1 p-3 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                         {alerts.map((alert) => (
@@ -69,7 +65,6 @@ export default function AlertCard({ alerts }) {
                     </div>
                 </div>
 
-                {/* Alert Detail Content */}
                 <div className="flex-1 flex flex-col bg-white border m-3 rounded-xl shadow-lg">
                     {selectedAlert && (
                         <div className="flex flex-col items-center justify-center text-center h-full px-8">

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { usePagination } from '../../../hooks/usePagination';
 import Table from '../../../Components/ui/Table/Table';
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
-import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/MoreActionButton.jsx';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { MdOutlineFileUpload, MdOutlineFileDownload } from "react-icons/md";
 import { MdBlockFlipped } from "react-icons/md";

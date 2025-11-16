@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
-import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/MoreActionButton.jsx';
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 import Table from '../../../Components/ui/Table/Table';
 import Pagination from '../../../Components/ui/Pagination/Pagination';

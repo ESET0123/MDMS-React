@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Searchbar from '../../../Components/ui/SearchBar/Searchbar';
 import Table from '../../../Components/ui/Table/Table';
-import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Moreactionbutton';
+import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/MoreActionButton.jsx';
 import Pagination from '../../../Components/ui/Pagination/Pagination';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
