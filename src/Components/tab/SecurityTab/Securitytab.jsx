@@ -40,10 +40,12 @@ export default function Securitytab() {
       <div className='w-fit justify-self-center p-5 bg-zinc-800 rounded-full'>
         <FaRegUser color='white' size='5rem' />
       </div>
-      <form className='p-4' onSubmit={handleSubmit}>
+      <form className='p-4 ' onSubmit={handleSubmit}>
+      <div className='w-2/3 justify-self-center'>
         <Labelinputtext placeholder="Current Password" type="password" name="currentPassword" value={securityData.currentPassword} onChangeFunc={handleChange} />
         <Labelinputtext placeholder="New Password" type="password" name="newPassword" value={securityData.newPassword} onChangeFunc={handleChange} />
         <Labelinputtext placeholder="Confirm Password" type="password" name="confirmPassword" value={securityData.confirmPassword} onChangeFunc={handleChange} />
+      </div>
         <Submitbutton title="Save and continue" />
       </form>
     </div>

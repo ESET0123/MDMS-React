@@ -32,6 +32,14 @@ export default function LoginPage() {
     setRememberMe(e.target.checked);
   };
 
+  const fillCredentials = (email, password) => {
+    setFormData({
+      email,
+      password
+    });
+    setError('');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -95,11 +103,31 @@ export default function LoginPage() {
         />
         <Submitbutton title={loading ? "Logging in..." : "Login"} disabled={loading} />
       </form>
-      <div className='mt-4 text-sm text-gray-600 dark:text-gray-300'>
-        <p className='font-bold'>Test Accounts (Password for all is "password"):</p>
-        <p>Admin: john.doe@example.com</p>
-        <p>Manager: emily.d@example.com</p>
-        <p>User: jane.smith@example.com</p>
+      <div className='mt-8 text-sm text-gray-600 dark:text-gray-300'>
+        <p className='font-bold mb-2'>Click any button below to select test accounts:</p>
+        <div className='flex flex-col gap-2'>
+          <button
+            type="button"
+            onClick={() => fillCredentials('john.doe@example.com', 'password')}
+            className='px-4 py-2  bg-orange-500 text-white rounded-2xl hover:bg-blue-100 transition-colors'
+          >
+            Admin: john.doe@example.com
+          </button>
+          <button
+            type="button"
+            onClick={() => fillCredentials('emily.d@example.com', 'password')}
+            className='px-4 py-2 bg-gray-200 text-blue-900 rounded-2xl hover:bg-green-400 transition-colors'
+          >
+            Manager: emily.d@example.com
+          </button>
+          <button
+            type="button"
+            onClick={() => fillCredentials('jane.smith@example.com', 'password')}
+            className='px-4 py-2 bg-green-500 text-white rounded-2xl hover:bg-purple-400 transition-colors'
+          >
+            User: jane.smith@example.com
+          </button>
+        </div>
       </div>
     </div>
   );

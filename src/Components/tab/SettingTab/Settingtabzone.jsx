@@ -16,8 +16,8 @@ export default function Settingtabzone() {
         <Inputrange title="Low Consumption Threshold (kWh)" minvalue={0} maxvalue={1000} />
         <Inputrange title="Average Reading Frequency (hours)" minvalue={0} maxvalue={10} />
 
-        <div className='w-full m-4 max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg'>
-          <h3 className="text-gray-800 text-sm font-normal mb-6">
+        <div className='w-full m-4 max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg'>
+          <h3 className="text-gray-800 dark:text-white text-sm font-normal mb-6">
             Inactive Meter Duration (days)
           </h3>
           <Labelinputtext label="Days" placeholder="e.g., 30" type="number" />

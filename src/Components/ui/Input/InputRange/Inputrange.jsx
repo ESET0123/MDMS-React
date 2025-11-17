@@ -15,20 +15,20 @@ export default function Inputrange({ title, minvalue, maxvalue }) {
   }
 
   return (
-    <div className="w-full m-4 max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg">
-      <h3 className="text-gray-800 text-sm font-normal mb-6">
+    <div className="w-full m-4 max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-colors">
+      <h3 className="text-gray-800 dark:text-gray-100 text-sm font-normal mb-6 transition-colors">
         {title}
       </h3>
 
       <div className="relative">
-        <div className="relative pt-2 px-4  pb-2">
-          <div className="absolute h-6 rounded-full bg-white px-2 top-1/2 left-0 right-0 -translate-y-1/2">
+        <div className="relative pt-2 px-4 pb-2">
+          <div className="absolute h-6 rounded-full bg-white dark:bg-gray-700 px-2 top-1/2 left-0 right-0 -translate-y-1/2 transition-colors">
             <div
-              className="absolute h-6 bg-purple-800  rounded-l-full left-0"
+              className="absolute h-6 bg-purple-800 dark:bg-purple-600 rounded-l-full left-0 transition-colors"
               style={{ width: `${percentage}%` }}
             />
             <div
-              className="absolute h-6 bg-purple-200 rounded-r-full right-0"
+              className="absolute h-6 bg-purple-200 dark:bg-purple-900 rounded-r-full right-0 transition-colors"
               style={{ width: `${100 - percentage}%` }}
             />
           </div>
@@ -45,7 +45,11 @@ export default function Inputrange({ title, minvalue, maxvalue }) {
                   className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
                   style={{ left: `${tickPercentage}%` }}
                 >
-                  <div className={`w-1.5 h-1.5 rounded-full ${isPassed ? 'bg-white' : 'bg-purple-800'}`} />
+                  <div className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                    isPassed 
+                      ? 'bg-white dark:bg-gray-700' 
+                      : 'bg-purple-800 dark:bg-purple-400'
+                  }`} />
                 </div>
               );
             })}
@@ -62,15 +66,22 @@ export default function Inputrange({ title, minvalue, maxvalue }) {
 
           {/* Slider thumb - vertical line */}
           <div
-            className="absolute top-1/2 w-1.5 h-8 border-2 rounded-xl border-white  bg-purple-700 -translate-x-1/2 -translate-y-1/2 pointer-events-none "
+            className="absolute top-1/2 w-1.5 h-8 border-2 rounded-xl border-white dark:border-gray-600 bg-purple-700 dark:bg-purple-500 -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-colors"
             style={{ left: `${percentage}%` }}
           />
         </div>
 
         <div className="flex justify-between mt-1 px-1">
-          <span className="text-xs font-bold text-gray-800">{min}</span>
-          <span className="text-xs font-bold text-gray-800">{max}</span>
+          <span className="text-xs font-bold text-gray-800 dark:text-gray-100 transition-colors">{min}</span>
+          <span className="text-xs font-bold text-gray-800 dark:text-gray-100 transition-colors">{max}</span>
         </div>
+      </div>
+
+      {/* Display current value */}
+      <div className="mt-4 text-center">
+        <span className="text-lg font-bold text-purple-700 dark:text-purple-400 transition-colors">
+          Current Value: {value}
+        </span>
       </div>
     </div>
   );

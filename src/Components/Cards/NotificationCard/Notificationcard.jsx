@@ -7,7 +7,7 @@ export default function NotificationCard(props) {
   };
 
   return (
-    <div className='flex justify-self-center px-4'>
+    <div className='flex justify-self-center'>
       <button
         onClick={notificationViewHandler}
         className='w-full flex items-center flex-row border border-zinc-800 rounded-xl m-4 text-left cursor-pointer transition-colors

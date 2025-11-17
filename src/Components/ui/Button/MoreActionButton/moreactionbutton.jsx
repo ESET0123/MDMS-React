@@ -1,8 +1,6 @@
 import React, { useRef } from 'react';
 import { useMoreActions } from '../../../../hooks/useMoreActions';
-import Moreaction from '../../../PopUps/MoreAction/EnterpriseUser/Moreaction';
 import MoreactionEAR from '../../../PopUps/MoreAction/ZoneUser/MoreActionEAR';
-import MoreactionVEA from '../../../PopUps/MoreAction/ZoneUser/MoreActionVEA';
 import { IoMdMore } from 'react-icons/io';
 
 export default function MoreActionButton() {
@@ -24,8 +22,6 @@ export default function MoreActionButton() {
             </button>
             {isVisible && (
                 <div style={{ top: position.top, left: position.left }} className="fixed z-10">
-                    {/* <Moreaction onClose={handleClose} /> */}
-                    {/* <MoreactionVEA onClose={handleClose} /> */}
                     <MoreactionEAR onClose={handleClose} />
                 </div>
             )}
