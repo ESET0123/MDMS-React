@@ -109,21 +109,21 @@ export default function LoginPage() {
           <button
             type="button"
             onClick={() => fillCredentials('john.doe@example.com', 'password')}
-            className='px-4 py-2  bg-orange-500 text-white rounded-2xl hover:bg-blue-100 transition-colors'
+            className='px-4 py-2  bg-orange-500 text-white rounded-2xl hover:bg-orange-400 transition-colors'
           >
             Admin: john.doe@example.com
           </button>
           <button
             type="button"
             onClick={() => fillCredentials('emily.d@example.com', 'password')}
-            className='px-4 py-2 bg-gray-200 text-blue-900 rounded-2xl hover:bg-green-400 transition-colors'
+            className='px-4 py-2 bg-gray-200 text-blue-900 rounded-2xl hover:bg-gray-400 transition-colors'
           >
             Manager: emily.d@example.com
           </button>
           <button
             type="button"
             onClick={() => fillCredentials('jane.smith@example.com', 'password')}
-            className='px-4 py-2 bg-green-500 text-white rounded-2xl hover:bg-purple-400 transition-colors'
+            className='px-4 py-2 bg-green-500 text-white rounded-2xl hover:bg-green-400 transition-colors'
           >
             User: jane.smith@example.com
           </button>
