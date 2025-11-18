@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaRegUser } from "react-icons/fa";
-import Labelinputtext from '../../ui/input/Labelinputtext/Labelinputtext';
+import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext';
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton';
 
 export default function Securitytab() {

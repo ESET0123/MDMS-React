@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { FaRegUser } from "react-icons/fa";
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton';
 import { MdModeEdit } from "react-icons/md";
-import Labelinputtext from '../../ui/input/Labelinputtext/Labelinputtext';
+import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext';
 
 export default function Profiletab() {
   const [profileData, setProfileData] = useState({

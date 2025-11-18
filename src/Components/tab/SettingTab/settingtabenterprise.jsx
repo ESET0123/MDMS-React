@@ -1,6 +1,6 @@
 import React from 'react'
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton'
-import Labelinputtext from '../../ui/input/Labelinputtext/Labelinputtext'
+import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext'
 
 export default function settingtabenterprise() {
     return (

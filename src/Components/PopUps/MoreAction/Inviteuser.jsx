@@ -1,5 +1,5 @@
 import React from 'react'
-import Labelinputtext from '../../ui/input/Labelinputtext/Labelinputtext'
+import Labelinputtext from '../../ui/Input/Labelinputtext/Labelinputtext'
 import Submitbutton from '../../ui/Button/SubmitButton/Submitbutton'
 import { HiOutlineUserAdd } from "react-icons/hi";
 
