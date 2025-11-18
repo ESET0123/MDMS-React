@@ -8,24 +8,54 @@ import { usePagination } from '../../../hooks/usePagination';
 import usePopup from '../../../hooks/usePopup'
 import Popup from '../../../Components/PopUps/Popup';
 import Addzone from '../../../Components/PopUps/AddZone/Addzone';
+import { API_ENDPOINTS, fetchAPI } from '../../../config/api';
 
 export default function Zonemanagement() {
   const [zoneData, setZoneData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const invitePopup = usePopup();
 
   useEffect(() => {
-    fetch('http://localhost:8000/zonemanagementData')
-      .then(res => res.json())
-      .then(data => setZoneData(data))
-      .catch(err => console.log(err));
+    const fetchZoneData = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchAPI(API_ENDPOINTS.zoneManagementData);
+        setZoneData(data);
+        setError(null);
+      } catch (err) {
+        console.error('Failed to fetch zone data:', err);
+        setError('Failed to load zone data');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchZoneData();
   }, []);
-  const invitePopup = usePopup();
-  // const zonemanagementData = useSelector(state => state.data?.zonemanagementData || []);
+
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('zonemanagementData', zoneData, 8);
 
   const viewPayActions = {
     title: 'More Actions',
     render: () => <MoreActionButton />,
   };
+
+  if (loading) {
+    return (
+      <div className='flex items-center justify-center h-64'>
+        <p className='text-xl'>Loading zone data...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className='flex items-center justify-center h-64'>
+        <p className='text-xl text-red-600'>{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div>

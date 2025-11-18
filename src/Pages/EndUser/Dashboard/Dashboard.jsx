@@ -7,17 +7,31 @@ import { FaRegClock } from "react-icons/fa6";
 import Graphheader from '../../../Components/GraphHeader/Graphheader';
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import useDateFilter from '../../../hooks/useDateFilter';
-import { useAuth } from '../../../context/AuthContext'; 
+import { useAuth } from '../../../context/AuthContext';
+import { API_ENDPOINTS, fetchAPI } from '../../../config/api';
 
 export default function Dashboard() {
     const [graphData, setGraphData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const { user } = useAuth();
     
     useEffect(() => {
-        fetch('http://localhost:8000/dashboardgraphdata')
-            .then(res => res.json())
-            .then(data => setGraphData(data))
-            .catch(err => console.log(err));
+        const fetchDashboardData = async () => {
+            try {
+                setLoading(true);
+                const data = await fetchAPI(API_ENDPOINTS.dashboardGraphData);
+                setGraphData(data);
+                setError(null);
+            } catch (err) {
+                console.error('Failed to fetch dashboard data:', err);
+                setError('Failed to load dashboard data');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDashboardData();
     }, []);
 
     const lineConfiguration = [
@@ -31,6 +45,22 @@ export default function Dashboard() {
     );
 
     const userName = user?.name || "Guest";
+
+    if (loading) {
+        return (
+            <div className='p-2 h-full flex items-center justify-center'>
+                <p className='text-xl'>Loading dashboard...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className='p-2 h-full flex items-center justify-center'>
+                <p className='text-xl text-red-600'>{error}</p>
+            </div>
+        );
+    }
 
     return (
         <div className='p-2 h-full '>

@@ -176,7 +176,7 @@ export default function LeafletMap() {
   }, []);
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-[500px]">
       <style>{`
         .leaflet-container {
           background-color: #f9fafb;

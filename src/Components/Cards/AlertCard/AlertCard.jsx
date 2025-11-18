@@ -23,9 +23,9 @@ export default function AlertCard({ alerts }) {
     }
 
     return (
-        <div className={`flex flex-col h-full transition-all duration-300 bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden ${isExpanded ? 'absolute inset-0 z-50 m-4' : ''}`}>
+        <div className={`flex flex-col h-[500px]  transition-all duration-300 bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden ${isExpanded ? 'absolute inset-0 z-50 m-4' : ''}`}>
             {/* Header */}
-            <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between p-4 bg-white dark:bg-gray-900  border-gray-200 dark:border-gray-700">
                 <h2 className="text-base font-semibold text-gray-900 dark:text-gray-100">
                     Recent Alerts
                 </h2>
@@ -45,7 +45,7 @@ export default function AlertCard({ alerts }) {
             {/* Content Area */}
             <div className="flex flex-row flex-1 overflow-hidden">
                 {/* Alerts List */}
-                <div className="flex flex-col w-[240px] border-r border-gray-200 dark:border-gray-700">
+                <div className="flex flex-col w-[240px]  border-gray-200 dark:border-gray-700">
                     <div className="overflow-y-auto flex-1 p-3 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                         {alerts.map((alert) => (
                             <div

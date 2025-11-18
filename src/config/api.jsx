@@ -1,5 +1,3 @@
-// src/config/api.js
-
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 export const API_ENDPOINTS = {
@@ -52,17 +50,30 @@ export const fetchAPI = async (endpoint, options = {}) => {
     });
 
     console.log('Response status:', response.status); // Debug log
+    console.log('Response ok:', response.ok); // Debug log
 
     if (!response.ok) {
-      const errorText = await response.text();
+      const errorText = await response.text().catch(() => 'Unable to read error');
       console.error('Error response:', errorText);
       throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
     }
 
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error('Non-JSON response:', text);
+      throw new Error('Server returned non-JSON response');
+    }
+
     const data = await response.json();
+    console.log('Response data:', data); // Debug log
     return data;
   } catch (error) {
-    console.error('API fetch error:', error);
+    console.error('API fetch error details:', {
+      message: error.message,
+      endpoint,
+      options
+    });
     
     // More descriptive error messages
     if (error.message.includes('Failed to fetch')) {

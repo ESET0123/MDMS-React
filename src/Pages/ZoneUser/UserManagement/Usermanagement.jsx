@@ -10,21 +10,33 @@ import MoreActionButton from '../../../Components/ui/Button/MoreActionButton/Mor
 import Inviteuser from '../../../Components/PopUps/InviteUser/Inviteuser';
 import usePopup from '../../../hooks/usePopup'
 import Popup from '../../../Components/PopUps/Popup';
+import { API_ENDPOINTS, fetchAPI } from '../../../config/api';
 
 export default function Usermanagement() {
   const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:8000/users')
-      .then(res => res.json())
-      .then(data => setUsers(data))
-      .catch(err => console.log(err));
-  }, []);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const invitePopup = usePopup();
 
-  const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(users);
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        setLoading(true);
+        const data = await fetchAPI(API_ENDPOINTS.users);
+        setUsers(data);
+        setError(null);
+      } catch (err) {
+        console.error('Failed to fetch users:', err);
+        setError('Failed to load users');
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    fetchUsers();
+  }, []);
+
+  const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(users);
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
 
   const userActions = {
@@ -32,6 +44,21 @@ export default function Usermanagement() {
     render: () => <MoreActionButton />,
   };
 
+  if (loading) {
+    return (
+      <div className="p-4 min-h-screen flex items-center justify-center">
+        <p className='text-xl'>Loading users...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="p-4 min-h-screen flex items-center justify-center">
+        <p className='text-xl text-red-600'>{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div>

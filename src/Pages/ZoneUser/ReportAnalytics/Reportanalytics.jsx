@@ -9,21 +9,37 @@ import ExportCsvButton from '../../../Components/ui/Button/QuickButton/CustomQB/
 import ExportPdfButton from '../../../Components/ui/Button/QuickButton/CustomQB/ExportPdfButton';
 import { usePagination } from '../../../hooks/usePagination';
 import { useFilter } from '../../../hooks/useFilter';
+import { API_ENDPOINTS, fetchAPI } from '../../../config/api';
 
 export default function Reportanalytics() {
   const [graphData, setGraphData] = useState([]);
   const [reportAnalyticsData, setReportAnalyticsData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/linegraphdata')
-      .then(res => res.json())
-      .then(data => setGraphData(data))
-      .catch(err => console.log(err));
+    const fetchReportData = async () => {
+      try {
+        setLoading(true);
+        
+        // Fetch both graph and analytics data concurrently
+        const [graphResponse, analyticsResponse] = await Promise.all([
+          fetchAPI(API_ENDPOINTS.lineGraphData),
+          fetchAPI(API_ENDPOINTS.reportAnalyticsData)
+        ]);
+        
+        setGraphData(graphResponse);
+        setReportAnalyticsData(analyticsResponse);
+        setError(null);
+      } catch (err) {
+        console.error('Failed to fetch report analytics data:', err);
+        setError('Failed to load report analytics data');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    fetch('http://localhost:8000/reportAnalyticsData')
-      .then(res => res.json())
-      .then(data => setReportAnalyticsData(data))
-      .catch(err => console.log(err));
+    fetchReportData();
   }, []);
 
   const tableColumns = [
@@ -32,12 +48,29 @@ export default function Reportanalytics() {
     { header: 'Consumption', accessor: 'consumption' },
     { header: 'Date', accessor: 'date' },
   ];
+  
   const lineConfiguration = [
     { dataKey: 'sales', color: '#D05ACF', fillcolor: 'white' },
   ];
 
   const { searchTerm, setSearchTerm, selectedColumn, setSelectedColumn, filteredData, searchableColumns } = useFilter(reportAnalyticsData);
   const { currentItems, totalPages, currentPage, setCurrentPage } = usePagination('filteredData', filteredData, 10);
+
+  if (loading) {
+    return (
+      <div className='m-10 flex items-center justify-center h-64'>
+        <p className='text-xl'>Loading report analytics...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className='m-10 flex items-center justify-center h-64'>
+        <p className='text-xl text-red-600'>{error}</p>
+      </div>
+    );
+  }
 
   return (
     <div className='m-10'>

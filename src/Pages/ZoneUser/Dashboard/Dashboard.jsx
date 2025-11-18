@@ -1,28 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
-
 import Dashboardcard from '../../../Components/Cards/DashboardCard/Dashboardcard';
-
 import { TbActivityHeartbeat } from "react-icons/tb";
 import { PiWarningOctagon } from "react-icons/pi";
 import { IoIosTrendingUp } from "react-icons/io";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { IoIosSettings } from "react-icons/io";
-
 import Quickbutton from '../../../Components/ui/Button/QuickButton/Quickbutton'
 import Graphheader from '../../../Components/GraphHeader/Graphheader';
 import Linegraph from '../../../Components/graph/Linegraph/Linegraph';
 import useDateFilter from '../../../hooks/useDateFilter';
-
+import { API_ENDPOINTS, fetchAPI } from '../../../config/api';
 
 export default function Dashboard() {
     const [graphData, setGraphData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8000/linegraphdata')
-            .then(res => res.json())
-            .then(data => setGraphData(data))
-            .catch(err => console.log(err));
+        const fetchDashboardData = async () => {
+            try {
+                setLoading(true);
+                const data = await fetchAPI(API_ENDPOINTS.lineGraphData);
+                setGraphData(data);
+                setError(null);
+            } catch (err) {
+                console.error('Failed to fetch dashboard data:', err);
+                setError('Failed to load dashboard data');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDashboardData();
     }, []);
 
     const lineConfiguration = [
@@ -34,6 +43,22 @@ export default function Dashboard() {
         'date',
         'week'
     );
+
+    if (loading) {
+        return (
+            <div className='p-2 h-full flex items-center justify-center'>
+                <p className='text-xl'>Loading dashboard...</p>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className='p-2 h-full flex items-center justify-center'>
+                <p className='text-xl text-red-600'>{error}</p>
+            </div>
+        );
+    }
 
     return (
         <div className='p-2 h-full '>
