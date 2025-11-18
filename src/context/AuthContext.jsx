@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
+import { API_ENDPOINTS, fetchAPI } from '../config/api';
 
 const AuthContext = createContext(null);
 
@@ -17,11 +18,8 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:8000/users');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const users = await response.json();
+      // fetchAPI already returns parsed JSON, not a Response object
+      const users = await fetchAPI(API_ENDPOINTS.users);
 
       const foundUser = users.find(u => u.email === email);
 
